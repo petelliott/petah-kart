@@ -16,8 +16,8 @@ class Instance:
                 player.car.update(surface)
 
                 for player in players:
-                    #TODO call send functions
+                    # TODO call send functions
                     pass
-            
+
     def kill(self):
         self.alive = False
