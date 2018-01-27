@@ -4,6 +4,9 @@ import json
 
 class JoinHandler(tornado.web.RequestHandler):
     def get(self):
+        q_string = json.loads(self.request.query_arguments)
+        game_id = q_string["id"]
+
         return True
 
 
