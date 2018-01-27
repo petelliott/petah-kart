@@ -28,6 +28,7 @@ window.addEventListener('keydown', (event) => {
   }
   if (oldStatus !== [turn, thrust, breaks]) {
     // send data
+    ws.send(`{"type":"update","angle":${turn},"thrust":${thrust},"break":${breaks}`);
   }
   console.log(`${turn.toString()}, ${thrust.toString()}`);
 }, false);
@@ -57,6 +58,7 @@ window.addEventListener('keyup', (event) => {
   }
   if (oldStatus !== [turn, thrust, breaks]) {
     // send data
+    ws.send(`{"type":"update","angle":${turn},"thrust":${thrust},"break":${breaks}`);
   }
   console.log(`${turn.toString()}, ${thrust.toString()}`);
 }, false);
