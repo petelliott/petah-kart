@@ -13,7 +13,8 @@ class Instance:
     def loop():
         while self.alive:
             for player in self.players:
-                surface = self.map[player.car.x][player.car.y]
+                # surface = self.map[player.car.x][player.car.y]
+                surface = (1.0, 1.0, 1.0)  # TODO get surface from map 
                 player.car.update(surface)
 
             message = [{
