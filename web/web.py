@@ -5,10 +5,9 @@ import json
 
 class JoinHandler(tornado.web.RequestHandler):
     def get(self):
-        q_string = json.loads(self.request.query_arguments)
-        game_id = q_string["id"]
-
-        return True
+        q_string = self.request.query_arguments
+        game_id = q_string["id"][0]
+        self.write(game_id)
 
 
 class NewGameHandler(tornado.web.RequestHandler):
