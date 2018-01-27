@@ -1,5 +1,11 @@
 const webServerLocation = 'localhost:8888';
 
+// The functions for the UI and page changes
+
+function onLoad() {
+  alert('testing');
+}
+
 // player enters the game ID to join here
 function enterId() {
 
