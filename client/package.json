@@ -1,0 +1,11 @@
+{
+  "name": "petah-cart-client",
+  "version": "1.0.0",
+  "description": "The client for everyone's favourite racing game, petah-cart.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": ""
+}
