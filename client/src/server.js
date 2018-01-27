@@ -1,4 +1,4 @@
-const ws = new WebSocket(`ws://${window.location.host}/websocket`);
+const ws = new WebSocket(WS_SERVER);
 
 function sendUpdate(thrust, turn, breaks) {
   ws.send(`{"type":"update","angle":${turn},"thrust":${thrust},"break":${breaks}`);
