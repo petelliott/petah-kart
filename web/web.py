@@ -4,10 +4,8 @@ import json
 
 
 class JoinHandler(tornado.web.RequestHandler):
-    def get(self):
-        q_string = self.request.query_arguments
-        game_id = q_string["id"][0]
-        self.write(game_id)
+    def get(self, gid):
+        self.write(gid)
 
 
 class NewGameHandler(tornado.web.RequestHandler):
@@ -22,7 +20,7 @@ class NewGameHandler(tornado.web.RequestHandler):
 
 if __name__ == "__main__":
     app = tornado.web.Application(
-        [(r"/join", JoinHandler), (r"/new", NewGameHandler)])
+        [(r"/join/(?P<gid>\w+)", JoinHandler), (r"/new", NewGameHandler)])
     try:
         app.listen(8888)
         tornado.ioloop.IOLoop.current().start()
