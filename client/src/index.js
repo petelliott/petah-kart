@@ -7,27 +7,27 @@ let thrust = 0;
 
 // Connection opened
 ws.addEventListener('open', function (event) {
-    ws.send();
+  ws.send();
 });
 
 // Listen for messages
 ws.addEventListener('message', function (event) {
-    var event_data = JSON.parse(event.data)
-    // event_data is a dictionary of car data {velY, velY, posX, posY,ID}
-    console.log('Message from server ', event.data);
+  var event_data = JSON.parse(event.data)
+  // event_data is a dictionary of car data {velY, velY, posX, posY,ID}
+  console.log('Message from server ', event.data);
 
-    switch(event_data.type) {
-      case "update":
-        //TODO handle a car update
+  switch (event_data.type) {
+    case "update":
+      //TODO handle a car update
 
-        break;
-      case "ID":
-        //TODO handle a new ID
+      break;
+    case "ID":
+      //TODO handle a new ID
 
-        break;
-      default:
-          console.log('unknown type of message recived: ', event_data.type);
-    }
+      break;
+    default:
+      console.log('unknown type of message recived: ', event_data.type);
+  }
 
 });
 
