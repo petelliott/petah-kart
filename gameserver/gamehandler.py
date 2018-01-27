@@ -22,7 +22,7 @@ def new_game_handler(instances):
             self.inst.add_player(self)
 
             self.send_message(json.loads(
-                [id(player.car) for player in self.inst.players]
+                [id(player) for player in self.inst.players]
             ))
 
         def on_message(self, data):

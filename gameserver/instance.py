@@ -1,3 +1,4 @@
+import json
 
 
 class Instance:
@@ -14,10 +15,17 @@ class Instance:
             for player in players:
                 surface = self.map[player.car.x][player.car.y]
                 player.car.update(surface)
+            
+            message = {
+                "velx": player.car.vx,
+                "vely": player.car.vy,
+                "posx": player.car.x,
+                "posy": player.car.y,
+                "id"  : id(player) 
+            }
 
-                for player in players:
-                    # TODO call send functions
-                    pass
+            for player in players:
+                player.write_message(json.dumps(message))
 
     def kill(self):
         self.alive = False
