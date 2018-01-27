@@ -10,7 +10,6 @@ class JoinHandler(tornado.web.RequestHandler):
 
 class NewGameHandler(tornado.web.RequestHandler):
     def post(self):
-
         data = tornado.escape.json_decode(self.request.body)
         map_id = data["map"]
         num_player = data["player_count"]
