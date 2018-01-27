@@ -1,6 +1,36 @@
+var ws = new WebSocket("ws://" + window.location.host + "/websocket");
 // The entry point into the project.
+<<<<<<< HEAD
 let turn = 0;
 let thrust = 0;
+=======
+
+// Connection opened
+ws.addEventListener('open', function (event) {
+    //ws.send();
+});
+
+// Listen for messages
+ws.addEventListener('message', function (event) {
+    var event_data = JSON.parse(event.data)
+    // event_data is a dictionary of car data {velY, velY, posX, posY,ID}
+    console.log('Message from server ', event.data);
+
+    switch(event_data.type) {
+      case "update":
+        //TODO handle a car update
+
+        break;
+      case "ID":
+        //TODO handle a new ID
+
+        break;
+      default:
+          console.log('unknown type of message recived: ', event_data.type);
+    }
+
+});
+>>>>>>> 1c11c947841018edb1d44c649e0f63d0e2d378cc
 
 window.addEventListener('load', () => {
   let type = 'WebGL';
