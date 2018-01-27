@@ -26,10 +26,10 @@ window.addEventListener('keydown', (event) => {
     default:
       console.log('invalid input');
   }
-  if (oldStatus !== [turn, thrust, breaks]) {
-    // send data
+  if (oldStatus[0] !== turn || oldStatus[1] !== thrust || oldStatus[2] !== breaks) {
+    console.log('Sent!');
   }
-  console.log(`${turn.toString()}, ${thrust.toString()}`);
+  console.log(`${turn.toString()}, ${thrust.toString()}, ${breaks.toString()}`);
 }, false);
 
 window.addEventListener('keyup', (event) => {
@@ -55,8 +55,8 @@ window.addEventListener('keyup', (event) => {
     default:
       console.log('stop invalid input');
   }
-  if (oldStatus !== [turn, thrust, breaks]) {
-    // send data
+  if (oldStatus[0] !== turn || oldStatus[1] !== thrust || oldStatus[2] !== breaks) {
+    console.log('sent!');
   }
-  console.log(`${turn.toString()}, ${thrust.toString()}`);
+  console.log(`${turn.toString()}, ${thrust.toString()}, ${breaks.toString()}`);
 }, false);
