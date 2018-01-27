@@ -1,13 +1,13 @@
 var ws = new WebSocket("ws://" + window.location.host + "/websocket");
 // The entry point into the project.
-<<<<<<< HEAD
+
 let turn = 0;
 let thrust = 0;
-=======
+
 
 // Connection opened
 ws.addEventListener('open', function (event) {
-    //ws.send();
+    ws.send();
 });
 
 // Listen for messages
@@ -30,7 +30,6 @@ ws.addEventListener('message', function (event) {
     }
 
 });
->>>>>>> 1c11c947841018edb1d44c649e0f63d0e2d378cc
 
 window.addEventListener('load', () => {
   let type = 'WebGL';
