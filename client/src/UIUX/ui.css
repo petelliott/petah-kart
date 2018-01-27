@@ -18,9 +18,9 @@
   }
   
   .content {
-    background: rgba(255, 255, 255, 0.35);
+    /*background: rgba(255, 255, 255, 0.35);
     border-radius: 3px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);*/
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     top: 10px;
     left: 0;
@@ -32,8 +32,11 @@
     padding: 0 10px;
   }
 
+  .joinCreateContainer{
+    text-align: center;
+  }
+
   .joinCreateButton {
-    display: inline-block;
     padding: 15px 25px;
     font-size: 24px;
     cursor: pointer;
@@ -46,6 +49,8 @@
     border-radius: 15px;
     box-shadow: 0 9px #999;
     width: 50%;
+    display: flex;
+    justify-content: center;
   }
   
   .joinCreateButton:hover {background-color: #3e8e41}
