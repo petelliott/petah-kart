@@ -9,6 +9,10 @@ class JoinHandler(tornado.web.RequestHandler):
 
 class NewGameHandler(tornado.web.RequestHandler):
     def post(self):
+        data = json.loads(self.request.body)
+        map_id = data["map"]
+        num_player = data["player_count"]
+        # TODO send to game server
         return True
 
 
