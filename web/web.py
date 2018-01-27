@@ -1,4 +1,5 @@
-import tornado
+import tornado.ioloop
+import tornado.web
 import json
 
 
@@ -9,11 +10,12 @@ class JoinHandler(tornado.web.RequestHandler):
 
 class NewGameHandler(tornado.web.RequestHandler):
     def post(self):
-        data = json.loads(self.request.body)
+
+        data = tornado.escape.json_decode(self.request.body)
         map_id = data["map"]
         num_player = data["player_count"]
         # TODO send to game server
-        return True
+        self.write("awedfc")  # TODO send the actual link
 
 
 if __name__ == "__main__":
