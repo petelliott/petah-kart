@@ -1,0 +1,13 @@
+{
+  "extends": "airbnb-base",
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "PIXI": true,
+    "ws": true
+  },
+  "rules": {
+    "no-console": "off"
+  }
+}
