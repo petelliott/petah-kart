@@ -1,11 +1,11 @@
 let turn = 0;
 let thrust = 0;
 let breaks = 0;
-let turnAngle = 0.0872665;
+const turnAngle = 0.0872665;
 
 window.addEventListener('keydown', (event) => {
   const keyID = event.key;
-
+  const oldStatus = [turn, thrust, breaks];
   switch (keyID) {
     case 'a':
       turn = -turnAngle;
@@ -26,12 +26,15 @@ window.addEventListener('keydown', (event) => {
     default:
       console.log('invalid input');
   }
+  if (oldStatus !== [turn, thrust, breaks]) {
+    // send data
+  }
   console.log(`${turn.toString()}, ${thrust.toString()}`);
 }, false);
 
 window.addEventListener('keyup', (event) => {
   const keyID = event.key;
-
+  const oldStatus = [turn, thrust, breaks];
   switch (keyID) {
     case 'a':
       turn = 0;
@@ -51,6 +54,9 @@ window.addEventListener('keyup', (event) => {
       break;
     default:
       console.log('stop invalid input');
+  }
+  if (oldStatus !== [turn, thrust, breaks]) {
+    // send data
   }
   console.log(`${turn.toString()}, ${thrust.toString()}`);
 }, false);
