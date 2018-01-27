@@ -1,6 +1,10 @@
-window.addEventListener('load', () => {
-  const ws = new WebSocket(`ws://${window.location.host}/websocket`);
+const ws = new WebSocket(`ws://${window.location.host}/websocket`);
 
+function sendUpdate(thrust, turn, breaks) {
+  ws.send(`{"type":"update","angle":${turn},"thrust":${thrust},"break":${breaks}`);
+}
+
+window.addEventListener('load', () => {
   // Connection opened.
   ws.addEventListener('open', () => {
     ws.send();
