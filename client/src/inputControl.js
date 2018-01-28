@@ -2,10 +2,10 @@ let turn = 0;
 let thrust = 0;
 let brake = 0;
 const turnAngle = 0.0872665;
-let turnLeft = localStorage.getItem("storedLeft");
-let turnRight = localStorage.getItem("storedRight");
-let accelerateKey = localStorage.getItem("storedAccel");
-let deccelerateKey = localStorage.getItem("storedBrake");
+let turnLeft = localStorage.getItem("storedLeft") || 'a';
+let turnRight = localStorage.getItem("storedRight") || 'd';
+let accelerateKey = localStorage.getItem("storedAccel") || 'w';
+let deccelerateKey = localStorage.getItem("storedBrake") || 's';
 
 window.addEventListener('keydown', (event) => {
   const keyID = event.key;
