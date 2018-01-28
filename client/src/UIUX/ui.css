@@ -69,11 +69,11 @@
     background-size: cover;
     -webkit-animation: backgroundScroll 15s linear 1;
     -webkit-animation-fill-mode: both;
-    animation: backgroundScroll 10s linear infinite;
+    animation: backgroundScroll 20s linear infinite alternate;
     animation-fill-mode: both;
     display: block;
-    filter: blur(1px);
-    -webkit-filter: blur(1px);
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
     height: 100%;
     left: 0;
     position: fixed;
@@ -82,13 +82,13 @@
   }
 
   @keyframes backgroundScroll {
-    0% {background-position: 0% 1%;}
-    100% {background-position: 0% 200%;}
+    0% {background-position: 0% 0%;}
+    100% {background-position: 0% 100%;}
   }
 
   @-webkit-keyframes backgroundScroll {
-    from {background-position: 0 0;}
-    to {background-position: -180px -180px;}
+    from {background-position: 0% 0%;}
+    to {background-position: 0% 200%;}
   }
 
   .main-outer {
