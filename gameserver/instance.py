@@ -57,7 +57,7 @@ class Instance:
                 player.write_message(msg_str)
         except Exception as e:
             print(e)
-            self.send_all(self, msg_str)
+            self.send_all(msg_str)
 
     def run_loop(self):
         self.thread = threading.Thread(target=self.loop, daemon=True)
