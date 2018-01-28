@@ -49,7 +49,9 @@ function createGame() {
 function clickJoin() {
   document.getElementById('join').classList.add('hidden');
   document.getElementById('inputKeyContainer').classList.remove('hidden');
-  document.getElementById('keyIn').value="";
+  document.getElementById('gameOptions').classList.add('hidden');
+  document.getElementById('create').classList.remove('hidden');
+  document.getElementById('keyIn').value = "";
   document.getElementById('keyIn').focus();
   document.getElementById('keyIn').addEventListener('keydown', (event) => {
     let key = event.key;
@@ -60,7 +62,7 @@ function clickJoin() {
   }, false);
 }
 
-function loseFocusJoin(){
+function loseFocusJoin() {
   document.getElementById('join').classList.remove('hidden');
   document.getElementById('inputKeyContainer').classList.add('hidden');
 }
@@ -86,6 +88,8 @@ function validate() {
 
 function clickCreate() {
   console.log('create');
+  document.getElementById('join').classList.remove('hidden');
+  document.getElementById('inputKeyContainer').classList.add('hidden');
   document.getElementById('create').classList.add('hidden');
   document.getElementById('gameOptions').classList.remove('hidden');
   document.getElementById('keyIn').addEventListener('keydown', (event) => {
@@ -94,11 +98,20 @@ function clickCreate() {
     if (key === 'Enter') {
       newGame(map, 3);
     }
-  console.log('join');
+    console.log('join');
   }, false);
 }
 
 function clickCredits() {
+<<<<<<< HEAD
+=======
+  document.getElementById('inputKeyContainer').classList.add('hidden');
+  document.getElementById('join').classList.remove('hidden');
+
+  document.getElementById('gameOptions').classList.add('hidden');
+  document.getElementById('create').classList.remove('hidden');
+  alert("Credits:\nClient Team: Jarrett Yu, Navras Kamal, Kyle Hennig\nCommunications Team: Jacob Rechard, Alex Rostron\nServer Team: Chris Pontikes, Peter Elliott, Joshua Derkson, Brighton Greet");
+>>>>>>> 6f67c9b3b89ae2a11f7ad2fbc418905cb7a6e18a
   console.log('credits');
 }
 
@@ -107,6 +120,7 @@ function clickSettings() {
 }
 
 /* Open */
+<<<<<<< HEAD
 function openSettings() {
     document.getElementById("settingsNav").style.height = "100%";
 }
@@ -122,6 +136,20 @@ function openCredits() {
 
 function closeCredits() {
     document.getElementById("creditsNav").style.height = "0%";
+=======
+function openNav() {
+  document.getElementById('inputKeyContainer').classList.add('hidden');
+  document.getElementById('join').classList.remove('hidden');
+
+  document.getElementById('gameOptions').classList.add('hidden');
+  document.getElementById('create').classList.remove('hidden');
+  document.getElementById("myNav").style.height = "100%";
+}
+
+/* Close */
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%";
+>>>>>>> 6f67c9b3b89ae2a11f7ad2fbc418905cb7a6e18a
 }
 
 window.addEventListener('keydown', (event) => {
