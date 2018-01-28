@@ -22,10 +22,6 @@ def new_game_handler(instances):
 
             self.inst.add_player(self)
 
-            self.write_message(json.dumps(
-                [id(player) for player in self.inst.players]
-            ))
-
         def on_message(self, data):
             message = json.loads(data)
 

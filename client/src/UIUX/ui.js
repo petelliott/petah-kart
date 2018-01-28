@@ -2,29 +2,13 @@ const webServerLocation = 'http://localhost:8888';
 // JavaScript code for the User Interface when first entering the game
 // takes the game ID from newgame as a callback and displays it
 function displayId(gameId) {
-
+  console.log(gameId);
 }
 // The functions for the UI and page changes
 // joingame
 // enter game ID to join that game
 function joinGame(gameId) {
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', `${webServerLocation}/${gameId}`, true); // tyoe, location, isAsync
-  xhr.setRequestHeader('Content-type', 'application/json');
-  xhr.responseType = 'document';
-
-  xhr.onload = () => {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        displayId(gameId);
-        // TODO, relocate to client
-      } else {
-        // apparently, we don't like logging errors
-        // console.error(xhr.statusText);
-      }
-    }
-  };
-  xhr.send();
+  window.location.href = `${webServerLocation}/game/${gameId}`;
 }
 
 // player enters the game ID to join here
@@ -71,7 +55,6 @@ function clickJoin() {
 
 function clickCreate() {
   console.log('create');
-  newGame(0, 3);
   createGame();
 }
 

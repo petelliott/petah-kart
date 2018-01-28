@@ -3,7 +3,7 @@ import json
 import tornado.web
 
 
-def new_server_handler(instances):
+def new_server_handler(instances, map_loader):
     class ServerHandler(tornado.web.RequestHandler):
         def put(self, path):
             message = json.loads(self.request.body.decode("utf-8"))
@@ -12,7 +12,7 @@ def new_server_handler(instances):
                 self.finish()
                 return
 
-            instances[path] = instance.Instance(None)
+            instances[path] = instance.Instance(map_loader.get_map(message["map"]))
             instances[path].run_loop()
 
             self.set_status(201)

@@ -18,7 +18,10 @@ window.addEventListener('load', () => {
 
     switch (eventData.type) {
       case 'update':
-        setCarPositions();
+        // TODO: handle a car update.
+        break;
+      case 'ID':
+        // TODO: handle a new ID.
         break;
       default:
         console.log('unknown type of message recived: ', eventData.type);
