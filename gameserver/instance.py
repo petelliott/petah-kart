@@ -19,14 +19,15 @@ class Instance:
         while self.alive:
             message = []
             for player in self.players:
-                # surface = self.map[player.car.x][player.car.y]
-                surface = (1.0, 1.0, 1.0)  # TODO get surface from map
+                surface = self.map[player.car.x][player.car.y]
+                
                 player.car.update(surface)
                 message.append({
                     "velx": player.car.vx,
                     "vely": player.car.vy,
                     "posx": player.car.x,
                     "posy": player.car.y,
+                    "angle": player.car.theta,
                     "id":   id(player)
                 })
 
