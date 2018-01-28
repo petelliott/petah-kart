@@ -1,5 +1,6 @@
 import math
 import threading
+import time
 
 MAX_SPEED = 2
 ACCEL_CURVE = 1
@@ -9,6 +10,8 @@ DUMB_CONST = 1
 
 class Car2:
     def __init__(self, x, y, theta):
+        self.last_time = time.time()
+
         self.pos = (x, y)
         self.theta = theta
 
@@ -31,7 +34,7 @@ class Car2:
         self.brakes = brakes
 
     def throttle_curve(self):
-        return MAX_SPEED - (1 / self.throttle) * ACCEL_CURVE
+        return MAX_SPEED - (1 / (self.throttle+0.5)) * ACCEL_CURVE
 
 
     def update(self, surface):  # (us, uk, rr)
@@ -41,8 +44,8 @@ class Car2:
         delta = call_time - self.last_time
         self.last_time = time.time()
 
-        t = self.throttle_cuve()
-        b = self.throttle_curve()  # TODO: add brake curve
+        t = self.throttle_curve()
+        b = 0 # self.throttle_curve()  # TODO: add brake curve
         fv = (
             (t-b-surface[2]) * math.cos(self.theta),
             (t-b-surface[2]) * math.sin(self.theta)
