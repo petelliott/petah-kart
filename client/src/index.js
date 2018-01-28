@@ -22,7 +22,9 @@ window.addEventListener('load', () => {
     .load(setup);
 });
 
+let ready = false;
 function setup() {
+  ready = true;
   // test();
 }
 
@@ -30,10 +32,10 @@ function test() {
   setCarPositions([
     {
       id: 1,
-      x: 5,
-      y: 200,
-      vx: 20,
-      vy: 12,
+      posx: 0,
+      posy: 0,
+      velx: 20,
+      vely: 12,
       angle: 24
     }
   ]);
@@ -41,10 +43,10 @@ function test() {
     setCarPositions([
       {
         id: 1,
-        x: 100,
-        y: 500,
-        vx: 20,
-        vy: 12,
+        posx: 100,
+        posy: 500,
+        velx: 20,
+        vely: 12,
         angle: 1
       }
     ]);
@@ -56,25 +58,30 @@ let idsToSprites = new Map();
 
 // Cars have an id, x, y, vx, vy, and angle.
 function setCarPositions(cars) {
+  if (!ready) {
+    return;
+  }
   cars.forEach((car) => {
     // Create a new car if it doesn't exist.
     if (!idsToSprites.has(car.id)) {
       let sprite = new PIXI.Sprite(PIXI.loader.resources["res/images/car_blue_1.png"].texture);
-      sprite.x = car.x;
-      sprite.y = car.y;
-      sprite.vx = car.vx;
-      sprite.vy = car.vy;
+      console.log(sprite);
+      sprite.x = car.posx * 20;
+      sprite.y = car.posy * 20;
+      sprite.vx = car.velx;
+      sprite.vy = car.vely;
       sprite.rotation = car.angle;
       app.stage.addChild(sprite);
       idsToSprites.set(car.id, sprite);
+      console.log("New sprite created.");
       return;
     }
     // Otherwise, update the location of the old car.
     let carSprite = idsToSprites.get(car.id);
-    carSprite.x = car.x;
-    carSprite.y = car.y;
-    carSprite.vx = car.vx;
-    carSprite.vy = car.vy;
+    carSprite.x = car.posx * 20;
+    carSprite.y = car.posy * 20;
+    carSprite.vx = car.velx;
+    carSprite.vy = car.vely;
     carSprite.rotation = car.angle;
   });
 }
