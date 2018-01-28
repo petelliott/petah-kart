@@ -136,6 +136,8 @@ function setCarPositions(cars) {
     }
   });
 }
-function removeCar(id){
-    
+
+function removeCar(id) {
+  let carSprite = idsToSprites.get(id);
+  app.stage.removeChild(carSprite);
 }
