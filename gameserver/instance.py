@@ -1,6 +1,7 @@
 import json
 import time
 import threading
+import tornado
 
 LOOP_MIN_TIME = 0.06
 
@@ -20,10 +21,9 @@ class Instance:
         while self.alive and not self.state["finished"]:
             message = []
             for player in self.players:
-                surface = self.map["tiles"][int(
-                    player.car.pos[0])][int(player.car.pos[1])]
 
-                player.car.update(surface)
+                player.car.update(self.getMapPoint(
+                    int(player.car.pos[0]), int(player.car.pos[1])))
                 message.append({
                     "velx": player.car.vel[0],
                     "vely": player.car.vel[1],
@@ -33,14 +33,29 @@ class Instance:
                     "id":   id(player),
                 })
 
-            for player in self.players:
-                player.write_message(json.dumps(message))
+            self.send_all(json.dumps(message))
 
             time.sleep(max(0, LOOP_MIN_TIME - (time.time() - t_start)))
             t_start = time.time()
         if self.gamestate["finished"]:
-            for player in self.players:
-                player.write_message('{"type":"gameOver"}')
+            self.send_all('{"type":"gameOver"}')
+
+    def getMapPoint(self, x, y):
+        try:
+            return self.map["tiles"][x][y]
+        except:
+            print("I cry")
+            print(x)
+            print(y)
+            return (2.0, 1.0, 0.1)
+
+    def send_all(self, msg_str):
+        for player in self.players:
+            try:
+                player.write_message(msg_str)
+            except tornado.websocket.WebSocketClosedError:
+                print("removed")
+                self.players.remove(player)
 
     def run_loop(self):
         self.thread = threading.Thread(target=self.loop, daemon=True)
