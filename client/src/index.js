@@ -27,6 +27,19 @@ function setup() {
   app.stage.addChild(sprite);
 }
 
+function test() {
+  setCarPositions([
+    {
+      id: 1,
+      x: 5,
+      y: 200,
+      vx: 20,
+      vy: 12,
+      angle: 24
+    }
+  ]);
+}
+
 // A map of car ids to sprites.
 let idsToSprites = new Map();
 
@@ -40,7 +53,7 @@ function setCarPositions(cars) {
       sprite.y = car.y;
       sprite.rotation = car.angle;
       app.stage.addChild(sprite);
-      idsToSprites.set(id, sprite);
+      idsToSprites.set(car.id, sprite);
       return;
     }
     // Otherwise, update the location of the old car.
