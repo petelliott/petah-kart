@@ -23,7 +23,6 @@ function enterId() {
 // this passes the information to the server (post request)
 // recieves the new game ID from the server
 function newGame(mapId, playerCount) {
-  alert(mapId);
   const xhr = new XMLHttpRequest();
   xhr.open('POST', `${webServerLocation}/new`, true); // type, location, isAsync
   xhr.setRequestHeader('Content-type', 'application/json');
@@ -218,17 +217,6 @@ function mapSelect(map) {
       console.log("Map Select Error");
       return "Map0.json";
   }
-  alert();
-}
-
-function clickCredits() {
-  document.getElementById('inputKeyContainer').classList.add('hidden');
-  document.getElementById('join').classList.remove('hidden');
-
-  document.getElementById('gameOptions').classList.add('hidden');
-  document.getElementById('create').classList.remove('hidden');
-  alert("Credits:\nClient Team: Jarrett Yu, Navras Kamal, Kyle Hennig\nCommunications Team: Jacob Rechard, Alex Rostron\nServer Team: Chris Pontikes, Peter Elliott, Joshua Derkson, Brighton Greet");
-  console.log('credits');
 }
 
 function clickSettings() {
