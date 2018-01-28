@@ -6,22 +6,14 @@ function sendUpdate(thrust, turn, breaks) {
 
 window.addEventListener('load', () => {
   // Connection opened.
-  ws.addEventListener('open', () => {
-    ws.send();
-  });
+  // ws.addEventListener('open', () => {
+  //   //ws.send();
+  // });
 
   // Listen for messages.
   ws.addEventListener('message', (event) => {
     // eventData is a dictionary of car data { velY, velY, posX, posY, ID }.
     const eventData = JSON.parse(event.data);
-    console.log('Message from server ', event.data);
-
-    switch (eventData.type) {
-      case 'update':
-        setCarPositions();
-        break;
-      default:
-        console.log('unknown type of message recived: ', eventData.type);
-    }
+    setCarPositions(eventData);
   });
 });

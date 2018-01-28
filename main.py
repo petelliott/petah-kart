@@ -1,8 +1,21 @@
 import subprocess
 
-web = subprocess.Popen(["python3", "web"], stdout=subprocess.PIPE)
+
+def webErr(out):
+    print("#### WEB ####")
+    print(out)
+    print("#### END ####")
+
+
+def gameErr(out):
+    print("$$$$ GAME $$$$")
+    print(out)
+    print("$$$$ END $$$$")
+
+
+web = subprocess.Popen(["python3", "web"])
 game = subprocess.Popen(
-    ["python3", "gameserver", "filepath_for_map"], stdout=subprocess.PIPE)
+    ["python3", "gameserver", "/home/jacob/Desktop"])
 try:
     input()
 except KeyboardInterrupt:

@@ -19,7 +19,7 @@ class Instance:
         while self.alive:
             message = []
             for player in self.players:
-                surface = self.map[player.car.x][player.car.y]
+                surface = self.map[int(player.car.x)][int(player.car.y)]
 
                 player.car.update(surface)
                 message.append({
@@ -29,7 +29,6 @@ class Instance:
                     "posy": player.car.y,
                     "angle": player.car.theta,
                     "id":   id(player),
-                    "type": "update"
                 })
 
             for player in self.players:
