@@ -42,6 +42,7 @@ function newGame(mapId, playerCount) {
 
 // player chooses map, max players and passes into newgame
 function createGame() {
+
   newGame('map.json', 3);
 }
 
@@ -68,7 +69,16 @@ function validate() {
 
 function clickCreate() {
   console.log('create');
-  createGame();
+  document.getElementById('create').classList.add('hidden');
+  document.getElementById('gameOptions').classList.remove('hidden');
+  document.getElementById('keyIn').addEventListener('keydown', (event) => {
+    let key = event.key;
+    console.log(key);
+    if (key === 'Enter') {
+      newGame(map, 3);
+    }
+  console.log('join');
+  }, false);
 }
 
 function clickCredits() {
@@ -87,5 +97,8 @@ window.addEventListener('keydown', (event) => {
     console.log("switch");
     document.getElementById('inputKeyContainer').classList.add('hidden');
     document.getElementById('join').classList.remove('hidden');
+
+    document.getElementById('gameOptions').classList.add('hidden');
+    document.getElementById('create').classList.remove('hidden');
   }
 }, false);
