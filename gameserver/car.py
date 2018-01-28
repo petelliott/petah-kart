@@ -48,6 +48,9 @@ class Car:
     def set_throttle(self, throttle):
         self.throttle = throttle
 
+    def set_brake(self, brakes):
+        self.brakes = brakes
+
     def check_slip(self, surface):
         if (MASS * GRAVITY * surface[0]) < MASS * (self.tangent_vel()[0]**2) / self.get_radius():
             return True

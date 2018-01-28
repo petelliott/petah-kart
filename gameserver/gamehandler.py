@@ -23,10 +23,13 @@ def new_game_handler(instances):
             self.inst.add_player(self)
 
         def on_message(self, data):
-            message = json.loads(data)
+            try:
+                message = json.loads(data)
+            except:
+                print(data)
 
             if message["type"] == "update":
-                self.car.mutex.aquire()
+                self.car.mutex.acquire()
 
                 self.car.set_throttle(message["thrust"])
                 self.car.set_wtheta(message["angle"])
