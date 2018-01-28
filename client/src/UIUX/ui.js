@@ -127,5 +127,7 @@ window.addEventListener('keydown', (event) => {
 
     document.getElementById('gameOptions').classList.add('hidden');
     document.getElementById('create').classList.remove('hidden');
+
+    closeNav();
   }
 }, false);
