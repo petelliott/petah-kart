@@ -1,6 +1,7 @@
 let app;
 const zoom = 300;
 let id;
+console.log = () => {};
 window.addEventListener('load', () => {
   let type = 'WebGL';
   if (!PIXI.utils.isWebGLSupported()) {
@@ -25,8 +26,7 @@ const TILE_WIDTH = 130;
 const TILE_HEIGHT = 130;
 const SPRITESHEET_WIDTH = 31;
 const SPRITESHEET_HEIGHT = 15;
-
-let mapSprite;
+let backgroundSprite;
 // Loads the map and the car.
 // Creates a spritesheet using the map.
 function loadEverything() {
@@ -34,7 +34,6 @@ function loadEverything() {
     .add("res/spritesheets/car_blue_1.png")
     .add('res/spritesheets/spritesheet_tiles.png')
     .load(() => {
-      setup();
       // Creates the spritesheet.
       const spritesheet = PIXI.BaseTexture.fromImage('res/spritesheets/spritesheet_tiles.png');
 
@@ -49,37 +48,38 @@ function loadEverything() {
           TILE_WIDTH,
           TILE_HEIGHT
         );
-
-        mapSprite = new PIXI.Sprite(new PIXI.Texture(spritesheet, rectangle));
-        mapSprite.anchor.x = 1;
-        mapSprite.anchor.y = 1;
-        return mapSprite;
+        return new PIXI.Sprite(new PIXI.Texture(spritesheet, rectangle));
       }
 
+      // Loads the map from the json file.
       fetch('res/spritesheets/map.json')
         .then(response => response.json())
         .then(json => {
           const tiles = json.layers[0].data;
           const mapWidth = json.width;
+          // Converts from tile ids to sprites.
+          // Groups the tile sprites into one background sprite.
+          backgroundSprite = new PIXI.Container();
           tiles.forEach((tile, index) => {
             let sprite = createTile(tile - 1);
             let col = index % mapWidth;
             let row = Math.floor(index / mapWidth);
             sprite.x = col * 128;
             sprite.y = row * 128;
-            app.stage.addChild(sprite);
+            backgroundSprite.addChild(sprite);
           });
+          app.stage.addChild(backgroundSprite);
+          setup();
         })
         .catch(error => console.log(error));
     });
 }
 
+// Lets the client know whether it's ready to start listening to the server.
 let ready = false;
-
 function setup() {
   ready = true;
 }
-
 
 // A map of car ids to sprites.
 let idsToSprites = new Map();
@@ -113,5 +113,13 @@ function setCarPositions(cars) {
     carSprite.vx = car.velx;
     carSprite.vy = car.vely;
     carSprite.rotation = car.angle;
+    // Special case: you are the car.
+    if (id == car.id) {
+      // Centers the map around your car, and instead moves the background image.
+      carSprite.x = (16 * zoom) / 2;
+      carSprite.y = (9 * zoom) / 2;
+      backgroundSprite.position.x = car.posx * 20;
+      backgroundSprite.position.y = car.posy * 20;
+    }
   });
 }

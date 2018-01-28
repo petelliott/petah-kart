@@ -43,9 +43,6 @@ class Instance:
         try:
             return self.map["tiles"][x][y]
         except:
-            print("I cry")
-            print(x)
-            print(y)
             return (2.0, 1.0, 0.1)
 
     def getCarsForCollisions(self, dontIncludeMe):
@@ -53,7 +50,10 @@ class Instance:
 
     def send_all(self, msg_str):
         for player in self.players:
-            player.write_message(msg_str)
+            try:
+                player.write_message(msg_str)
+            except Exception as e:
+                print(e)
 
     def run_loop(self):
         self.thread = threading.Thread(target=self.loop, daemon=True)

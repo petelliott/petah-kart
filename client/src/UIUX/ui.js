@@ -1,4 +1,5 @@
 const webServerLocation = 'http://localhost:8888';
+console.log = () => {};
 // JavaScript code for the User Interface when first entering the game
 // takes the game ID from newgame as a callback and displays it
 function displayId(gameId) {
@@ -42,10 +43,6 @@ function newGame(mapId, playerCount) {
   }));
 }
 
-// player chooses map, max players and passes into newgame
-function createGame() {
-  newGame('Map0.json', 3);
-}
 
 // The functions for the UI and page changes
 function clickJoin() {
@@ -67,7 +64,7 @@ function clickJoin() {
 function validate() {
   document.getElementById('keyIn').classList.remove('goodIn');
   document.getElementById('keyIn').classList.add('badIn');
-  document.getElementById('keyIn').value="";
+  document.getElementById('keyIn').value = "";
   document.getElementById('keyIn').classList.add('goodIn');
   document.getElementById('keyIn').classList.remove('badIn');
   console.log("  Validating...");
@@ -82,7 +79,7 @@ function validate() {
         // TODO: not valid
         console.log("shook");
         document.getElementById('inputKeyContainer').classList.add('badIn');
-        document.getElementById('keyIn').value="";
+        document.getElementById('keyIn').value = "";
         document.getElementById('inputKeyContainer').classList.remove('badIn');
         console.log("not shook");
       }
@@ -101,7 +98,7 @@ function clickCreate() {
   document.getElementById('join').classList.remove('hidden');
   document.getElementById('inputKeyContainer').classList.add('hidden');
   document.getElementById('create').classList.add('hidden');
-  document.getElementById('gameOptions').classList.remove('hidden');
+  document.getElementById('gameOptions').style.display = "flex";
   document.getElementById('confirmOptions').focus();
   document.getElementById('keyIn').addEventListener('keydown', (event) => {
     let key = event.key;
@@ -128,13 +125,13 @@ function clickCreate() {
 }
 
 function modifyMap(i) {
-  if (i){
-    if (map < 4){
+  if (i) {
+    if (map < 4) {
       map++;
       redraw(true);
     }
-  }else{
-    if (map > 0){
+  } else {
+    if (map > 0) {
       map--;
       redraw(true);
     }
@@ -143,13 +140,13 @@ function modifyMap(i) {
 }
 
 function modifyPlr(i) {
-  if (i){
-    if (numPlayers < 10){
+  if (i) {
+    if (numPlayers < 10) {
       numPlayers++;
       redraw(false);
     }
-  }else{
-    if (numPlayers > 1){
+  } else {
+    if (numPlayers > 1) {
       numPlayers--;
       redraw(false);
     }
@@ -198,40 +195,29 @@ function redraw(bgredraw) {
 function mapSelect(map) {
   switch (map) {
     case 0:
-      return "Map0.json";
       console.log("Map0");
-      break;
+      return "Map0.json";
+
     case 1:
-      return "Map1.json";
       console.log("Map1");
-      break;
+      return "Map1.json";
+
     case 2:
-      return "Map2.json";
       console.log("Map2");
-      break;
+      return "Map2.json";
+
     case 3:
-      return "Map3.json";
       console.log("Map3");
-      break;
+      return "Map3.json";
+
     case 4:
-      return "Map4.json";
       console.log("Map4");
-      break;
+      return "Map4.json";
+
     default:
       console.log("Map Select Error");
       return "Map0.json";
-      break;
   }
-}
-
-function clickCredits() {
-  document.getElementById('inputKeyContainer').classList.add('hidden');
-  document.getElementById('join').classList.remove('hidden');
-
-  document.getElementById('gameOptions').classList.add('hidden');
-  document.getElementById('create').classList.remove('hidden');
-  alert("Credits:\nClient Team: Jarrett Yu, Navras Kamal, Kyle Hennig\nCommunications Team: Jacob Rechard, Alex Rostron\nServer Team: Chris Pontikes, Peter Elliott, Joshua Derkson, Brighton Greet");
-  console.log('credits');
 }
 
 function clickSettings() {
@@ -275,6 +261,7 @@ function keybind() {
   localStorage.setItem("storedRight", document.getElementById("turnRight").value);
   localStorage.setItem("storedAccel", document.getElementById("accelerateKey").value);
   localStorage.setItem("storedBrake", document.getElementById("deccelerateKey").value);
+  closeSettings();
 }
 
 window.addEventListener('keydown', (event) => {

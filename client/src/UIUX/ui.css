@@ -96,7 +96,7 @@ body {
 }
 
 .button {
-  padding: 2vw 10vw;
+  padding: 2vw 5vw;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
@@ -285,13 +285,21 @@ body {
   margin-right: (99%);
   font-size: 14px;
 }
+#bset{
+    min-width: 40vw;
+}
+#gameOptions{
+    display: none;
+    flex-flow: column;
+}
 
 .leftarrow {
+    font-size: 40px;
 
 }
 
 .rightarrow {
-
+font-size: 40px;
 }
 
 .currentMap {
@@ -302,6 +310,26 @@ body {
 
 }
 
+.cent{
+    align-items: center;
+    justify-content: center;
+}
+.drift{
+    align-items: center;
+    justify-content: space-around;
+}
+.spread{
+    align-items: center;
+    justify-content: space-between;
+}
+.hor{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.vert{
+    display: flex;
+    flex-flow: column nowrap;
+}
 
 .confirm {
   background-color: #A6A6B2;

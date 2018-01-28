@@ -62,7 +62,6 @@ class Car:
         )
 
         if self.wtheta != 0:
-            print(ft)
         fv = (
             (t - b - surface[2]) * math.cos(self.theta) + ft[0],
             (t - b - surface[2]) * math.sin(self.theta) + ft[1]
