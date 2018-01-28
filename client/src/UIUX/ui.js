@@ -61,6 +61,11 @@ function clickJoin() {
   }, false);
 }
 
+function loseFocusJoin(){
+  document.getElementById('join').classList.remove('hidden');
+  document.getElementById('inputKeyContainer').classList.add('hidden');
+}
+
 function validate() {
   console.log("  Validating...");
   const gameId = document.getElementById('keyIn').value;
