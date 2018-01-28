@@ -37,7 +37,7 @@ class Instance:
             t_start = time.time()
 
     def run_loop(self):
-        self.thread = threading.Thread(target=self.loop(), daemon=True)
+        self.thread = threading.Thread(target=self.loop, daemon=True)
         self.thread.start()
 
     def kill(self):
