@@ -44,6 +44,7 @@ def new_game_handler(instances):
         def on_close(self):
             if len(self.inst.players) == 0:
                 del instances[self.path]
+            self.inst.players.remove(self)
 
             print("a client left", self.path)
 
