@@ -23,8 +23,7 @@ window.addEventListener('load', () => {
 });
 
 function setup() {
-  let sprite = new PIXI.Sprite(PIXI.loader.resources["images/car_blue_1.png"].texture);
-  app.stage.addChild(sprite);
+  // test();
 }
 
 function test() {
