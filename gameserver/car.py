@@ -62,7 +62,7 @@ class Car:
         #calculate force
         velocity = tangent_vel()
         normal = ((velocity[0]**2)*sin(wtheta)/WHEEL_BASE*(1+surface[2]))*MASS
-        tangential = (self.throttle-(MASS*(velocity[0]**2)*tan(wtheta)*sin(wtheta)*(1 + surface[2])/WHEEL_BASE)
+        tangential = (self.throttle-(MASS*(velocity[0]**2)*tan(wtheta)*sin(wtheta)*(1 + surface[2])/WHEEL_BASE))
         return (normal,tangential)
 
     def update(self,surface):#(us, uk, rr)

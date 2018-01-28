@@ -1,5 +1,6 @@
 import car
 import json
+import tornado.websocket
 
 
 def new_game_handler(instances):

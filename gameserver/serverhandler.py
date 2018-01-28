@@ -1,7 +1,8 @@
 import instance
+import tornado.web
 
 
-def get_new_server(instances):
+def new_server_handler(instances):
     class ServerHandler(tornado.web.RequestHandler):
         def put(self, path):
             message = json.loads(self.request.body.decode("utf-8"))
@@ -14,4 +15,4 @@ def get_new_server(instances):
             instances[path].run_loop()
             self.set_status(201)
 
-     return ServerHandler
+    return ServerHandler
