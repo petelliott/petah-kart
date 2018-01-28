@@ -15,7 +15,7 @@ def gameErr(out):
 
 web = subprocess.Popen(["python3", "web"])
 game = subprocess.Popen(
-    ["python3", "gameserver", "gmaps"])
+    ["python3", "gameserver", "maps"])
 try:
     input()
 except KeyboardInterrupt:
