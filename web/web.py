@@ -1,10 +1,8 @@
 import random
 import string
 import requests
-import tornado.ioloop
 import tornado.web
 import json
-import os
 
 gameservers = ["localhost:8001"]
 gameSet = {}
@@ -72,16 +70,3 @@ def getRandomID(gameLocations, N=3):
     if a in gameSet:
         return getRandomID(gameLocations, N + 1)
     return a
-
-
-if __name__ == "__main__":
-    app = tornado.web.Application([
-        (r"/new", NewGameHandler), (r"/(?P<gid>\w+)", JoinHandler),
-        (r"/res/(.*)", tornado.web.StaticFileHandler,
-         {"path": os.getcwd() + "/client/src/"})
-    ])
-    try:
-        app.listen(8888)
-        tornado.ioloop.IOLoop.current().start()
-    except KeyboardInterrupt:
-        print("server exited")
