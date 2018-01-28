@@ -75,7 +75,6 @@ function loadEverything() {
 }
 
 let ready = false;
-
 function setup() {
   ready = true;
 }
@@ -112,5 +111,13 @@ function setCarPositions(cars) {
     carSprite.vx = car.velx;
     carSprite.vy = car.vely;
     carSprite.rotation = car.angle;
+    // Special case: you are the car.
+    if (id == car.id) {
+      // Centers the map around your car, and instead moves the background image.
+      carSprite.x = (16 * zoom) / 2;
+      carSprite.y = (9 * zoom) / 2;
+      backgroundSprite.position.x = car.posx * 20;
+      backgroundSprite.position.y = car.posy * 20;
+    }
   });
 }
