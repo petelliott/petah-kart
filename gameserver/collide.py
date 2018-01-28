@@ -1,6 +1,5 @@
 import math
 
-PI = math.pi
 car_width = 130  # random number
 car_height = 130  # random number
 
