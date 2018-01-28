@@ -23,7 +23,7 @@ window.addEventListener('load', () => {
 });
 
 function setup() {
-  // test();
+  test();
 }
 
 function test() {
@@ -37,6 +37,18 @@ function test() {
       angle: 24
     }
   ]);
+  setTimeout(() => {
+    setCarPositions([
+      {
+        id: 1,
+        x: 100,
+        y: 500,
+        vx: 20,
+        vy: 12,
+        angle: 1
+      }
+    ]);
+  }, 1000);
 }
 
 // A map of car ids to sprites.
