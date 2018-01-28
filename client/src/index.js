@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
   document.body.appendChild(app.view);
 
   PIXI.loader
-    .add("images/car_blue_1.png")
+    .add("res/images/car_blue_1.png")
     .load(setup);
 });
 
