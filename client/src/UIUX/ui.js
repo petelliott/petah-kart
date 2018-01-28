@@ -106,56 +106,72 @@ function clickCreate() {
     console.log(map);
     console.log(numPlayers);
     if (key === 'ArrowLeft' || key === 'a') {
-      if (map > 0){console.log('map -1'); map--; redraw(true);}
+      if (map > 0) {
+        console.log('map -1');
+        map--;
+        redraw(true);
+      }
     }
     if (key === 'ArrowRight' || key === 'd') {
-      if (map < 4){console.log('map +1'); map++; redraw(true);}
+      if (map < 4) {
+        console.log('map +1');
+        map++;
+        redraw(true);
+      }
     }
     if (key === 'ArrowUp' || key === 'w') {
-      if (numPlayers < 10){console.log('player +1'); numPlayers++; redraw(false);}
+      if (numPlayers < 10) {
+        console.log('player +1');
+        numPlayers++;
+        redraw(false);
+      }
     }
     if (key === 'ArrowDown' || key === 's') {
-      if (numPlayers <= 1){console.log('player -1'); numPlayers--; redraw(false);}
+      if (numPlayers <= 1) {
+        console.log('player -1');
+        numPlayers--;
+        redraw(false);
+      }
     }
     console.log('join');
   }, false);
 }
 
 function redraw(bgredraw) {
-  if(bgredraw){
-    switch(map){
+  if (bgredraw) {
+    switch (map) {
       case 0:
-      mapIMG = '/resources/images/maps/Map0.png';
-      console.log("Map0");
-      break;
-    case 1:
-      mapIMG = '/resources/images/maps/Map1.png';
-      console.log("Map1");
-      break;
-    case 2:
-      mapIMG = '/resources/images/maps/Map2.png';
-      console.log("Map2");
-      break;
-    case 3:
-      mapIMG = '/resources/images/maps/Map3.png';
-      console.log("Map3");
-      break;
-    case 4:
-      mapIMG = '/resources/images/maps/Map4.png';
-      console.log("Map4");
-      break;
-    default:
-      console.log("Map Select Error");
-      mapIMG = '/resources/images/maps/Map0.png';
-      break;
+        mapIMG = '/resources/images/maps/Map0.png';
+        console.log("Map0");
+        break;
+      case 1:
+        mapIMG = '/resources/images/maps/Map1.png';
+        console.log("Map1");
+        break;
+      case 2:
+        mapIMG = '/resources/images/maps/Map2.png';
+        console.log("Map2");
+        break;
+      case 3:
+        mapIMG = '/resources/images/maps/Map3.png';
+        console.log("Map3");
+        break;
+      case 4:
+        mapIMG = '/resources/images/maps/Map4.png';
+        console.log("Map4");
+        break;
+      default:
+        console.log("Map Select Error");
+        mapIMG = '/resources/images/maps/Map0.png';
+        break;
     }
-    document.getElementById('bg').style.backgroundImage="url(mapIMG)";
+    document.getElementById('bg').style.backgroundImage = "url(mapIMG)";
   }
 
 }
 
-function mapSelect(map){
-  switch(map){
+function mapSelect(map) {
+  switch (map) {
     case 0:
       return "Map0.json";
       console.log("Map0");
@@ -199,40 +215,41 @@ function clickSettings() {
 
 /* Open */
 let isSettings = false;
-function openSettings() {
-    document.getElementById("settingsNav").style.height = "100%";
-    document.getElementById('inputKeyContainer').classList.add('hidden');
-    document.getElementById('join').classList.remove('hidden');
 
-    document.getElementById('gameOptions').classList.add('hidden');
-    document.getElementById('create').classList.remove('hidden');
-    isSettings = true;
+function openSettings() {
+  document.getElementById("settingsNav").style.height = "100%";
+  document.getElementById('inputKeyContainer').classList.add('hidden');
+  document.getElementById('join').classList.remove('hidden');
+
+  document.getElementById('gameOptions').classList.add('hidden');
+  document.getElementById('create').classList.remove('hidden');
+  isSettings = true;
 }
 
 /* Close */
 function closeSettings() {
-    document.getElementById("settingsNav").style.height = "0%";
-    isSettings = false;
+  document.getElementById("settingsNav").style.height = "0%";
+  isSettings = false;
 }
 
 function openCredits() {
-    document.getElementById("creditsNav").style.height = "100%";
-    document.getElementById('inputKeyContainer').classList.add('hidden');
-    document.getElementById('join').classList.remove('hidden');
+  document.getElementById("creditsNav").style.height = "100%";
+  document.getElementById('inputKeyContainer').classList.add('hidden');
+  document.getElementById('join').classList.remove('hidden');
 
-    document.getElementById('gameOptions').classList.add('hidden');
-    document.getElementById('create').classList.remove('hidden');
+  document.getElementById('gameOptions').classList.add('hidden');
+  document.getElementById('create').classList.remove('hidden');
 }
 
 function closeCredits() {
-    document.getElementById("creditsNav").style.height = "0%";
+  document.getElementById("creditsNav").style.height = "0%";
 }
 
 function keybind() {
-  localStorage.setItem("storedLeft",document.getElementById("turnLeft").value);
-  localStorage.setItem("storedRight",document.getElementById("turnRight").value);
-  localStorage.setItem("storedAccel",document.getElementById("accelerateKey").value);
-  localStorage.setItem("storedBrake",document.getElementById("deccelerateKey").value);
+  localStorage.setItem("storedLeft", document.getElementById("turnLeft").value);
+  localStorage.setItem("storedRight", document.getElementById("turnRight").value);
+  localStorage.setItem("storedAccel", document.getElementById("accelerateKey").value);
+  localStorage.setItem("storedBrake", document.getElementById("deccelerateKey").value);
 }
 
 window.addEventListener('keydown', (event) => {

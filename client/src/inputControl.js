@@ -3,7 +3,7 @@ let thrust = 0;
 let brake = 0;
 const turnAngle = 0.0872665;
 let turnLeft = localStorage.getItem("storedLeft");
-let turnRight  = localStorage.getItem("storedRight");
+let turnRight = localStorage.getItem("storedRight");
 let accelerateKey = localStorage.getItem("storedAccel");
 let deccelerateKey = localStorage.getItem("storedBrake");
 
