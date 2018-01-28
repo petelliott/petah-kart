@@ -21,13 +21,15 @@ class Instance:
             message = []
             for player in self.players:
                 surface = self.map.tiles[int(player.car.x)][int(player.car.y)]
+                surface = self.map.tiles[int(
+                    player.car.pos[0])][int(player.car.pos[1])]
 
                 player.car.update(surface)
                 message.append({
-                    "velx": player.car.vx,
-                    "vely": player.car.vy,
-                    "posx": player.car.x,
-                    "posy": player.car.y,
+                    "velx": player.car.vel[0],
+                    "vely": player.car.vel[1],
+                    "posx": player.car.pos[0],
+                    "posy": player.car.pos[1],
                     "angle": player.car.theta,
                     "id":   id(player),
                 })
