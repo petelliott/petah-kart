@@ -1,7 +1,7 @@
 const ws = new WebSocket(WS_SERVER);
 
-function sendUpdate(thrust, turn, breaks) {
-  ws.send(`{"type":"update","angle":${turn},"thrust":${thrust},"break":${breaks}`);
+function sendUpdate(thrust, turn, brake) {
+  ws.send(`{"type":"update","angle":${turn},"thrust":${thrust},"brake":${brake}}`);
 }
 
 window.addEventListener('load', () => {
