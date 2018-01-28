@@ -6,6 +6,7 @@ update position and velocity based on acc
 '''
 import time
 import math
+import threading
 
 MASS = 0
 WHEEL_BASE = 0
@@ -25,9 +26,12 @@ class Car:
         self.vx = 0.0
         self.vy = 0.0
         self.vtheta = 0.0
-
+        
+        self.brakes = 0.0
         self.wtheta = 0.0
         self.throttle = 0.0
+
+        self.mutex = threading.Lock()
 
     def tangent_cart(self,force):
         return (math.hypot((cos(self.theta)*force[0]),(sin(self.theta)*force[1])),math.hypot((sin(self.theta)*force[0]),(cos(self.theta)*force[1])))
@@ -58,10 +62,12 @@ class Car:
         #calculate force
         velocity = tangent_vel()
         normal = ((velocity[0]**2)*sin(wtheta)/WHEEL_BASE*(1+surface[2]))*MASS
-        tangential = (self.throttle-(MASS*(velocity[0]**2)*tan(wtheta)*sin(wtheta)*(1 + surface[2])/WHEEL_BASE)
+        tangential = (self.throttle-(MASS*(velocity[0]**2)*tan(wtheta)*sin(wtheta)*(1 + surface[2])/WHEEL_BASE))
         return (normal,tangential)
 
     def update(self,surface):#(us, uk, rr)
+        self.mutex.aquire()
+
         call_time = time.time()
         delta = call_time - self.last_time
         self.last_time = time.time()
@@ -76,3 +82,5 @@ class Car:
         self.vy = self.vy + (accel[1]*delta)
         self.x = self.x + (self.vx*delta)-((delta**2)*accel[0]/2)
         self.y = self.y + (self.vy*delta)-((delta**2)*accel[1]/2)
+
+        self.mutex.release()

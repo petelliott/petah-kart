@@ -1,5 +1,6 @@
 import car
 import json
+import tornado.websocket
 
 
 def new_game_handler(instances):
@@ -26,12 +27,16 @@ def new_game_handler(instances):
             ))
 
         def on_message(self, data):
-            message = json.loads()
+            message = json.loads(data)
 
             if message["type"] == "update":
+                self.car.mutex.aquire()
+
                 self.car.set_throttle(message["thrust"])
                 self.car.set_wtheta(message["angle"])
                 self.car.set_brake(message["brake"])
+
+                self.car.mutex.release()
 
         def on_close(self):
             if len(self.inst.players) == 0:
