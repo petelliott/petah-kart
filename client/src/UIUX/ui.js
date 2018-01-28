@@ -102,27 +102,14 @@ function clickCreate() {
   }, false);
 }
 
-function clickCredits() {
-<<<<<<< HEAD
-=======
-  document.getElementById('inputKeyContainer').classList.add('hidden');
-  document.getElementById('join').classList.remove('hidden');
-
-  document.getElementById('gameOptions').classList.add('hidden');
-  document.getElementById('create').classList.remove('hidden');
-  alert("Credits:\nClient Team: Jarrett Yu, Navras Kamal, Kyle Hennig\nCommunications Team: Jacob Rechard, Alex Rostron\nServer Team: Chris Pontikes, Peter Elliott, Joshua Derkson, Brighton Greet");
->>>>>>> 6f67c9b3b89ae2a11f7ad2fbc418905cb7a6e18a
-  console.log('credits');
-}
-
-function clickSettings() {
-  console.log('settings');
-}
-
 /* Open */
-<<<<<<< HEAD
 function openSettings() {
     document.getElementById("settingsNav").style.height = "100%";
+    document.getElementById('inputKeyContainer').classList.add('hidden');
+    document.getElementById('join').classList.remove('hidden');
+
+    document.getElementById('gameOptions').classList.add('hidden');
+    document.getElementById('create').classList.remove('hidden');
 }
 
 /* Close */
@@ -132,24 +119,15 @@ function closeSettings() {
 
 function openCredits() {
     document.getElementById("creditsNav").style.height = "100%";
+    document.getElementById('inputKeyContainer').classList.add('hidden');
+    document.getElementById('join').classList.remove('hidden');
+
+    document.getElementById('gameOptions').classList.add('hidden');
+    document.getElementById('create').classList.remove('hidden');
 }
 
 function closeCredits() {
     document.getElementById("creditsNav").style.height = "0%";
-=======
-function openNav() {
-  document.getElementById('inputKeyContainer').classList.add('hidden');
-  document.getElementById('join').classList.remove('hidden');
-
-  document.getElementById('gameOptions').classList.add('hidden');
-  document.getElementById('create').classList.remove('hidden');
-  document.getElementById("myNav").style.height = "100%";
-}
-
-/* Close */
-function closeNav() {
-  document.getElementById("myNav").style.height = "0%";
->>>>>>> 6f67c9b3b89ae2a11f7ad2fbc418905cb7a6e18a
 }
 
 window.addEventListener('keydown', (event) => {
