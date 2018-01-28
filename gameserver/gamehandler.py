@@ -26,7 +26,7 @@ def new_game_handler(instances):
             ))
 
         def on_message(self, data):
-            message = json.loads()
+            message = json.loads(data)
 
             if message["type"] == "update":
                 self.car.mutex.aquire()
