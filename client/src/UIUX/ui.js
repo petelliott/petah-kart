@@ -110,66 +110,85 @@ function clickCreate() {
     console.log(map);
     console.log(numPlayers);
     if (key === 'ArrowLeft' || key === 'a') {
-      if (map > 0) {
-        console.log('map -1');
-        map--;
-        redraw(true);
-      }
+      modifyMap(false);
     }
     if (key === 'ArrowRight' || key === 'd') {
-      if (map < 4) {
-        console.log('map +1');
-        map++;
-        redraw(true);
-      }
+      modifyMap(true);
     }
     if (key === 'ArrowUp' || key === 'w') {
-      if (numPlayers < 10) {
-        console.log('player +1');
-        numPlayers++;
-        redraw(false);
-      }
+      modifyPlr(true);
     }
     if (key === 'ArrowDown' || key === 's') {
-      if (numPlayers <= 1) {
-        console.log('player -1');
-        numPlayers--;
-        redraw(false);
-      }
+      modifyPlr(false);
     }
     console.log('join');
   }, false);
+}
+
+function modifyMap(i) {
+  if (i){
+    if (map < 4){
+      map++;
+      redraw(true);
+    }
+  }else{
+    if (map > 0){
+      map--;
+      redraw(true);
+    }
+  }
+  console.log("modmap");
+}
+
+function modifyPlr(i) {
+  if (i){
+    if (numPlayers < 10){
+      numPlayers++;
+      redraw(false);
+    }
+  }else{
+    if (map > 0){
+      numPlayers--;
+      redraw(false);
+    }
+  }
+  console.log("modplr");
 }
 
 function redraw(bgredraw) {
   if (bgredraw) {
     switch (map) {
       case 0:
-        mapIMG = '/resources/images/maps/Map0.png';
+        document.getElementById('bg').style.backgroundImage = "url(resources/images/maps/Map0.png)";
+        document.getElementById('currentMap').innerHTML = "Simple Square";
         console.log("Map0");
         break;
       case 1:
-        mapIMG = '/resources/images/maps/Map1.png';
+        document.getElementById('bg').style.backgroundImage = "url(resources/images/maps/Map1.png)";
+        document.getElementById('currentMap').innerHTML = "Racetrack";
         console.log("Map1");
         break;
       case 2:
-        mapIMG = '/resources/images/maps/Map2.png';
+        document.getElementById('bg').style.backgroundImage = "url(resources/images/maps/Map2.png)";
+        document.getElementById('currentMap').innerHTML = "The Desert";
         console.log("Map2");
         break;
       case 3:
-        mapIMG = '/resources/images/maps/Map3.png';
+        document.getElementById('bg').style.backgroundImage = "url(resources/images/maps/Map3.png)";
+        document.getElementById('currentMap').innerHTML = "Downtown";
         console.log("Map3");
         break;
       case 4:
-        mapIMG = '/resources/images/maps/Map4.png';
+        document.getElementById('bg').style.backgroundImage = "url(resources/images/maps/Map4.png)";
+        document.getElementById('currentMap').innerHTML = "Slalom";
         console.log("Map4");
         break;
       default:
         console.log("Map Select Error");
-        mapIMG = '/resources/images/maps/Map0.png';
+        document.getElementById('currentMap').innerHTML = "Simple Square";
+        document.getElementById('bg').style.backgroundImage = "url(resources/images/maps/Map0.png)";
         break;
     }
-    document.getElementById('bg').style.backgroundImage = "url(mapIMG)";
   }
 
 }

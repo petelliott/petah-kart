@@ -118,12 +118,6 @@ body {
   width: 100%;
 }
 
-<<<<<<< Updated upstream
-.small {
-  font-size: 3vw;
-  width: 49%;
-}
-=======
   .badIn {
     transition-duration: 1s;
     transition-timing-function: linear;
@@ -141,7 +135,6 @@ body {
     font-size: 3vw;
     width: 49%;
   }
->>>>>>> Stashed changes
 
 .join {
   background-color: #4CAF50;
