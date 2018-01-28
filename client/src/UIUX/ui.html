@@ -21,6 +21,15 @@
   <div class="background-image"></div>
   <div class="main-outer">
     <div class="content">
+      <div id="myNav" class="overlay">
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <!-- Overlay content -->
+        <div class="overlay-content">
+          <div><font color=#FFFFFF>This is a message</font></div>
+          <input id="Keybind left" class="inputKey">Left
+        </div>
+      </div>
       <h1>
         <span>PETAHKART.racing</span>
       </h1>
@@ -36,7 +45,8 @@
             <div id="confirmOptions" class="confirm button" onclick="newGame(map, 3)">Confirm</div>
           </div>
           <div id="credits" class="credits small button" onclick="clickCredits()">Credits</div>
-          <div id="settings" class="settings small button" onclick="clickSettings()">Settings</div>
+          <span id="settings" class="settings small button" onclick="openNav()">Settings</span>
+          <!--span id="settings" class="settings small button" onclick="openNav()">&#9776; open</span>
         </div>
       </div>
     </div>
