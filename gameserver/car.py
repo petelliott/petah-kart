@@ -8,9 +8,9 @@ import time
 import math
 import threading
 
-MASS = 1
-WHEEL_BASE = 1
-MAX_SPEED = 1
+MASS = 20
+WHEEL_BASE = 100
+MAX_SPEED = 10
 GRAVITY = 9.81
 BREAK_STATE = False
 
