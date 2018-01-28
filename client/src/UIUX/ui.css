@@ -32,7 +32,7 @@
   body{
     margin: 0;
   }
-  
+
   @keyframes bounce {
     100% {
       top: -1vh;
@@ -141,7 +141,7 @@
     transform: translateY(4px);
   }
 
-  .create{background-color: #b42f2f;}
+  .create{background-color: #b42f2f; margin: 3% 0px}
   .create:hover {background-color: #b91313}
   .create:active {
     background-color: #b91313;
