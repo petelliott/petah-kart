@@ -54,14 +54,16 @@ class Car:
         else:
             b = 0
 
-        ft = (
-            -self.vel[1] * TURNCONST *
-            (1 if self.wtheta > 0 else -1 if self.wtheta < 0 else 0),
-            self.vel[0] * TURNCONST *
-            (1 if self.wtheta > 0 else -1 if self.wtheta < 0 else 0)
-        )
-
         if self.wtheta != 0:
+            ft = (
+                -self.vel[1] * TURNCONST *
+                (1 if self.wtheta > 0 else -1 if self.wtheta < 0 else 0),
+                self.vel[0] * TURNCONST *
+                (1 if self.wtheta > 0 else -1 if self.wtheta < 0 else 0)
+            )
+        else:
+            ft = (0, 0)
+
         fv = (
             (t - b - surface[2]) * math.cos(self.theta) + ft[0],
             (t - b - surface[2]) * math.sin(self.theta) + ft[1]
