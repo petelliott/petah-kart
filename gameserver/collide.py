@@ -80,7 +80,7 @@ def is_bang(car1x, car1y, car1_rotation, car2x, car2y, car2_rotation):
     return collision
 
 
-def hit_cars(car1, car1):
+def hit_cars(car1, car2):
     '''
     is_bang but with car objects instead
     '''

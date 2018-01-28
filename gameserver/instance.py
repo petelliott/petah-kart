@@ -49,8 +49,8 @@ class Instance:
             print(y)
             return (2.0, 1.0, 0.1)
 
-    def getCarsForCollisions(dontIncludeMe):
-        return [player.car for player in list(filter(lambda x: x is not dontIncludeMe, players))]
+    def getCarsForCollisions(self, dontIncludeMe):
+        return [player.car for player in list(filter(lambda x: x is not dontIncludeMe, self.players))]
 
     def send_all(self, msg_str):
         for player in self.players:
