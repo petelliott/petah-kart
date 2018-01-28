@@ -52,7 +52,7 @@ function loadEverything() {
       }
 
       // Loads the map from the json file.
-      fetch('res/spritesheets/map.json')
+      fetch(`res/maps/${MAP}`)
         .then(response => response.json())
         .then(json => {
           const tiles = json.layers[0].data;
