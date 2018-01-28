@@ -37,6 +37,18 @@ function test() {
       angle: 24
     }
   ]);
+  setTimeout(() => {
+    setCarPositions([
+      {
+        id: 1,
+        x: 100,
+        y: 500,
+        vx: 20,
+        vy: 12,
+        angle: 1
+      }
+    ]);
+  }, 1000);
 }
 
 // A map of car ids to sprites.
@@ -47,9 +59,11 @@ function setCarPositions(cars) {
   cars.forEach((car) => {
     // Create a new car if it doesn't exist.
     if (!idsToSprites.has(car.id)) {
-      let sprite = new PIXI.Sprite(PIXI.loader.resources["images/car_blue_1.png"].texture);
+      let sprite = new PIXI.Sprite(PIXI.loader.resources["res/images/car_blue_1.png"].texture);
       sprite.x = car.x;
       sprite.y = car.y;
+      sprite.vx = car.vx;
+      sprite.vy = car.vy;
       sprite.rotation = car.angle;
       app.stage.addChild(sprite);
       idsToSprites.set(car.id, sprite);
@@ -59,6 +73,8 @@ function setCarPositions(cars) {
     let carSprite = idsToSprites.get(car.id);
     carSprite.x = car.x;
     carSprite.y = car.y;
+    carSprite.vx = car.vx;
+    carSprite.vy = car.vy;
     carSprite.rotation = car.angle;
   });
 }
