@@ -1,3 +1,5 @@
+let app;
+
 window.addEventListener('load', () => {
   let type = 'WebGL';
   if (!PIXI.utils.isWebGLSupported()) {
@@ -6,7 +8,7 @@ window.addEventListener('load', () => {
 
   PIXI.utils.sayHello(type);
 
-  const app = new PIXI.Application({
+  app = new PIXI.Application({
     width: 1600,
     height: 900,
     antialias: true,
