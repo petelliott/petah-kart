@@ -64,16 +64,31 @@
   }
 
   .background-image {
-    background-image: url('https://www.rtrkidsrugs.com/v/vspfiles/photos/LCX205-3.jpg');
+    background-image: url('../../resources/images/maps/Map1.png');
+    background-attachment: fixed;
     background-size: cover;
+    -webkit-animation: backgroundScroll 15s linear 1;
+    -webkit-animation-fill-mode: both;
+    animation: backgroundScroll 10s linear infinite;
+    animation-fill-mode: both;
     display: block;
-    filter: blur(4px);
-    -webkit-filter: blur(4px);
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
     height: 100%;
     left: 0;
     position: fixed;
     right: 0;
     z-index: 1;
+  }
+
+  @keyframes backgroundScroll {
+    0% {background-position: 0% 1%;}
+    100% {background-position: 0% 200%;}
+  }
+
+  @-webkit-keyframes backgroundScroll {
+    from {background-position: 0 0;}
+    to {background-position: -180px -180px;}
   }
 
   .main-outer {
