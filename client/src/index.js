@@ -16,9 +16,19 @@ window.addEventListener('load', () => {
   document.body.appendChild(app.view);
 
   PIXI.loader
-    .add('map.tmx')
-    .load(() => {
-      const tileMap = new PIXI.extras.TiledMap('map.tmx');
-      app.render(tileMap);
-    });
+    .add("images/car_blue_1.png")
+    .load(setup);
 });
+
+function setup() {
+  let sprite = new PIXI.Sprite(PIXI.loader.resources["images/car_blue_1.png"].texture);
+  app.stage.addChild(sprite);
+}
+
+// Cars have an id, x, y, vx, vy, and angle.
+function setCarPositions(cars) {
+  let sprite = new PIXI.Sprite(PIXI.loader.resources["images/car_blue_1.png"].texture);
+  sprite.x = 96;
+  sprite.y = 96;
+  app.stage.addChild(cat);
+}
