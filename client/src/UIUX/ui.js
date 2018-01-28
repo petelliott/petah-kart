@@ -63,9 +63,15 @@ function createGame() {
 
 // The functions for the UI and page changes
 function clickJoin() {
+  document.getElementById('join').classList.add('hidden');
+  document.getElementById('inputKeyContainer').classList.remove('hidden');
   console.log('join');
-  const a = prompt('enter server code thing');
-  joinGame(a);
+}
+
+function validate() {
+  const gameId = document.getElementById('keyIn').value;
+  //validate it
+  joinGame(gameId);
 }
 
 
