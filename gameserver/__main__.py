@@ -12,7 +12,7 @@ if __name__ == "__main__":
     map_dir = sys.argv[1]
 
     GameHandler = new_game_handler(instances)
-    ServerHandler = new_server_handler(instances, maploader.MapLoader(map_dir, maploader.STD_MAP))
+    ServerHandler = new_server_handler(instances, maploader.MapLoader(map_dir, maploader.TestMapper()))
 
     application = tornado.web.Application([
         (r"/control/(?P<path>\w+)", ServerHandler),
