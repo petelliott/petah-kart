@@ -53,7 +53,7 @@ class Instance:
 
     def send_all(self, msg_str):
         for player in self.players:
-            try
+            try:
                 player.write_message(msg_str)
             except Exception as e:
                 print(e)
