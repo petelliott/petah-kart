@@ -4,6 +4,7 @@ import requests
 import tornado.ioloop
 import tornado.web
 import json
+import os
 
 gameservers = ["localhost:8001"]
 gameSet = {}
@@ -26,7 +27,7 @@ class JoinHandler(tornado.web.RequestHandler):
 
             <body>
               <script>
-                const WS_SERVER = 'ws://{}';
+                const WS_SERVER = 'ws://{}/game/{}';
                 const MAP = '{}';
               </script>
               <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.0/pixi.min.js"></script>
@@ -38,7 +39,7 @@ class JoinHandler(tornado.web.RequestHandler):
             </html>
         """
         try:
-            self.write(html.format(gameSet[gid]["location"], 0))
+            self.write(html.format(gameSet[gid]["location"], gid, 0))
         except KeyError:
             self.set_status(404)
             self.write(
