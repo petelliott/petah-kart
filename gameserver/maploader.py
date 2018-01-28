@@ -25,7 +25,6 @@ class MapLoader:
             checks = []
             col = []
             for layer in data["layers"]:
-                print(layer["name"])
                 if layer["name"] == "background":
                     int_data = struct.unpack("{}I".format(
                         w * h), base64.b64decode(layer["data"]))
@@ -43,7 +42,6 @@ class MapLoader:
                     checks = [((obj['x'] + obj["polyline"][0]["x"], obj['y'] + obj["polyline"][0]["y"]),
                                (obj['x'] + obj["polyline"][1]["x"], obj['y'] + obj["polyline"][1]["y"])) for obj in layer["objects"]]
 
-            print(col)
             self.preload[name] = {"width": w, "height": h, "tile_size": data["tileheight"], "tiles": array,
                                   "checkpoints": checks, "collisions": col}
         return self.preload[name]

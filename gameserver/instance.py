@@ -43,9 +43,6 @@ class Instance:
         try:
             return self.map["tiles"][x][y]
         except:
-            print("I cry")
-            print(x)
-            print(y)
             return (2.0, 1.0, 0.1)
 
     def getCarsForCollisions(self, dontIncludeMe):
