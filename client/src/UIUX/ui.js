@@ -85,21 +85,81 @@ function validate() {
   xhr.send();
 }
 
+let map = 0;
+let numPlayers = 1;
 
 function clickCreate() {
+  map = 0;
+  numPlayers = 1;
   console.log('create');
   document.getElementById('join').classList.remove('hidden');
   document.getElementById('inputKeyContainer').classList.add('hidden');
   document.getElementById('create').classList.add('hidden');
   document.getElementById('gameOptions').classList.remove('hidden');
+  document.getElementById('confirmOptions').focus();
   document.getElementById('keyIn').addEventListener('keydown', (event) => {
     let key = event.key;
     console.log(key);
     if (key === 'Enter') {
-      newGame(map, 3);
+      newGame(mapSelect(map), numPlayers);
+    }
+    if (key === 'ArrowLeft') {
+      if (map > 0){map--; redrawBG();}
+    }
+    if (key === 'ArrowRight') {
+      if (map < 4){map++; redrawBG();}
+    }
+    if (key === 'ArrowUp') {
+      if (numPlayers < 10){numPlayers++;}
+    }
+    if (key === 'ArrowDown') {
+      if (numPlayers <= 1){numPlayers--;}
     }
     console.log('join');
   }, false);
+}
+
+function mapSelect(map){
+  switch(map){
+    case 0:
+      return "Map0.json";
+      console.log("Map0");
+      break;
+    case 1:
+      return "Map1.json";
+      console.log("Map1");
+      break;
+    case 2:
+      return "Map2.json";
+      console.log("Map2");
+      break;
+    case 3:
+      return "Map3.json";
+      console.log("Map3");
+      break;
+    case 4:
+      return "Map4.json";
+      console.log("Map4");
+      break;
+    default:
+      console.log("Map Select Error");
+      return "Map0.json";
+      break;
+  }
+}
+
+function clickCredits() {
+  document.getElementById('inputKeyContainer').classList.add('hidden');
+  document.getElementById('join').classList.remove('hidden');
+
+  document.getElementById('gameOptions').classList.add('hidden');
+  document.getElementById('create').classList.remove('hidden');
+  alert("Credits:\nClient Team: Jarrett Yu, Navras Kamal, Kyle Hennig\nCommunications Team: Jacob Rechard, Alex Rostron\nServer Team: Chris Pontikes, Peter Elliott, Joshua Derkson, Brighton Greet");
+  console.log('credits');
+}
+
+function clickSettings() {
+  console.log('settings');
 }
 
 /* Open */
