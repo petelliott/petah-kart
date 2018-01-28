@@ -23,33 +23,30 @@ window.addEventListener('load', () => {
 });
 
 let ready = false;
+
 function setup() {
   ready = true;
   // test();
 }
 
 function test() {
-  setCarPositions([
-    {
+  setCarPositions([{
+    id: 1,
+    posx: 0,
+    posy: 0,
+    velx: 20,
+    vely: 12,
+    angle: 24
+  }]);
+  setTimeout(() => {
+    setCarPositions([{
       id: 1,
-      posx: 0,
-      posy: 0,
+      posx: 100,
+      posy: 500,
       velx: 20,
       vely: 12,
-      angle: 24
-    }
-  ]);
-  setTimeout(() => {
-    setCarPositions([
-      {
-        id: 1,
-        posx: 100,
-        posy: 500,
-        velx: 20,
-        vely: 12,
-        angle: 1
-      }
-    ]);
+      angle: 1
+    }]);
   }, 1000);
 }
 
@@ -71,6 +68,8 @@ function setCarPositions(cars) {
       sprite.vx = car.velx;
       sprite.vy = car.vely;
       sprite.rotation = car.angle;
+      sprite.anchor.x = 0.5;
+      sprite.anchor.y = 0.5;
       app.stage.addChild(sprite);
       idsToSprites.set(car.id, sprite);
       console.log("New sprite created.");

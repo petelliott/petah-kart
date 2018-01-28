@@ -1,1 +1,5 @@
 /* The entry point into the project. */
+canvas{
+    height: 95vh;
+    width: 95vw;
+}
