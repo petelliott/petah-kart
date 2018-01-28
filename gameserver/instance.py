@@ -20,8 +20,7 @@ class Instance:
         while self.alive and not self.state["finished"]:
             message = []
             for player in self.players:
-                surface = self.map.tiles[int(player.car.x)][int(player.car.y)]
-                surface = self.map.tiles[int(
+                surface = self.map["tiles"][int(
                     player.car.pos[0])][int(player.car.pos[1])]
 
                 player.car.update(surface)
