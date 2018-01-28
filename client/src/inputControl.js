@@ -7,21 +7,21 @@ window.addEventListener('keydown', (event) => {
   const keyID = event.key;
   const oldStatus = [turn, thrust, breaks];
   switch (keyID) {
-    case 'a':
+    case turnLeft:
       turn = -turnAngle;
       console.log('left');
       break;
-    case 'd':
+    case turnRight:
       turn = turnAngle;
       console.log('right');
       break;
-    case 'w':
+    case accelerateKey:
       thrust = 1;
       console.log('accelerate');
       break;
-    case 's':
+    case deccelerateKey:
       breaks = 1;
-      console.log('decelerate');
+      console.log('deccelerate');
       break;
     default:
       console.log('invalid input');
@@ -37,21 +37,21 @@ window.addEventListener('keyup', (event) => {
   const keyID = event.key;
   const oldStatus = [turn, thrust, breaks];
   switch (keyID) {
-    case 'a':
+    case turnLeft:
       turn = 0;
       console.log('stop left');
       break;
-    case 'd':
+    case turnRight:
       turn = 0;
       console.log('stop right');
       break;
-    case 'w':
+    case accelerateKey:
       thrust = 0;
       console.log('stop accelerate');
       break;
-    case 's':
+    case deccelerateKey:
       breaks = 0;
-      console.log('stop decelerate');
+      console.log('stop deccelerate');
       break;
     default:
       console.log('stop invalid input');
