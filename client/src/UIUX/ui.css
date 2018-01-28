@@ -173,14 +173,18 @@
 
   .validate {
     background-color: #666666;
-    padding: 1vw;
+    padding: .5vw;
     width:40%;
     transform: translateX(3.5vw);
+    box-shadow: 0 5px #eecccc
   }
-  .validate:hover {background-color: #888888; transform: translateX(3.5vw);}
-  .validate:active {
+  .validate:hover {
     background-color: #888888;
-    box-shadow: 0 5px #666;
+    transform: translateX(3.5vw);
+    box-shadow: 0 5px #eecccc}
+  .validate:active {
+    background-color: #AAAAAA;
+    box-shadow: 0 5px #eecccc;
     transform: translateY(4px);
     transform: translateX(3.5vw);
   }
@@ -196,4 +200,5 @@
 
   .inputBox {
     background-color: #eecccc;
+    height: 8vw;
   }
