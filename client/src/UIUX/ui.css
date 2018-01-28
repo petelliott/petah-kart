@@ -6,6 +6,7 @@
 
   h1{
     font-family: 'Allerta Stencil', sans-serif;
+    text-align: center;
   }
 
   h1 span {
@@ -26,6 +27,10 @@
                  0 8px 0 transparent,
                  0 9px 0 transparent,
                  0 10px 10px rgba(0, 0, 0, .4);
+  }
+
+  body{
+    margin: 0;
   }
 
   @keyframes bounce {
@@ -73,6 +78,7 @@
   }
 
   .main-outer {
+    display: flex;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -84,7 +90,7 @@
     border-radius: 3px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);*/
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    top: 10vw;
+    top: 5vw;
     width: 100vw;
     left: 0vw;
     position: fixed;
@@ -113,16 +119,18 @@
     color: #fff;
   }
 
+  .hidden{
+    display: none;
+  }
+
   .big {
     font-size: 3vw;
-    width:20vw;
-    padding: 1% 34vw;
+    width:100%;
   }
 
   .small{
     font-size: 3vw;
-    width: 10vw;
-    padding: 1% 17vw;
+    width: 49%;
   }
 
   .join{background-color: #4CAF50;}
@@ -133,7 +141,7 @@
     transform: translateY(4px);
   }
 
-  .create{background-color: #b42f2f;}
+  .create{background-color: #b42f2f; margin: 3% 0px}
   .create:hover {background-color: #b91313}
   .create:active {
     background-color: #b91313;
@@ -143,7 +151,7 @@
 
   .settings{
     background-color: #5935bb;
-    margin: 0vw 0.5vw;
+    margin-left: 2%;
   }
   .settings:hover {background-color: #4c24b9;}
   .settings:active{
@@ -156,9 +164,9 @@
     background-color: #acacac;
     float: left;
   }
-  .credits:hover {background-color: #5e5e5e;}
+  .credits:hover {background-color: #8e8e8e;}
   .credits:active{
-    background-color: #5e5e5e;
+    background-color: #8e8e8e;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }

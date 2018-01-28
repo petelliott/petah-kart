@@ -8,7 +8,9 @@
   <title>PetahKart Racing</title>
   <meta name="description" content="TESTING THE UI">
   <meta name="author" content="Navras">
+
   <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" href="ui.css">
 
@@ -21,14 +23,15 @@
     <div class="content">
       <h1>
         <span>PETAHKART.racing</span>
-        </h1>
-      <br>
+      </h1>
       <div id="mainMenuButtons">
         <div id="joinCreateContainer">
           <div id="join" class="join big button" onclick="clickJoin()">Join Server</div>
-          <br><br>
+          <div id="inputKeyContainer" class="hidden big button">
+            <input id="keyIn">
+            <div id="confirmId" class="button" onclick="joinGame()">Validate</div>
+          </div>
           <div id="create" class="create big button" onclick="clickCreate()">Create Server</div>
-          <br><br>
           <div id="credits" class="credits small button" onclick="clickCredits()">Credits</div>
           <div id="settings" class="settings small button" onclick="clickSettings()">Settings</div>
         </div>
