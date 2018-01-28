@@ -18,12 +18,12 @@ window.addEventListener('load', () => {
   document.body.appendChild(app.view);
 
   PIXI.loader
-    .add("images/car_blue_1.png")
+    .add("res/images/car_blue_1.png")
     .load(setup);
 });
 
 function setup() {
-  test();
+  // test();
 }
 
 function test() {
@@ -59,7 +59,7 @@ function setCarPositions(cars) {
   cars.forEach((car) => {
     // Create a new car if it doesn't exist.
     if (!idsToSprites.has(car.id)) {
-      let sprite = new PIXI.Sprite(PIXI.loader.resources["images/car_blue_1.png"].texture);
+      let sprite = new PIXI.Sprite(PIXI.loader.resources["res/images/car_blue_1.png"].texture);
       sprite.x = car.x;
       sprite.y = car.y;
       sprite.vx = car.vx;
