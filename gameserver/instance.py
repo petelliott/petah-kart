@@ -1,5 +1,6 @@
 import json
 import time
+import threading
 
 LOOP_MIN_TIME = 0.06
 
@@ -19,7 +20,7 @@ class Instance:
             message = []
             for player in self.players:
                 # surface = self.map[player.car.x][player.car.y]
-                surface = (1.0, 1.0, 1.0)  # TODO get surface from map 
+                surface = (1.0, 1.0, 1.0)  # TODO get surface from map
                 player.car.update(surface)
                 message.append({
                     "velx": player.car.vx,
@@ -32,11 +33,11 @@ class Instance:
             for player in self.players:
                 player.write_message(json.dumps(message))
 
-            time.sleep(max(0, LOOP_MIN_TIME-(time.time()-t_start)))
+            time.sleep(max(0, LOOP_MIN_TIME - (time.time() - t_start)))
             t_start = time.time()
 
     def run_loop(self):
-        self.thread = threading.Thread(target=self.loop())
+        self.thread = threading.Thread(target=self.loop(), daemon=True)
         self.thread.start()
 
     def kill(self):

@@ -11,7 +11,7 @@ if __name__ == "__main__":
     ServerHandler = new_server_handler(instances)
 
     application = tornado.web.Application([
-        (r"/control/(^[/]*)", ServerHandler),
+        (r"/control/(?P<path>\w+)", ServerHandler),
         (r"/game/(^[/]*)", GameHandler)
     ])
 
