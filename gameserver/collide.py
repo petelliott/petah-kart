@@ -1,8 +1,8 @@
 import math
 
 PI = math.pi
-car_width = 10  # random number
-car_height = 10  # random number
+car_width = 130  # random number
+car_height = 130  # random number
 
 
 def rotate_pair(x, y, rads):
@@ -19,11 +19,11 @@ def corners_in_box(carx, cary, car_points):
     '''
     check to see if a point is in a box
     '''
-    ytop = (car_height // 2) + cary
-    ybottom = -(car_height // 2) + cary
+    ytop = (car_height / 2) + cary
+    ybottom = -(car_height / 2) + cary
 
-    xright = (car_width // 2) + carx
-    xleft = -(car_width // 2) + cary
+    xright = (car_width / 2) + carx
+    xleft = -(car_width / 2) + cary
     for i in car_points:
         if (i[0] <= xright) and (i[0] >= xleft) and (i[1] <= ytop) and (i[1] >= ybottom):
             # print('ding')
@@ -79,3 +79,9 @@ def is_bang(car1x, car1y, car1_rotation, car2x, car2y, car2_rotation):
             collision = True
 
     return collision
+
+def hit_cars(car1, car1):
+    '''
+    is_bang but with car objects instead 
+    '''
+    return True
