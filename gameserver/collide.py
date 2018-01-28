@@ -45,6 +45,7 @@ def is_bang(car1x, car1y, car1_rotation, car2x, car2y, car2_rotation):
 
     # if cars are close then proceeed
     if cars_close:
+        print(close)
         # car one in car 2
         tmpcar1 = rotate_about(car1x, car1y, -car1_rotation, car1x, car1y)
         tmpcar2 = rotate_about(car2x, car2y, -car1_rotation, car1x, car1y)
@@ -76,19 +77,20 @@ def is_bang(car1x, car1y, car1_rotation, car2x, car2y, car2_rotation):
         # print(point_list)
         if corners_in_box(tmpcar2[0], tmpcar2[1], point_list):
             collision = True
+            print("hit")
 
     return collision
 
 def findNewVelocity(car, collisionAngle):
-    carVelCollision = -sqrt(pow(car1.vel[x],2)+pow(car1.vel[y],2))*cos(car1.vtheta-collisionAngle);
-    carVelParallel = sqrt(pow(car1.vel[x],2)+pow(car1.vel[y],2))*sin(car1.vtheta-collisionAngle);
-    car.vtheta = atan(carVelParallel/carVelCollision)+collisionAngle;
-    car.vel = sqrt(pow(carVelCollision,2)+pow(carVelParallel,2));
+    carVelCollision = -sqrt(pow(car1.vel[x],2)+pow(car1.vel[y],2))*cos(car1.vtheta-collisionAngle)
+    carVelParallel = sqrt(pow(car1.vel[x],2)+pow(car1.vel[y],2))*sin(car1.vtheta-collisionAngle)
+    car.vtheta = atan(carVelParallel/carVelCollision)+collisionAngle
+    car.vel = sqrt(pow(carVelCollision,2)+pow(carVelParallel,2))
     return (car.vel,car.vtheta)
 
 def collide(car1, car2):
-    collisionAngle = atan((car1.pos[1]-car2.pos[1])/(car1.pos[0]-car2.pos[0]));
-    (car1.vel, car1.vtheta)=findNewVelocity(car1, collisionAngle);
-    (car2.vel, car2.vtheta)=findNewVelocity(car2, collisionAngle);
+    collisionAngle = atan((car1.pos[1]-car2.pos[1])/(car1.pos[0]-car2.pos[0]))
+    (car1.vel, car1.vtheta)=findNewVelocity(car1, collisionAngle)
+    (car2.vel, car2.vtheta)=findNewVelocity(car2, collisionAngle)
 
     pass
