@@ -10,13 +10,14 @@ class Instance:
         self.map = surface_map
         self.players = []
         self.alive = True
+        self.gamestate = {"finished": False}
 
     def add_player(self, player):
         self.players.append(player)
 
     def loop(self):
         t_start = time.time()
-        while self.alive:
+        while self.alive and not self.gamestate["finished"]:
             message = []
             for player in self.players:
                 surface = self.map[int(player.car.x)][int(player.car.y)]
@@ -36,6 +37,9 @@ class Instance:
 
             time.sleep(max(0, LOOP_MIN_TIME - (time.time() - t_start)))
             t_start = time.time()
+        if self.gamestate["finished"]:
+            for player in self.players:
+                player.write_message('{"type":"gameOver"}')
 
     def run_loop(self):
         self.thread = threading.Thread(target=self.loop, daemon=True)

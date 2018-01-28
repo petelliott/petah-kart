@@ -17,6 +17,10 @@ BREAK_STATE = False
 
 class Car:
     def __init__(self, x, y, theta):
+        # for game state
+        self.currentlap = {}
+        self.lapcount = 0
+        # for physics
         self.last_time = time.time()
 
         self.x = x

@@ -9,6 +9,7 @@ class MapLoader:
     and allows access to them as a 2d array of surface tuples
     repeated file acesses are cached
     """
+
     def __init__(self, map_dir, mapper):
         self.map_dir = map_dir
         self.preload = {}
@@ -28,6 +29,10 @@ class MapLoader:
                 array.append([])
                 for y in range(h):
                     array[x].append(self.mapper[int_data[x * y]])
+            checkpoints = []
+            impassables = []
+            map_data = {"tiles": array, "checkpoints": checkpoints,
+                        "impassables": impassables}
 
             self.preload[name] = array
         return self.preload[name]
