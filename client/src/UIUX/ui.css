@@ -256,27 +256,34 @@ body {
 .options {
   background-color: #b91313;
   height: 8vw;
+  display:flex;
+  flex-flow: column nowrap;
 }
 
 .titles {
   height:35%;
   margin-left: (1%);
-  margin-right: (49%);
+  margin-right: (99%);
   font-size: 14px;
-  display: inline-block;
-  text-align: center;
+  display:flex;
+  flex-flow: row nowrap;
 }
 
 .mapName {
-  text-align: left;
+
 }
 
 .mxPlr {
-  box-sizing: border-box;
+
 }
 
 .options {
-
+  display: flex;
+  flex-flow: row nowrap;
+  height:65%;
+  margin-left: (1%);
+  margin-right: (99%);
+  font-size: 14px;
 }
 
 .leftarrow {
