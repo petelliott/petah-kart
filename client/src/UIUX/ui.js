@@ -50,18 +50,19 @@ function createGame() {
 function clickJoin() {
   document.getElementById('join').classList.add('hidden');
   document.getElementById('inputKeyContainer').classList.remove('hidden');
-  document.getElementById('keyId').focus();
+  document.getElementById('keyIn').value="";
+  document.getElementById('keyIn').focus();
   document.getElementById('keyIn').addEventListener('keydown', (event) => {
     let key = event.key;
     console.log(key);
     if (key === 'Enter') {
       validate();
     }
-  console.log('join');
   }, false);
 }
 
 function validate() {
+  console.log("  Validating...");
   const gameId = document.getElementById('keyIn').value;
   const xhr = new XMLHttpRequest();
   xhr.open('GET', `${webServerLocation}/game/${gameId}`, true); // tyoe, location, isAsync
@@ -71,6 +72,7 @@ function validate() {
         joinGame(gameId);
       } else {
         // TODO: not valid
+
       }
     }
   };
@@ -101,7 +103,6 @@ function clickSettings() {
 }
 
 window.addEventListener('keydown', (event) => {
-  console.log("Hello");
   let key = event.key;
   console.log(key);
   if (key === 'Escape') {
