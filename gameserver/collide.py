@@ -79,14 +79,16 @@ def is_bang(car1x, car1y, car1_rotation, car2x, car2y, car2_rotation):
 
     return collision
 
-
-def hit_cars(car1, car2):
-    '''
-    is_bang but with car objects instead
-    '''
-    return is_bang(car1.pos[0], car1.pos[1], car1.theta, car2.pos[0], car2.pos[1], car2.theta)
-
+def findNewVelocity(car, collisionAngle):
+    carVelCollision = -sqrt(pow(car1.vel[x],2)+pow(car1.vel[y],2))*cos(car1.vtheta-collisionAngle);
+    carVelParallel = sqrt(pow(car1.vel[x],2)+pow(car1.vel[y],2))*sin(car1.vtheta-collisionAngle);
+    car.vtheta = atan(carVelParallel/carVelCollision)+collisionAngle;
+    car.vel = sqrt(pow(carVelCollision,2)+pow(carVelParallel,2));
+    return (car.vel,car.vtheta)
 
 def collide(car1, car2):
-    """Applies the force of collisions on cars"""
+    collisionAngle = atan((car1.pos[1]-car2.pos[1])/(car1.pos[0]-car2.pos[0]));
+    (car1.vel, car1.vtheta)=findNewVelocity(car1, collisionAngle);
+    (car2.vel, car2.vtheta)=findNewVelocity(car2, collisionAngle);
+
     pass
