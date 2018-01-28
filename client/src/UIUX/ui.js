@@ -49,10 +49,24 @@ function createGame() {
 function clickJoin() {
   document.getElementById('join').classList.add('hidden');
   document.getElementById('inputKeyContainer').classList.remove('hidden');
-  console.log('join');
+  document.getElementById('keyIn').value="";
+  document.getElementById('keyIn').focus();
+  document.getElementById('keyIn').addEventListener('keydown', (event) => {
+    let key = event.key;
+    console.log(key);
+    if (key === 'Enter') {
+      validate();
+    }
+  }, false);
+}
+
+function loseFocusJoin(){
+  document.getElementById('join').classList.remove('hidden');
+  document.getElementById('inputKeyContainer').classList.add('hidden');
 }
 
 function validate() {
+  console.log("  Validating...");
   const gameId = document.getElementById('keyIn').value;
   const xhr = new XMLHttpRequest();
   xhr.open('GET', `${webServerLocation}/game/${gameId}`, true); // tyoe, location, isAsync
@@ -62,17 +76,26 @@ function validate() {
         joinGame(gameId);
       } else {
         // TODO: not valid
+
       }
     }
   };
   xhr.send();
-
 }
 
 
 function clickCreate() {
   console.log('create');
-  createGame();
+  document.getElementById('create').classList.add('hidden');
+  document.getElementById('gameOptions').classList.remove('hidden');
+  document.getElementById('keyIn').addEventListener('keydown', (event) => {
+    let key = event.key;
+    console.log(key);
+    if (key === 'Enter') {
+      newGame(map, 3);
+    }
+  console.log('join');
+  }, false);
 }
 
 function clickCredits() {
@@ -82,3 +105,16 @@ function clickCredits() {
 function clickSettings() {
   console.log('settings');
 }
+
+window.addEventListener('keydown', (event) => {
+  let key = event.key;
+  console.log(key);
+  if (key === 'Escape') {
+    console.log("switch");
+    document.getElementById('inputKeyContainer').classList.add('hidden');
+    document.getElementById('join').classList.remove('hidden');
+
+    document.getElementById('gameOptions').classList.add('hidden');
+    document.getElementById('create').classList.remove('hidden');
+  }
+}, false);

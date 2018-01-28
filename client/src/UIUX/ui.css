@@ -50,7 +50,7 @@
   }
 
   .background-image {
-    background-image: url('resources/images/maps/Map1.png');
+    background-image: url('resources/images/maps/Map4.png');
     background-attachment: fixed;
     background-size: cover;
     -webkit-animation: backgroundScroll 15s linear 1;
@@ -161,44 +161,45 @@
   }
 
   .credits{
-    background-color: #acacac;
+    background-color: #A6A6B2;
     float: left;
   }
-  .credits:hover {background-color: #8e8e8e;}
+  .credits:hover {background-color: #BDBECC;}
   .credits:active{
-    background-color: #8e8e8e;
+    background-color: #BDBECC;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
 
-  .validate {
-    background-color: #666666;
+  .subButton {
+    background-color: #A6A6B2;
     padding: .5vw;
-    width:40%;
+    width: 40%;
     transform: translateX(3.5vw);
-    box-shadow: 0 5px #eecccc
   }
-  .validate:hover {
-    background-color: #888888;
-    transform: translateX(3.5vw);
-    box-shadow: 0 5px #eecccc}
-  .validate:active {
-    background-color: #AAAAAA;
-    box-shadow: 0 5px #eecccc;
+  .subButton:hover {
+    background-color: #BDBECC;
+    transform: translateX(3.5vw);}
+  .subButton:active {
+    background-color: #DCDDED;
+
     transform: translateY(4px);
     transform: translateX(3.5vw);
   }
 
+  .validate{box-shadow:  0 5px #1fbb1f;}
+
   .inputID {
-    background-color: #666666;
-    transform: translateX(-7vw);
+    background-color: #A6A6B2;
+    transform: translate(-7vw, -1vw);
     color: #FFFFFF;
-    width: 55%;
-    padding: 1vw 1vw;
+    width: 58%;
+    padding: 1.2vw 1vw;
     border-radius: 15px;
+    font-size: 20px;
   }
 
   .inputBox {
-    background-color: #eecccc;
+    background-color: #1fbb1f;
     height: 8vw;
   }
