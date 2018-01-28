@@ -28,7 +28,7 @@ class Instance:
                     "posx": player.car.x,
                     "posy": player.car.y,
                     "angle": player.car.theta,
-                    "id":   id(player)
+                    "id":   id(player),
                     "type": "update"
                 })
 
