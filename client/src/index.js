@@ -25,8 +25,7 @@ const TILE_WIDTH = 130;
 const TILE_HEIGHT = 130;
 const SPRITESHEET_WIDTH = 31;
 const SPRITESHEET_HEIGHT = 15;
-
-let mapSprite;
+let backgroundSprite;
 // Loads the map and the car.
 // Creates a spritesheet using the map.
 function loadEverything() {
@@ -49,11 +48,7 @@ function loadEverything() {
           TILE_WIDTH,
           TILE_HEIGHT
         );
-
-        mapSprite = new PIXI.Sprite(new PIXI.Texture(spritesheet, rectangle));
-        mapSprite.anchor.x = 1;
-        mapSprite.anchor.y = 1;
-        return mapSprite;
+        return new PIXI.Sprite(new PIXI.Texture(spritesheet, rectangle));
       }
 
       // Loads the map from the json file.
@@ -64,16 +59,16 @@ function loadEverything() {
           const mapWidth = json.width;
           // Converts from tile ids to sprites.
           // Groups the tile sprites into one background sprite.
-          let background = new PIXI.Container();
+          backgroundSprite = new PIXI.Container();
           tiles.forEach((tile, index) => {
             let sprite = createTile(tile - 1);
             let col = index % mapWidth;
             let row = Math.floor(index / mapWidth);
             sprite.x = col * 128;
             sprite.y = row * 128;
-            background.addChild(sprite);
+            backgroundSprite.addChild(sprite);
           });
-          app.stage.addChild(background);
+          app.stage.addChild(backgroundSprite);
         })
         .catch(error => console.log(error));
     });
