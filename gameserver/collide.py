@@ -51,10 +51,10 @@ def is_bang(car1x, car1y, car1_rotation, car2x, car2y, car2_rotation):
         tmpcar1 = rotate_about(car1x, car1y, -car1_rotation, car1x, car1y)
         tmpcar2 = rotate_about(car2x, car2y, -car1_rotation, car1x, car2x)
         point_list = []
-        point_list.append()
-        point_list.append()
-        point_list.append()
-        point_list.append()
+        point_list.append(list(tmpcar2[0]+car_width, tmpcar2[1]-car_height))
+        point_list.append(list(tmpcar2[0]+car_width, tmpcar2[1]+car_height))
+        point_list.append(list(tmpcar2[0]-car_width, tmpcar2[1]-car_height))
+        point_list.append(list(tmpcar2[0]-car_width, tmpcar2[1]+car_height))
         if corners_in_box(tmpcar1[0], tmpcar1[1], point_list):
             collision = True
 
@@ -62,10 +62,10 @@ def is_bang(car1x, car1y, car1_rotation, car2x, car2y, car2_rotation):
         tmpcar2 = rotate_about(car2x, car2y, -car2_rotation, car2x, car2y)
         tmpcar1 = rotate_about(car1x, car1y, -car2_rotation, car2x, car2x)
         point_list = []
-        point_list.append()
-        point_list.append()
-        point_list.append()
-        point_list.append()
+        point_list.append(list(tmpcar1[0]+car_width, tmpcar1[1]-car_height))
+        point_list.append(list(tmpcar1[0]+car_width, tmpcar1[1]+car_height))
+        point_list.append(list(tmpcar1[0]-car_width, tmpcar1[1]-car_height))
+        point_list.append(list(tmpcar1[0]-car_width, tmpcar1[1]+car_height))
         if corners_in_box(tmpcar2[0], tmpcar2[1], point_list):
             collision = True
 
