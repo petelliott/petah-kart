@@ -99,7 +99,6 @@ function clickCreate() {
 }
 
 function clickCredits() {
-  alert("Credits:\nClient Team: Jarrett Yu, Navras Kamal, Kyle Hennig\nCommunications Team: Jacob Rechard, Alex Rostron\nServer Team: Chris Pontikes, Peter Elliott, Joshua Derkson, Brighton Greet");
   console.log('credits');
 }
 
@@ -108,13 +107,21 @@ function clickSettings() {
 }
 
 /* Open */
-function openNav() {
-    document.getElementById("myNav").style.height = "100%";
+function openSettings() {
+    document.getElementById("settingsNav").style.height = "100%";
 }
 
 /* Close */
-function closeNav() {
-    document.getElementById("myNav").style.height = "0%";
+function closeSettings() {
+    document.getElementById("settingsNav").style.height = "0%";
+}
+
+function openCredits() {
+    document.getElementById("creditsNav").style.height = "100%";
+}
+
+function closeCredits() {
+    document.getElementById("creditsNav").style.height = "0%";
 }
 
 window.addEventListener('keydown', (event) => {
@@ -128,6 +135,7 @@ window.addEventListener('keydown', (event) => {
     document.getElementById('gameOptions').classList.add('hidden');
     document.getElementById('create').classList.remove('hidden');
 
-    closeNav();
+    closeSettings();
+    closeCredits();
   }
 }, false);
