@@ -229,7 +229,10 @@ function closeCredits() {
 }
 
 function keybind() {
-  
+  localStorage.setItem("storedLeft",document.getElementById("turnLeft").value);
+  localStorage.setItem("storedRight",document.getElementById("turnRight").value);
+  localStorage.setItem("storedAccel",document.getElementById("accelerateKey").value);
+  localStorage.setItem("storedBrake",document.getElementById("deccelerateKey").value);
 }
 
 window.addEventListener('keydown', (event) => {
