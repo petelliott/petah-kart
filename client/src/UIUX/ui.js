@@ -42,7 +42,7 @@ function newGame(mapId, playerCount) {
 
 // player chooses map, max players and passes into newgame
 function createGame() {
-  newGame('map.json', 3);
+  newGame('Map0.json', 3);
 }
 
 // The functions for the UI and page changes

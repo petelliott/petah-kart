@@ -10,6 +10,7 @@ class Instance:
         self.map = surface_map
         self.players = []
         self.alive = True
+        self.state = {}
 
     def add_player(self, player):
         self.players.append(player)
