@@ -17,6 +17,7 @@ window.addEventListener('load', () => {
     if(eventData.type == "ID"){
         id = eventData.id;
     }else if (eventData.type == "KILL"){
+        id = eventData.id;
         removeCar(id);
     }else{
         setCarPositions(eventData);
