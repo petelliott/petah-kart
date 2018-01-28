@@ -66,8 +66,8 @@ function setCarPositions(cars) {
     if (!idsToSprites.has(car.id)) {
       let sprite = new PIXI.Sprite(PIXI.loader.resources["res/images/car_blue_1.png"].texture);
       console.log(sprite);
-      sprite.x = car.posx;
-      sprite.y = car.posy;
+      sprite.x = car.posx * 20;
+      sprite.y = car.posy * 20;
       sprite.vx = car.velx;
       sprite.vy = car.vely;
       sprite.rotation = car.angle;
@@ -78,8 +78,8 @@ function setCarPositions(cars) {
     }
     // Otherwise, update the location of the old car.
     let carSprite = idsToSprites.get(car.id);
-    carSprite.x = car.posx;
-    carSprite.y = car.posy;
+    carSprite.x = car.posx * 20;
+    carSprite.y = car.posy * 20;
     carSprite.vx = car.velx;
     carSprite.vy = car.vely;
     carSprite.rotation = car.angle;
