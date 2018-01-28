@@ -51,7 +51,7 @@ function clickJoin() {
   document.getElementById('inputKeyContainer').classList.remove('hidden');
   document.getElementById('gameOptions').classList.add('hidden');
   document.getElementById('create').classList.remove('hidden');
-  document.getElementById('keyIn').value="";
+  document.getElementById('keyIn').value = "";
   document.getElementById('keyIn').focus();
   document.getElementById('keyIn').addEventListener('keydown', (event) => {
     let key = event.key;
@@ -62,7 +62,7 @@ function clickJoin() {
   }, false);
 }
 
-function loseFocusJoin(){
+function loseFocusJoin() {
   document.getElementById('join').classList.remove('hidden');
   document.getElementById('inputKeyContainer').classList.add('hidden');
 }
@@ -98,11 +98,16 @@ function clickCreate() {
     if (key === 'Enter') {
       newGame(map, 3);
     }
-  console.log('join');
+    console.log('join');
   }, false);
 }
 
 function clickCredits() {
+  document.getElementById('inputKeyContainer').classList.add('hidden');
+  document.getElementById('join').classList.remove('hidden');
+
+  document.getElementById('gameOptions').classList.add('hidden');
+  document.getElementById('create').classList.remove('hidden');
   alert("Credits:\nClient Team: Jarrett Yu, Navras Kamal, Kyle Hennig\nCommunications Team: Jacob Rechard, Alex Rostron\nServer Team: Chris Pontikes, Peter Elliott, Joshua Derkson, Brighton Greet");
   console.log('credits');
 }
@@ -113,12 +118,17 @@ function clickSettings() {
 
 /* Open */
 function openNav() {
-    document.getElementById("myNav").style.height = "100%";
+  document.getElementById('inputKeyContainer').classList.add('hidden');
+  document.getElementById('join').classList.remove('hidden');
+
+  document.getElementById('gameOptions').classList.add('hidden');
+  document.getElementById('create').classList.remove('hidden');
+  document.getElementById("myNav").style.height = "100%";
 }
 
 /* Close */
 function closeNav() {
-    document.getElementById("myNav").style.height = "0%";
+  document.getElementById("myNav").style.height = "0%";
 }
 
 window.addEventListener('keydown', (event) => {
