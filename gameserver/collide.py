@@ -69,4 +69,4 @@ def is_bang(car1x, car1y, car1_rotation, car2x, car2y, car2_rotation):
         if corners_in_box(tmpcar2[0], tmpcar2[1], point_list):
             collision = True
 
-    return collosion
+    return collision
