@@ -263,3 +263,13 @@
       right: 35px;
     }
   }
+
+  .confirm{
+    background-color: #A6A6B2;
+  }
+  .confirm:hover {background-color: #BDBECC;}
+  .confirm:active{
+    background-color: #BDBECC;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }

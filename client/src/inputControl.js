@@ -1,11 +1,11 @@
 let turn = 0;
 let thrust = 0;
-let breaks = 0;
+let brake = 0;
 const turnAngle = 0.0872665;
 
 window.addEventListener('keydown', (event) => {
   const keyID = event.key;
-  const oldStatus = [turn, thrust, breaks];
+  const oldStatus = [turn, thrust, brake];
   switch (keyID) {
     case turnLeft:
       turn = -turnAngle;
@@ -20,22 +20,22 @@ window.addEventListener('keydown', (event) => {
       console.log('accelerate');
       break;
     case deccelerateKey:
-      breaks = 1;
+      brake = 1;
       console.log('deccelerate');
       break;
     default:
       console.log('invalid input');
   }
-  if (oldStatus[0] !== turn || oldStatus[1] !== thrust || oldStatus[2] !== breaks) {
+  if (oldStatus[0] !== turn || oldStatus[1] !== thrust || oldStatus[2] !== brake) {
     console.log('Sent!');
-    sendUpdate(thrust, turn, breaks);
+    sendUpdate(thrust, turn, brake);
   }
-  console.log(`${turn.toString()}, ${thrust.toString()}, ${breaks.toString()}`);
+  console.log(`${turn.toString()}, ${thrust.toString()}, ${brake.toString()}`);
 }, false);
 
 window.addEventListener('keyup', (event) => {
   const keyID = event.key;
-  const oldStatus = [turn, thrust, breaks];
+  const oldStatus = [turn, thrust, brake];
   switch (keyID) {
     case turnLeft:
       turn = 0;
@@ -50,15 +50,15 @@ window.addEventListener('keyup', (event) => {
       console.log('stop accelerate');
       break;
     case deccelerateKey:
-      breaks = 0;
+      brake = 0;
       console.log('stop deccelerate');
       break;
     default:
       console.log('stop invalid input');
   }
-  if (oldStatus[0] !== turn || oldStatus[1] !== thrust || oldStatus[2] !== breaks) {
+  if (oldStatus[0] !== turn || oldStatus[1] !== thrust || oldStatus[2] !== brake) {
     console.log('sent!');
-    sendUpdate(thrust, turn, breaks);
+    sendUpdate(thrust, turn, brake);
   }
-  console.log(`${turn.toString()}, ${thrust.toString()}, ${breaks.toString()}`);
+  console.log(`${turn.toString()}, ${thrust.toString()}, ${brake.toString()}`);
 }, false);

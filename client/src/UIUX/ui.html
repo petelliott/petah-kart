@@ -26,11 +26,15 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeSettings()">&times;</a>
         <!-- Overlay content -->
         <div class="overlay-content">
-          <div><font color=#FFFFFF>Keybinding<br></div>
-          <input id="keybindLeft" class="inputKey" value='a'> Left
-          <input id="keybindRight" class="inputKey" value='d' color="#FFFFFF">Right
-          <input id="keybindAccel" class="inputKey" value='w' color="#FFFFFF">Accel
-          <input id="keybindDeccel" class="inputKey" value='s' color="#FFFFFF">Brake
+          <div><font color=#FFFFFF>Keybinding<br> <br></div>
+            <form action="/action_page.php">
+              Left: <input type="text" name="turnLeft" value="a"> <br> <br>
+              Right:<input type="text" name="turnRight" value="d"> <br> <br>
+              Accel:<input type="text" name="accelerateKey" value="d"> <br> <br>
+              Brake:<input type="text" name="deccelerateKey" value="d"> <br> <br>
+              <div id='confirm' class ='confirm button' onclick='keybind()'>Confirm</div>
+            </form>
+          <script>keybind();</script>
         </font>
         </div>
       </div>
@@ -61,6 +65,7 @@
           </div>
           <div id="credits" class="credits small button" onclick="openCredits()">Credits</div>
           <span id="settings" class="settings small button" onclick="openSettings()">Settings</span>
+
           <!--span id="settings" class="settings small button" onclick="openNav()">&#9776; open</span>
         </div>
       </div>
