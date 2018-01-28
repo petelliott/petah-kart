@@ -49,6 +49,8 @@ function createGame() {
 function clickJoin() {
   document.getElementById('join').classList.add('hidden');
   document.getElementById('inputKeyContainer').classList.remove('hidden');
+  document.getElementById('gameOptions').classList.add('hidden');
+  document.getElementById('create').classList.remove('hidden');
   document.getElementById('keyIn').value="";
   document.getElementById('keyIn').focus();
   document.getElementById('keyIn').addEventListener('keydown', (event) => {
@@ -86,6 +88,8 @@ function validate() {
 
 function clickCreate() {
   console.log('create');
+  document.getElementById('join').classList.remove('hidden');
+  document.getElementById('inputKeyContainer').classList.add('hidden');
   document.getElementById('create').classList.add('hidden');
   document.getElementById('gameOptions').classList.remove('hidden');
   document.getElementById('keyIn').addEventListener('keydown', (event) => {
