@@ -91,7 +91,7 @@
     top: 20%;
     width: 100%;
     left: 25%;
-    position: absolute;
+    position: fixed;
     margin-left: 20px;
     margin-right: 20px;
     right: 0;
@@ -143,21 +143,24 @@
     transform: translateY(4px);
   }
 
-  .credits{background-color: #acacac;}
-  .credits:hover {background-color: #5e5e5e;}
-  .credits:active{
-    background-color: #5e5e5e;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
-  
   .settings{
     background-color: #5935bb;
-    float: left;
+    margin: 0% 0.5%;
   }
   .settings:hover {background-color: #4c24b9;}
   .settings:active{
     background-color: #4c24b9;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  
+  .credits{
+    background-color: #acacac;
+    float: left;
+  }
+  .credits:hover {background-color: #5e5e5e;}
+  .credits:active{
+    background-color: #5e5e5e;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
