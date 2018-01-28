@@ -75,7 +75,6 @@ function validate() {
     }
   };
   xhr.send();
-
 }
 
 
