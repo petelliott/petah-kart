@@ -99,11 +99,22 @@ function clickCreate() {
 }
 
 function clickCredits() {
+  alert("Credits:\nClient Team: Jarrett Yu, Navras Kamal, Kyle Hennig\nCommunications Team: Jacob Rechard, Alex Rostron\nServer Team: Chris Pontikes, Peter Elliott, Joshua Derkson, Brighton Greet");
   console.log('credits');
 }
 
 function clickSettings() {
   console.log('settings');
+}
+
+/* Open */
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+}
+
+/* Close */
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
 }
 
 window.addEventListener('keydown', (event) => {
