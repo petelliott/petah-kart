@@ -8,7 +8,7 @@ ACCEL_CURVE = 10
 MASS = 1
 DUMB_CONST = 0.1
 TURNCONST = 1
-BRAKE_FORCE = 6
+BRAKE_FORCE = 15
 
 
 class Car:
@@ -38,12 +38,8 @@ class Car:
         self.brakes = brakes
 
     def throttle_curve(self):
-        ex = (1 / (self.throttle + 1)) * ACCEL_CURVE
-        if ex > MAX_SPEED:
-            return MAX_SPEED
-        else:
-            return ex
-
+        return MAX_SPEED - (1 / (self.throttle + 1)) * MAX_SPEED
+ 
     def update(self, surface, otherCars):  # surface: (us, uk, rr)
         self.mutex.acquire()
 
