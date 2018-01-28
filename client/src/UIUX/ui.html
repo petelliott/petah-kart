@@ -2,91 +2,100 @@
 
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8">
 
-  <title>PetahKart Racing</title>
-  <meta name="description" content="TESTING THE UI2">
-  <meta name="author" content="Navras">
+    <title>PetahKart Racing</title>
+    <meta name="description" content="TESTING THE UI2">
+    <meta name="author" content="Navras">
 
-  <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <link rel="stylesheet" href="ui.css">
+    <link rel="stylesheet" href="ui.css">
 
-  <script src="ui.js"></script>
-</head>
+    <script src="ui.js"></script>
+  </head>
 
-<body>
-  <div id="bg" class="background-image"></div>
-  <div class="main-outer">
-    <div class="content">
-      <div id="settingsNav" class="overlay">
-        <!-- Button to close the overlay navigation -->
-        <a href="javascript:void(0)" class="closebtn" onclick="closeSettings()">&times;</a>
-        <!-- Overlay content -->
-        <div class="overlay-content">
-          <div>
-            <font color=#FFFFFF>Keybinding<br> <br></div>
-          <form action="/action_page.php">
-            Left: <input type="text" id="turnLeft" value="a"> <br> <br> Right:
-            <input type="text" id="turnRight" value="d"> <br> <br> Accel:
-            <input type="text" id="accelerateKey" value="w"> <br> <br> Brake:
-            <input type="text" id="deccelerateKey" value="s"> <br> <br>
-            <div id='confirm' class='confirm button' onclick='keybind()'>Confirm</div>
-          </form>
-          <script>
-            keybind();
-          </script>
-          </font>
+  <body>
+    <div id="bg" class="background-image"></div>
+    <div class="main-outer">
+      <div class="content">
+        <div id="settingsNav" class="overlay">
+          <!-- Button to close the overlay navigation -->
+          <a href="javascript:void(0)" class="closebtn" onclick="closeSettings()">&times;</a>
+          <!-- Overlay content -->
+          <div class="overlay-content">
+            <div>
+              <font color=#FFFFFF>Keybinding<br> <br></div>
+            <form action="/action_page.php">
+              Left: <input type="text" id="turnLeft" value="a"> <br> <br> Right:
+              <input type="text" id="turnRight" value="d"> <br> <br> Accel:
+              <input type="text" id="accelerateKey" value="w"> <br> <br> Brake:
+              <input type="text" id="deccelerateKey" value="s"> <br> <br>
+              <div id='confirm' class='confirm button' onclick='keybind()'>Confirm</div>
+            </form>
+            <script>
+              keybind();
+            </script>
+            </font>
+          </div>
         </div>
-      </div>
-      <div id="creditsNav" class="overlay">
-        <!-- Button to close the overlay navigation -->
-        <a href="javascript:void(0)" class="closebtn" onclick="closeCredits()">&times;</a>
-        <!-- Overlay content -->
-        <div class="overlay-content">
-          <p>
-            <font color=#FFFFFF>Credits:<br><br> Client Team: Jarrett Yu, Navras Kamal, Kyle Hennig<br><br> Communications Team: Jacob Rechard, Alex Rostron<br>
-              <Br> Server Team: Chris Pontikes, Peter Elliott, Joshua Derkson, Brighton Greet</font>
-          </p>
+        <div id="creditsNav" class="overlay">
+          <!-- Button to close the overlay navigation -->
+          <a href="javascript:void(0)" class="closebtn" onclick="closeCredits()">&times;</a>
+          <!-- Overlay content -->
+          <div class="overlay-content">
+            <p>
+              <font color=#FFFFFF>Credits:<br><br> Client Team: Jarrett Yu, Navras Kamal, Kyle Hennig<br><br> Communications Team: Jacob Rechard, Alex Rostron<br>
+                <Br> Server Team: Chris Pontikes, Peter Elliott, Joshua Derkson, Brighton Greet</font>
+            </p>
+          </div>
         </div>
-      </div>
-      <h1>
+        <h1>
         <span>PETAHKART.racing</span>
       </h1>
-      <div id="mainMenuButtons">
-        <div id="joinCreateContainer">
-          <div id="join" class="join big button" onclick="clickJoin()">Join Server</div>
-          <div id="inputKeyContainer" class="hidden inputBox big button">
-            <input id="keyIn" class="inputID">
-            <div id="confirmId" class="validate subButton button" onclick="validate()">Validate</div>
-          </div>
-          <div id="create" class="create big button" onclick="clickCreate()">Create Server</div>
-          <div id="gameOptions" class="hidden options big button">
-            <div id="titles" class="titles">
-
-              <div class"mapName">Selected Course</div>
-              <div class"mxPlr">Max Players (1-10)</div>
-
+        <div id="mainMenuButtons">
+          <div id="joinCreateContainer">
+            <div id="join" class="join big button" onclick="clickJoin()">Join Server</div>
+            <div id="inputKeyContainer" class="hidden inputBox big button">
+              <input id="keyIn" class="inputID">
+              <div id="confirmId" class="validate subButton button" onclick="validate()">Validate</div>
             </div>
-            <div id="options" class="options">
+            <div id="create" class="create big button" onclick="clickCreate()">Create Server</div>
+            <div id="gameOptions" class="hidden options big button">
 
-              <div id="prevMap" class="leftarrow" onclick="modifyMap(false)"><i class="fa fa-angle-left"></i></div>
-              <div id="currentMap" class="currentMap">Simple Square</div>
-              <div id="nextMap" class="rightarrow" onclick="modifyMap(true)"><i class="fa fa-angle-right"></i></div>
+              <div id="options" class="options">
 
-              <div id="subPlayer" class="leftarrow" onclick="modifyPlr(false)"><i class="fa fa-angle-left"></i></div>
-              <div id="currentPlrMax" class="currentPlrMax">1</div>
-              <div id="addPlayer" class="rightarrow" onclick="modifyPlr(true)"><i class="fa fa-angle-right"></i></div>
+                <div class="hor drift" id="bset">
+                  <div class="vert cent">
+                    <div class "mapName">Selected Course</div>
+                    <div class="hor cent">
+                      <div id="prevMap" class="leftarrow" onclick="modifyMap(false)"><i class="fa fa-angle-left"></i></div>
+                      <div id="currentMap" class="currentMap">Simple Square</div>
+                      <div id="nextMap" class="rightarrow" onclick="modifyMap(true)"><i class="fa fa-angle-right"></i></div>
+                    </div>
+                  </div>
 
-              <div id="confirmOptions" class="confirm button" onclick="newGame(mapSelect(map), numPlayers)">Confirm</div>
+                  <div class="vert cent">
+                    <div class "mxPlr">Max Players (1-10)</div>
+                    <div class="hor cent">
+                      <div id="subPlayer" class="leftarrow" onclick="modifyPlr(false)"><i class="fa fa-angle-left"></i></div>
+                      <div id="currentPlrMax" class="currentPlrMax">1</div>
+                      <div id="addPlayer" class="rightarrow" onclick="modifyPlr(true)"><i class="fa fa-angle-right"></i></div>
+                    </div>
+                  </div>
+
+                </div>
+
+
+                <div id="confirmOptions" class="confirm button" onclick="newGame(mapSelect(map), numPlayers)">Confirm</div>
+              </div>
             </div>
-          </div>
-          <div id="credits" class="credits small button" onclick="openCredits()">Credits</div>
-          <span id="settings" class="settings small button" onclick="openSettings()">Settings</span>
+            <div id="credits" class="credits small button" onclick="openCredits()">Credits</div>
+            <span id="settings" class="settings small button" onclick="openSettings()">Settings</span>
 
-          <!--span id="settings" class="settings small button" onclick="openNav()">&#9776; open</span>
+            <!--span id="settings" class="settings small button" onclick="openNav()">&#9776; open</span>
         </div>
       </div>
     </div>
