@@ -2,13 +2,13 @@ const webServerLocation = 'http://localhost:8888';
 // JavaScript code for the User Interface when first entering the game
 // takes the game ID from newgame as a callback and displays it
 function displayId(gameId) {
-
+  console.log(gameId);
 }
 // The functions for the UI and page changes
 // joingame
 // enter game ID to join that game
 function joinGame(gameId) {
-  window.location.href = `${webServerLocation}/${gameId}`;
+  window.location.href = `${webServerLocation}/game/${gameId}`;
 }
 
 // player enters the game ID to join here
@@ -55,7 +55,6 @@ function clickJoin() {
 
 function clickCreate() {
   console.log('create');
-  newGame(0, 3);
   createGame();
 }
 

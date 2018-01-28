@@ -63,6 +63,20 @@ class NewGameHandler(tornado.web.RequestHandler):
                          data=json.dumps({'map': data["map"], "player_count": data["player_count"]}))
         print(r)
 
+    def options(self):
+        self.set_header("Access-Control-Allow-Origin", "*")
+        self.set_header("Access-Control-Allow-Headers", "Content-type")
+        self.set_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
+        self.set_status(204)
+        self.finish()
+
+
+class StaticUIHandler(tornado.web.StaticFileHandler):
+    def parse_url_path(self, url_path):
+        if not url_path or url_path.endswith('/'):
+            url_path = url_path + 'ui.html'
+        return url_path
+
 
 def getRandomID(gameLocations, N=3):
     a = ''.join([random.choice(string.ascii_lowercase + string.digits)
