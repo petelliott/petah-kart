@@ -275,6 +275,7 @@ function keybind() {
   localStorage.setItem("storedRight", document.getElementById("turnRight").value);
   localStorage.setItem("storedAccel", document.getElementById("accelerateKey").value);
   localStorage.setItem("storedBrake", document.getElementById("deccelerateKey").value);
+  closeSettings();
 }
 
 window.addEventListener('keydown', (event) => {
