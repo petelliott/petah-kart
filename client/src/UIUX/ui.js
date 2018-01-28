@@ -50,6 +50,7 @@ function createGame() {
 function clickJoin() {
   document.getElementById('join').classList.add('hidden');
   document.getElementById('inputKeyContainer').classList.remove('hidden');
+  document.getElementById('keyId').focus();
   document.getElementById('keyIn').addEventListener('keydown', (event) => {
     let key = event.key;
     console.log(key);

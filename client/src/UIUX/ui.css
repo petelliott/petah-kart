@@ -191,9 +191,9 @@
 
   .inputID {
     background-color: #A6A6B2;
-    transform: translateX(-7vw);
+    transform: translate(-7vw, -1vw);
     color: #FFFFFF;
-    width: 55%;
+    width: 58%;
     padding: 1vw 1vw;
     border-radius: 15px;
   }
