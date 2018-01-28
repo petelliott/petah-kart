@@ -49,7 +49,14 @@ function createGame() {
 function clickJoin() {
   document.getElementById('join').classList.add('hidden');
   document.getElementById('inputKeyContainer').classList.remove('hidden');
+  document.getElementById('keyIn').addEventListener('keydown', (event) => {
+    let key = event.key;
+    console.log(key);
+    if (key === 'Enter') {
+      validate();
+    }
   console.log('join');
+  }, false);
 }
 
 function validate() {
@@ -71,3 +78,14 @@ function clickCredits() {
 function clickSettings() {
   console.log('settings');
 }
+
+window.addEventListener('keydown', (event) => {
+  console.log("Hello");
+  let key = event.key;
+  console.log(key);
+  if (key === 'Escape') {
+    console.log("switch");
+    document.getElementById('inputKeyContainer').classList.add('hidden');
+    document.getElementById('join').classList.remove('hidden');
+  }
+}, false);
