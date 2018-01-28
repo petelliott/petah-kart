@@ -69,11 +69,7 @@
     background-size: cover;
     -webkit-animation: backgroundScroll 15s linear 1;
     -webkit-animation-fill-mode: both;
-<<<<<<< Updated upstream
     animation: backgroundScroll 20s linear infinite alternate;
-=======
-    animation: backgroundScroll 15s linear infinite;
->>>>>>> Stashed changes
     animation-fill-mode: both;
     display: block;
     filter: blur(0px);
