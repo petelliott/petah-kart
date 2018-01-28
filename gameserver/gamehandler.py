@@ -4,6 +4,9 @@ import tornado.websocket
 
 
 def new_game_handler(instances):
+    """
+    returns the game handler with a reference to the instance list
+    """
     class GameHandler(tornado.websocket.WebSocketHandler):
         def check_origin(self, origin):
             return True
@@ -40,4 +43,7 @@ def new_game_handler(instances):
         def on_close(self):
             if len(self.inst.players) == 0:
                 del instances[self.path]
+
+            print("a client left", self.path)
+
     return GameHandler
