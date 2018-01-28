@@ -103,20 +103,55 @@ function clickCreate() {
     if (key === 'Enter') {
       newGame(mapSelect(map), numPlayers);
     }
-    if (key === 'ArrowLeft') {
-      if (map > 0){map--; redrawBG();}
+    console.log(map);
+    console.log(numPlayers);
+    if (key === 'ArrowLeft' || key === 'a') {
+      if (map > 0){console.log('map -1'); map--; redraw(true);}
     }
-    if (key === 'ArrowRight') {
-      if (map < 4){map++; redrawBG();}
+    if (key === 'ArrowRight' || key === 'd') {
+      if (map < 4){console.log('map +1'); map++; redraw(true);}
     }
-    if (key === 'ArrowUp') {
-      if (numPlayers < 10){numPlayers++;}
+    if (key === 'ArrowUp' || key === 'w') {
+      if (numPlayers < 10){console.log('player +1'); numPlayers++; redraw(false);}
     }
-    if (key === 'ArrowDown') {
-      if (numPlayers <= 1){numPlayers--;}
+    if (key === 'ArrowDown' || key === 's') {
+      if (numPlayers <= 1){console.log('player -1'); numPlayers--; redraw(false);}
     }
     console.log('join');
   }, false);
+}
+
+function redraw(bgredraw) {
+  if(bgredraw){
+    switch(map){
+      case 0:
+      mapIMG = '/resources/images/maps/Map0.png';
+      console.log("Map0");
+      break;
+    case 1:
+      mapIMG = '/resources/images/maps/Map1.png';
+      console.log("Map1");
+      break;
+    case 2:
+      mapIMG = '/resources/images/maps/Map2.png';
+      console.log("Map2");
+      break;
+    case 3:
+      mapIMG = '/resources/images/maps/Map3.png';
+      console.log("Map3");
+      break;
+    case 4:
+      mapIMG = '/resources/images/maps/Map4.png';
+      console.log("Map4");
+      break;
+    default:
+      console.log("Map Select Error");
+      mapIMG = '/resources/images/maps/Map0.png';
+      break;
+    }
+    document.getElementById('bg').style.backgroundImage="url(mapIMG)";
+  }
+
 }
 
 function mapSelect(map){
