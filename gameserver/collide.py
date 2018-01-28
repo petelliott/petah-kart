@@ -2,6 +2,9 @@ import math
 
 PI = math.pi
 
+car_width = 10 #random number
+
+car_height = 10 #random number
 
 def rotate_pair(x, y, rads):
     return [x * math.cos(rads) - y * math.sin(rads),
@@ -17,7 +20,22 @@ def corners_in_box():
     '''
     check to see if a point is in a box
     '''
-    return False
+    car_width = 10
+    car_height = 10
+
+    ytop = (car_height//2)
+    ybottom = -(car_height//2)
+
+    xright = (car_width//2)
+    xleft = -(car_width//2)
+
+    car_points = [[10,10],[8,8],[-5,5],[11,9]]
+
+    for i in car_points:
+        if (i[0] <= xright) and (i[0] >= xleft) and (i[1] <= ytop) and (i[1] >= ybottom):
+            return True
+        else:
+            return False
 
 def cars_close():
 
