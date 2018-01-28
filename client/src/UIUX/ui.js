@@ -2,8 +2,23 @@ const webServerLocation = 'localhost:8888';
 
 // The functions for the UI and page changes
 
-function onLoad() {
-  console.log('testing');
+function clickJoin() {
+  console.log('join');
+  const a = prompt('enter server code thing');
+  joinGame(a);
+}
+
+function clickCreate() {
+  console.log('create');
+  newGame(0, 3);
+}
+
+function clickCredits() {
+  console.log('credits');
+}
+
+function clickSettings() {
+  console.log('settings');
 }
 
 // player enters the game ID to join here

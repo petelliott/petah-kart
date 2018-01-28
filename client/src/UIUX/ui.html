@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
 
   <link rel="stylesheet" href="ui.css">
+
+  <script src="ui.js"></script>
 </head>
 
 <body>
@@ -39,12 +41,12 @@
         <br>
       <div id="mainMenuButtons">
         <div id="joinCreateContainer">
-          <div class="join big button">Join Server</div>
+          <div class="join big button" onclick="clickJoin()">Join Server</div>
           <br><br>
-          <div class="create big button">Create Server</div>
+          <div class="create big button" onclick="clickCreate()">Create Server</div>
           <br><br>
-          <div class="credits small button">Credits</div>
-          <div class="settings small button">Settings</div>
+          <div class="credits small button" onclick="clickCredits()">Credits</div>
+          <div class="settings small button" onclick="clickSettings()">Settings</div>
         </div>
       </div>
     </div>
