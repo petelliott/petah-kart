@@ -1,31 +1,6 @@
 const webServerLocation = 'localhost:8888';
 
 // The functions for the UI and page changes
-
-function clickJoin() {
-  console.log('join');
-  const a = prompt('enter server code thing');
-  joinGame(a);
-}
-
-function clickCreate() {
-  console.log('create');
-  newGame(0, 3);
-}
-
-function clickCredits() {
-  console.log('credits');
-}
-
-function clickSettings() {
-  console.log('settings');
-}
-
-// player enters the game ID to join here
-function enterId() {
-
-}
-
 // joingame
 // enter game ID to join that game
 function joinGame(gameId) {
@@ -35,6 +10,7 @@ function joinGame(gameId) {
   xhr.onload = () => {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
+        displayId(gameId);
         // TODO, relocate to client
       } else {
         // apparently, we don't like logging errors
@@ -45,9 +21,15 @@ function joinGame(gameId) {
   xhr.send();
 }
 
+// player enters the game ID to join here
+function enterId() {
+  const a = prompt('enter server code thing');
+  joinGame(a);
+}
+
 // player chooses map, max players and passes into newgame
 function createGame() {
-
+  newGame(0, 3);
 }
 
 // takes the game ID from newgame as a callback and displays it
@@ -76,4 +58,22 @@ function newGame(mapId, playerCount) {
     map: mapId, //             the server expects this form.
     player_count: playerCount,
   }));
+}
+
+function clickJoin() {
+  console.log('join');
+  enterId();
+}
+
+function clickCreate() {
+  console.log('create');
+  createGame();
+}
+
+function clickCredits() {
+  console.log('credits');
+}
+
+function clickSettings() {
+  console.log('settings');
 }
