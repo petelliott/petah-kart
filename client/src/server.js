@@ -16,6 +16,8 @@ window.addEventListener('load', () => {
     const eventData = JSON.parse(event.data);
     if(eventData.type == "ID"){
         id = eventData.id;
+    }else if (eventData.type == "KILL"){
+        removeCar(id);
     }else{
         setCarPositions(eventData);
     }

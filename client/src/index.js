@@ -136,3 +136,6 @@ function setCarPositions(cars) {
     }
   });
 }
+function removeCar(id){
+    
+}
