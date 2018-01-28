@@ -10,7 +10,7 @@ class Instance:
     def add_player(self, player):
         self.players.append(player)
 
-    def loop():
+    def loop(self):
         while self.alive:
             for player in self.players:
                 # surface = self.map[player.car.x][player.car.y]
@@ -28,5 +28,10 @@ class Instance:
             for player in self.players:
                 player.write_message(json.dumps(message))
 
+    def run_loop(self):
+        self.thread = threading.Thread(target=self.loop())
+        self.thread.start()
+
     def kill(self):
         self.alive = False
+        self.thread.join()
