@@ -1,7 +1,8 @@
 import math
 
 PI = math.pi
-car_width, car_height = float
+car_width = 10  # random number
+car_height = 10  # random number
 
 
 def rotate_pair(x, y, rads):
@@ -14,12 +15,21 @@ def rotate_about(x, y, rads, originX, originY):
     return [cats[0] + originX, cats[1] + originY]
 
 
-def corners_in_box():
+def corners_in_box(carx, cary, car_points):
     '''
     check to see if a point is in a box
     '''
+    ytop = (car_height // 2) + cary
+    ybottom = -(car_height // 2) + cary
 
-    return False
+    xright = (car_width // 2) + carx
+    xleft = -(car_width // 2) + cary
+
+    for i in car_points:
+        if (i[0] <= xright) and (i[0] >= xleft) and (i[1] <= ytop) and (i[1] >= ybottom):
+            return True
+        else:
+            return False
 
 
 def cars_close(car1x, car1y, car2x, car2y):
@@ -40,13 +50,23 @@ def is_bang(car1x, car1y, car1_rotation, car2x, car2y, car2_rotation):
         # car one in car 2
         tmpcar1 = rotate_about(car1x, car1y, -car1_rotation, car1x, car1y)
         tmpcar2 = rotate_about(car2x, car2y, -car1_rotation, car1x, car2x)
-        if corners_in_box():
+        point_list = []
+        point_list.append()
+        point_list.append()
+        point_list.append()
+        point_list.append()
+        if corners_in_box(tmpcar1[0], tmpcar1[1], point_list):
             collision = True
 
         # car two in car 1
         tmpcar2 = rotate_about(car2x, car2y, -car2_rotation, car2x, car2y)
         tmpcar1 = rotate_about(car1x, car1y, -car2_rotation, car2x, car2x)
-        if corners_in_box():
+        point_list = []
+        point_list.append()
+        point_list.append()
+        point_list.append()
+        point_list.append()
+        if corners_in_box(tmpcar2[0], tmpcar2[1], point_list):
             collision = True
 
     return collosion
