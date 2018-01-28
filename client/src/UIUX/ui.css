@@ -161,44 +161,44 @@
   }
 
   .credits{
-    background-color: #A6A6B2;
+    background-color: #acacac;
     float: left;
   }
-  .credits:hover {background-color: #BDBECC;}
+  .credits:hover {background-color: #8e8e8e;}
   .credits:active{
-    background-color: #BDBECC;
+    background-color: #8e8e8e;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
 
   .validate {
-    background-color: #A6A6B2;
+    background-color: #666666;
     padding: .5vw;
     width:40%;
     transform: translateX(3.5vw);
-    box-shadow: 0 5px #1fbb1f
+    box-shadow: 0 5px #eecccc
   }
   .validate:hover {
-    background-color: #BDBECC;
+    background-color: #888888;
     transform: translateX(3.5vw);
-    box-shadow: 0 5px #1fbb1f}
+    box-shadow: 0 5px #eecccc}
   .validate:active {
-    background-color: #DCDDED;
-    box-shadow: 0 5px #1fbb1f;
+    background-color: #AAAAAA;
+    box-shadow: 0 5px #eecccc;
     transform: translateY(4px);
     transform: translateX(3.5vw);
   }
 
   .inputID {
-    background-color: #A6A6B2;
-    transform: translateX(-7vw);
+    background-color: #666666;
+    transform: translateX(-7vw, -1vw);
     color: #FFFFFF;
-    width: 55%;
+    width: 58%;
     padding: 1vw 1vw;
     border-radius: 15px;
   }
 
   .inputBox {
-    background-color: #1fbb1f;
+    background-color: #eecccc;
     height: 8vw;
   }
