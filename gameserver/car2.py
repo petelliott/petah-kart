@@ -21,6 +21,14 @@ class Car2:
 
         self.mutex = threading.Lock()
 
+    def set_wtheta(self, wtheta):
+        self.wtheta = wtheta
+
+    def set_throttle(self, throttle):
+        self.throttle = throttle
+
+    def set_brake(self, brakes):
+        self.brakes = brakes
 
     def throttle_curve(self):
         return MAX_SPEED - (1 / self.throttle) * ACCEL_CURVE
