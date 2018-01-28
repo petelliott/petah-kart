@@ -11,6 +11,7 @@ gameSet = {}
 
 
 class JoinHandler(tornado.web.RequestHandler):
+
     def get(self, gid):
         html = """
             <!DOCTYPE html>
@@ -31,9 +32,9 @@ class JoinHandler(tornado.web.RequestHandler):
                 const MAP = '{}';
               </script>
               <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.0/pixi.min.js"></script>
-              <script src="server.js"></script>
-              <script src="index.js"></script>
-              <script src="inputControl.js"></script>
+              <script src="res/server.js"></script>
+              <script src="res/index.js"></script>
+              <script src="res/inputControl.js"></script>
             </body>
 
             </html>
@@ -47,6 +48,7 @@ class JoinHandler(tornado.web.RequestHandler):
 
 
 class NewGameHandler(tornado.web.RequestHandler):
+
     def post(self):
         data = tornado.escape.json_decode(self.request.body)
 
@@ -73,8 +75,11 @@ def getRandomID(gameLocations, N=3):
 
 
 if __name__ == "__main__":
-    app = tornado.web.Application(
-        [(r"/new", NewGameHandler), (r"/(?P<gid>\w+)", JoinHandler)])
+    app = tornado.web.Application([
+        (r"/new", NewGameHandler), (r"/(?P<gid>\w+)", JoinHandler),
+        (r"/res/(.*)", tornado.web.StaticFileHandler,
+         {"path": os.getcwd() + "/client/src/"})
+    ])
     try:
         app.listen(8888)
         tornado.ioloop.IOLoop.current().start()
