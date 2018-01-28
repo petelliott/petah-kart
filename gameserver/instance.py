@@ -10,17 +10,17 @@ class Instance:
         self.map = surface_map
         self.players = []
         self.alive = True
-        self.gamestate = {"finished": False}
+        self.state = {"finished": False}
 
     def add_player(self, player):
         self.players.append(player)
 
     def loop(self):
         t_start = time.time()
-        while self.alive and not self.gamestate["finished"]:
+        while self.alive and not self.state["finished"]:
             message = []
             for player in self.players:
-                surface = self.map[int(player.car.x)][int(player.car.y)]
+                surface = self.map.tiles[int(player.car.x)][int(player.car.y)]
 
                 player.car.update(surface)
                 message.append({
