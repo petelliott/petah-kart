@@ -1,4 +1,4 @@
-const webServerLocation = 'localhost:8888';
+const webServerLocation = 'http://localhost:8888';
 // takes the game ID from newgame as a callback and displays it
 function displayId(gameId) {
 
@@ -8,7 +8,7 @@ function displayId(gameId) {
 // enter game ID to join that game
 function joinGame(gameId) {
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', `${webServerLocation}/join/${gameId}`, true); // tyoe, location, isAsync
+  xhr.open('GET', `${webServerLocation}/${gameId}`, true); // tyoe, location, isAsync
   xhr.setRequestHeader('Content-type', 'application/json');
   xhr.responseType = 'document';
 
