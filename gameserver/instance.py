@@ -51,11 +51,7 @@ class Instance:
 
     def send_all(self, msg_str):
         for player in self.players:
-            try:
-                player.write_message(msg_str)
-            except tornado.websocket.WebSocketClosedError:
-                print("removed")
-                self.players.remove(player)
+            player.write_message(msg_str)
 
     def run_loop(self):
         self.thread = threading.Thread(target=self.loop, daemon=True)
