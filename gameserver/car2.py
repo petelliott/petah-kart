@@ -37,7 +37,7 @@ class Car:
     def throttle_curve(self):
         return MAX_SPEED - (1 / (self.throttle + 1)) * ACCEL_CURVE
 
-    def update(self, surface, otherCars):  # (us, uk, rr)
+    def update(self, surface, otherCars):  # surface: (us, uk, rr)
         self.mutex.acquire()
 
         call_time = time.time()
