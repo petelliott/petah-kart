@@ -85,3 +85,8 @@ def hit_cars(car1, car1):
     is_bang but with car objects instead
     '''
     return is_bang(car1.pos[0], car1.pos[1], car1.theta, car2.pos[0], car2.pos[1], car2.theta)
+
+
+def collide(car1, car2):
+    """Applies the force of collisions on cars"""
+    pass
