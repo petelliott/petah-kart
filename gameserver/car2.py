@@ -15,6 +15,7 @@ class Car:
 
         self.pos = (x, y)
         self.theta = theta
+        self.last_time = time.time()
 
         self.vel = (0.0, 0.0)
         self.vtheta = 0.0
@@ -49,7 +50,8 @@ class Car:
         self.last_time = time.time()
 
         t = self.throttle_curve()
-        b = 0  # self.throttle_curve()  # TODO: add brake curve
+
+        b = self.throttle_curve()  # TODO: add brake curve
         fv = (
             (t - b - surface[2]) * math.cos(self.theta),
             (t - b - surface[2]) * math.sin(self.theta)

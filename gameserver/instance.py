@@ -21,7 +21,6 @@ class Instance:
         while self.alive and not self.state["finished"]:
             message = []
             for player in self.players:
-
                 player.car.update(self.getMapPoint(
                     int(player.car.pos[0]), int(player.car.pos[1])), self.getCarsForCollisions(player))
                 message.append({
