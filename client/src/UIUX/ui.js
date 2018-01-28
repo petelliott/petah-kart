@@ -163,6 +163,7 @@ function clickSettings() {
 }
 
 /* Open */
+let isSettings = false;
 function openSettings() {
     document.getElementById("settingsNav").style.height = "100%";
     document.getElementById('inputKeyContainer').classList.add('hidden');
@@ -170,11 +171,13 @@ function openSettings() {
 
     document.getElementById('gameOptions').classList.add('hidden');
     document.getElementById('create').classList.remove('hidden');
+    isSettings = true;
 }
 
 /* Close */
 function closeSettings() {
     document.getElementById("settingsNav").style.height = "0%";
+    isSettings = false;
 }
 
 function openCredits() {
@@ -188,6 +191,56 @@ function openCredits() {
 
 function closeCredits() {
     document.getElementById("creditsNav").style.height = "0%";
+}
+
+function keybind() {
+  document.getElementById('keybindLeft').addEventListener('keydown', (event) => {
+    if (isSettings) {
+      let key = event.key;
+      console.log(key);
+      if (key === 'Escape') {
+        return;
+      }
+      turnLeft = key;
+      console.log("key set");
+    }
+  }, false);
+
+  document.getElementById('keybindRight').addEventListener('keydown', (event) => {
+    if (isSettings) {
+      let key = event.key;
+      console.log(key);
+      if (key === 'Escape') {
+        return;
+      }
+      turnRight = key;
+      console.log("key set");
+    }
+  }, false);
+
+  document.getElementById('accelerate').addEventListener('keydown', (event) => {
+    if (isSettings) {
+      let key = event.key;
+      console.log(key);
+      if (key === 'Escape') {
+        return;
+      }
+      accelerateKey = key;
+      console.log("key set");
+    }
+  }, false);
+
+  document.getElementById('deccelerate').addEventListener('keydown', (event) => {
+    if (isSettings) {
+      let key = event.key;
+      console.log(key);
+      if (key === 'Escape') {
+        return;
+      }
+      deccelerateKey = key;
+      console.log("key set");
+    }
+  }, false);
 }
 
 window.addEventListener('keydown', (event) => {
@@ -205,3 +258,5 @@ window.addEventListener('keydown', (event) => {
     closeCredits();
   }
 }, false);
+
+keybind();
