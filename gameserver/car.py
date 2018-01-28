@@ -64,10 +64,15 @@ class Car:
     def get_force(self, surface):  # out: tuple (normal,tangential)
         # calculate force
         velocity = self.tangent_vel()
-        normal = ((velocity[0]**2) * math.sin(self.wtheta) /
+        if !check_slip():
+            normal = ((velocity[0]**2) * math.sin(self.wtheta) /
                   WHEEL_BASE * (1 + surface[2])) * MASS
+        else:
+            normal = (MASS * GRAVITY * surface[1])#(1 + rr)
         tangential = (self.throttle - (MASS * (velocity[0]**2) * math.tan(
             self.wtheta) * math.sin(self.wtheta) * (1 + surface[2]) / WHEEL_BASE))
+
+
         return (normal, tangential)
 
     def update(self, surface):  # (us, uk, rr)
