@@ -1,3 +1,5 @@
+// JavaScript code for the User Interface when first entering the game
+
 const webServerLocation = 'localhost:8888';
 // takes the game ID from newgame as a callback and displays it
 function displayId(gameId) {
