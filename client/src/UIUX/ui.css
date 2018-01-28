@@ -102,52 +102,61 @@
     text-align: center;
   }
 
-  .joinButton {
+  .button{
     padding: 20px 25px;
-    font-size: 30px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #fff;
-    background-color: #4CAF50;
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
-    width: 48.5%;
-    display: flex;
+    display: inline-block;
     justify-content: center;
+    color: #fff;
   }
 
-  .createButton {
-    padding: 20px 25px;
+  .big {
     font-size: 30px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #b42f2f;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
     width: 48.5%;
-    display: flex;
-    justify-content: center;
   }
-  
-  .joinButton:hover {background-color: #1fbb1f}
-  
-  .joinButton:active {
+
+  .small{
+    font-size: 25px;
+    width: 24%;
+  }
+
+  .join{background-color: #4CAF50;}
+  .join:hover {background-color: #1fbb1f}
+  .join:active {
     background-color: #1fbb1f;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
 
-  .createButton:hover {background-color: #b91313}
-  
-  .createButton:active {
+  .create{background-color: #b42f2f;}
+  .create:hover {background-color: #b91313}
+  .create:active {
     background-color: #b91313;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .credits{background-color: #acacac;}
+  .credits:hover {background-color: #5e5e5e;}
+  .credits:active{
+    background-color: #5e5e5e;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  
+  .settings{
+    background-color: #5935bb;
+    float: left;
+  }
+  .settings:hover {background-color: #4c24b9;}
+  .settings:active{
+    background-color: #4c24b9;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
