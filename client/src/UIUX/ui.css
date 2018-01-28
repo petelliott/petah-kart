@@ -27,7 +27,8 @@
                  0 9px 0 transparent,
                  0 10px 10px rgba(0, 0, 0, .4);
   }
-  
+
+
   h1 span:nth-child(2) { animation-delay: .1s; }
   h1 span:nth-child(3) { animation-delay: .2s; }
   h1 span:nth-child(4) { animation-delay: .3s; }
@@ -45,7 +46,7 @@
   h1 span:nth-child(16) { animation-delay: 1.3s; }
   h1 span:nth-child(17) { animation-delay: 1.4s; }
 
-  
+
   @keyframes bounce {
     100% {
       top: -20px;
@@ -61,14 +62,14 @@
                    0 50px 25px rgba(0, 0, 0, .2);
     }
   }
-  
+
   .background-image {
     background-image: url('https://www.rtrkidsrugs.com/v/vspfiles/photos/LCX205-3.jpg');
     background-size: cover;
     display: block;
     filter: blur(4px);
     -webkit-filter: blur(4px);
-    height: 800px;
+    height: 100%;
     left: 0;
     position: fixed;
     right: 0;
@@ -81,7 +82,7 @@
     display: block;
     width: 50%;
   }
-  
+
   .content {
     /*background: rgba(255, 255, 255, 0.35);
     border-radius: 3px;
@@ -121,6 +122,7 @@
     width: 48.5%;
   }
 
+<<<<<<< HEAD
   .small{
     font-size: 25px;
     width: 24%;
@@ -129,14 +131,25 @@
   .join{background-color: #4CAF50;}
   .join:hover {background-color: #1fbb1f}
   .join:active {
+=======
+  .joinButton:hover {background-color: #1fbb1f}
+
+  .joinButton:active {
+>>>>>>> 0671a44dda4bbd711bfc93a0b716c54f3aee5826
     background-color: #1fbb1f;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
 
+<<<<<<< HEAD
   .create{background-color: #b42f2f;}
   .create:hover {background-color: #b91313}
   .create:active {
+=======
+  .createButton:hover {background-color: #b91313}
+
+  .createButton:active {
+>>>>>>> 0671a44dda4bbd711bfc93a0b716c54f3aee5826
     background-color: #b91313;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
