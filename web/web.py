@@ -38,6 +38,7 @@ class JoinHandler(tornado.web.RequestHandler):
             </html>
         """
         try:
+            self.set_status(200)
             self.write(html.format(gameSet[gid]["location"], gid, 0))
         except KeyError:
             self.set_status(404)

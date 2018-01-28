@@ -54,8 +54,19 @@ function clickJoin() {
 
 function validate() {
   const gameId = document.getElementById('keyIn').value;
-  //validate it
-  joinGame(gameId);
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', `${webServerLocation}/game/${gameId}`, true); // tyoe, location, isAsync
+  xhr.onload = () => {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        joinGame(gameId);
+      } else {
+        // TODO: not valid
+      }
+    }
+  };
+  xhr.send();
+
 }
 
 
