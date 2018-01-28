@@ -11,18 +11,18 @@ def new_game_handler(instances):
         def open(self, socket_path):
             if socket_path not in instances:
                 self.close()
-                print(socket_path + "is invalid")
+                print(socket_path + " is invalid")
                 return
 
-            print("new connection to" + socket_path)
+            print("new connection to " + socket_path)
 
-            self.car = car.Car(0, 0)
+            self.car = car.Car(0, 0, 0)
             self.path = socket_path
             self.inst = instances[socket_path]
 
             self.inst.add_player(self)
 
-            self.send_message(json.loads(
+            self.write_message(json.dumps(
                 [id(player) for player in self.inst.players]
             ))
 
@@ -41,3 +41,4 @@ def new_game_handler(instances):
         def on_close(self):
             if len(self.inst.players) == 0:
                 del instances[self.path]
+    return GameHandler

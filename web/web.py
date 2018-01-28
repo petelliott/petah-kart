@@ -1,5 +1,6 @@
 import random
 import string
+import requests
 import tornado.ioloop
 import tornado.web
 import json
@@ -25,7 +26,7 @@ class JoinHandler(tornado.web.RequestHandler):
 
             <body>
               <script>
-                const WS_SERVER = '{}';
+                const WS_SERVER = 'ws://{}';
                 const MAP = '{}';
               </script>
               <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.0/pixi.min.js"></script>
@@ -49,14 +50,17 @@ class NewGameHandler(tornado.web.RequestHandler):
         data = tornado.escape.json_decode(self.request.body)
 
         game_id = getRandomID(gameservers)
-        loc = "{}/".format(random.choice(gameservers))
+        servr = random.choice(gameservers)
+        loc = "{}".format(servr)
         gameSet[game_id] = {"map": data["map"],
                             "player_count": data["player_count"],
-                            "location": loc
-                            }
+                            "location": loc}
 
         self.write(game_id)
         self.set_status(200)
+        r = requests.put('http://{}/control/{}'.format(loc, game_id),
+                         data=json.dumps({'map': data["map"], "player_count": data["player_count"]}))
+        print(r)
 
 
 def getRandomID(gameLocations, N=3):

@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     application = tornado.web.Application([
         (r"/control/(?P<path>\w+)", ServerHandler),
-        (r"/game/(^[/]*)", GameHandler)
+        (r"/game/(?P<socket_path>\w+)", GameHandler)
     ])
 
     application.listen(8001)
