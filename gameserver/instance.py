@@ -52,8 +52,12 @@ class Instance:
         return [player.car for player in list(filter(lambda x: x is not dontIncludeMe, self.players))]
 
     def send_all(self, msg_str):
-        for player in self.players:
-            player.write_message(msg_str)
+        try:
+            for player in self.players:
+                player.write_message(msg_str)
+        except Exception as e:
+            print(e)
+            self.sendall(self, msg_str)
 
     def run_loop(self):
         self.thread = threading.Thread(target=self.loop, daemon=True)
