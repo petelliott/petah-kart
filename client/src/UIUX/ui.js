@@ -8,23 +8,7 @@ function displayId(gameId) {
 // joingame
 // enter game ID to join that game
 function joinGame(gameId) {
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', `${webServerLocation}/${gameId}`, true); // tyoe, location, isAsync
-  xhr.setRequestHeader('Content-type', 'application/json');
-  xhr.responseType = 'document';
-
-  xhr.onload = () => {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        displayId(gameId);
-        // TODO, relocate to client
-      } else {
-        // apparently, we don't like logging errors
-        // console.error(xhr.statusText);
-      }
-    }
-  };
-  xhr.send();
+  window.location.href = `${webServerLocation}/${gameId}`;
 }
 
 // player enters the game ID to join here

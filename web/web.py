@@ -21,7 +21,7 @@ class JoinHandler(tornado.web.RequestHandler):
               <meta name="author" content="Kyle Hennig, Jarrett Yu, Navras Kamal, Jacob Reckhard" />
               <meta name="viewport" content="width=device-width, initial-scale=1.0" />
               <title>PetahKart</title>
-              <link rel="stylesheet" href="index.css" />
+              <link rel="stylesheet" href="res/index.css" />
             </head>
 
             <body>
