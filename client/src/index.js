@@ -56,19 +56,24 @@ function loadEverything() {
         return mapSprite;
       }
 
+      // Loads the map from the json file.
       fetch('res/spritesheets/map.json')
         .then(response => response.json())
         .then(json => {
           const tiles = json.layers[0].data;
           const mapWidth = json.width;
+          // Converts from tile ids to sprites.
+          // Groups the tile sprites into one background sprite.
+          let background = new PIXI.Container();
           tiles.forEach((tile, index) => {
             let sprite = createTile(tile - 1);
             let col = index % mapWidth;
             let row = Math.floor(index / mapWidth);
             sprite.x = col * 128;
             sprite.y = row * 128;
-            app.stage.addChild(sprite);
+            background.addChild(sprite);
           });
+          app.stage.addChild(background);
         })
         .catch(error => console.log(error));
     });
@@ -79,7 +84,6 @@ let ready = false;
 function setup() {
   ready = true;
 }
-
 
 // A map of car ids to sprites.
 let idsToSprites = new Map();
