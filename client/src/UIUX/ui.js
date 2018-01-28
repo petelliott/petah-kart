@@ -91,7 +91,7 @@ function clickCreate() {
   document.getElementById('join').classList.remove('hidden');
   document.getElementById('inputKeyContainer').classList.add('hidden');
   document.getElementById('create').classList.add('hidden');
-  document.getElementById('gameOptions').style.display = "flex";
+  document.getElementById('gameOptions').classList.remove('hidden');
   document.getElementById('confirmOptions').focus();
   document.getElementById('keyIn').addEventListener('keydown', (event) => {
     let key = event.key;
@@ -122,10 +122,16 @@ function modifyMap(i) {
     if (map < 4) {
       map++;
       redraw(true);
+    }else{
+      map = 0;
+      redraw(true);
     }
   } else {
     if (map > 0) {
       map--;
+      redraw(true);
+    }else{
+      map = 4;
       redraw(true);
     }
   }

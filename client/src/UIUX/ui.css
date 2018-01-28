@@ -110,7 +110,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .big {
@@ -289,8 +289,9 @@ body {
     min-width: 40vw;
 }
 #gameOptions{
-    display: none;
+    display: flex;
     flex-flow: column;
+    margin: 3% 0;
 }
 
 .leftarrow {
