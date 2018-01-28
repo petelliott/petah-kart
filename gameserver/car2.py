@@ -1,5 +1,6 @@
 import math
 import threading
+import time
 
 MAX_SPEED = 2
 ACCEL_CURVE = 1
@@ -11,6 +12,7 @@ class Car2:
     def __init__(self, x, y, theta):
         self.pos = (x, y)
         self.theta = theta
+        self.last_time = time.time()
 
         self.vel = (0.0, 0.0)
         self.vtheta = 0.0
@@ -41,7 +43,7 @@ class Car2:
         delta = call_time - self.last_time
         self.last_time = time.time()
 
-        t = self.throttle_cuve()
+        t = self.throttle_curve()
         b = self.throttle_curve()  # TODO: add brake curve
         fv = (
             (t-b-surface[2]) * math.cos(self.theta),

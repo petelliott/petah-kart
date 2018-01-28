@@ -19,7 +19,7 @@ class Instance:
         while self.alive:
             message = []
             for player in self.players:
-                surface = self.map[int(player.car.x)][int(player.car.y)]
+                surface = self.map[int(player.car.pos[0])][int(player.car.pos[1])]
 
                 player.car.update(surface)
                 message.append({
