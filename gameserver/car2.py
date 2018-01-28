@@ -1,6 +1,7 @@
 import math
 import threading
 import time
+import collide
 
 MAX_SPEED = 10
 ACCEL_CURVE = 5
@@ -36,7 +37,7 @@ class Car2:
     def throttle_curve(self):
         return MAX_SPEED - (1 / (self.throttle + 1)) * ACCEL_CURVE
 
-    def update(self, surface):  # (us, uk, rr)
+    def update(self, surface, otherCars):  # (us, uk, rr)
         self.mutex.acquire()
 
         call_time = time.time()
@@ -64,4 +65,7 @@ class Car2:
 
         self.theta = self.theta + self.wtheta * vel * DUMB_CONST
 
+        for car in otherCars:
+            if collide.hit_cars(self, car):
+                collide.collide(self, car)
         self.mutex.release()

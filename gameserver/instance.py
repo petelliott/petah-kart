@@ -23,7 +23,7 @@ class Instance:
             for player in self.players:
 
                 player.car.update(self.getMapPoint(
-                    int(player.car.pos[0]), int(player.car.pos[1])))
+                    int(player.car.pos[0]), int(player.car.pos[1])), self.getCarsForCollisions(player))
                 message.append({
                     "velx": player.car.vel[0],
                     "vely": player.car.vel[1],
@@ -48,6 +48,9 @@ class Instance:
             print(x)
             print(y)
             return (2.0, 1.0, 0.1)
+
+    def getCarsForCollisions(dontIncludeMe):
+        return [player.car for player in list(filter(lambda x: x is not dontIncludeMe, players))]
 
     def send_all(self, msg_str):
         for player in self.players:
