@@ -131,8 +131,8 @@ function setCarPositions(cars) {
       backgroundSprite.position.y = car.posy * 20;
     } else {
       // Moves the other cars relative to yours.
-      carSprite.x += myCarX + 600;
-      carSprite.y += myCarY + 600;
+      carSprite.x = -carSprite.x + myCarX + 8 * zoom;
+      carSprite.y = -carSprite.y + myCarY + (9 / 2) * zoom;
     }
   });
 }
