@@ -24,6 +24,7 @@ def new_game_handler(instances):
             self.inst = instances[socket_path]
 
             self.inst.add_player(self)
+            self.write_message(json.dumps({"type": "ID", "id": str(id(self))}))
 
         def on_message(self, data):
             try:

@@ -14,6 +14,11 @@ window.addEventListener('load', () => {
   ws.addEventListener('message', (event) => {
     // eventData is a dictionary of car data { velY, velY, posX, posY, ID }.
     const eventData = JSON.parse(event.data);
-    setCarPositions(eventData);
+    if(eventData.type == "ID"){
+        id = eventData.id;
+    }else{
+        setCarPositions(eventData);
+    }
+
   });
 });

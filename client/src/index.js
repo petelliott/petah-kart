@@ -1,5 +1,6 @@
 let app;
 const zoom = 300;
+let id;
 window.addEventListener('load', () => {
   let type = 'WebGL';
   if (!PIXI.utils.isWebGLSupported()) {
