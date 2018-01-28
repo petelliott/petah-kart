@@ -205,8 +205,9 @@
     width: 58%;
     padding: 1vw 1vw;
     border-radius: 15px;
+    margin: 1vw 1vw;
   }
-  
+
   .inputBox {
     background-color: #1fbb1f;
     height: 8vw;
