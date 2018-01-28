@@ -33,7 +33,6 @@ function loadEverything() {
     .add("res/spritesheets/car_blue_1.png")
     .add('res/spritesheets/spritesheet_tiles.png')
     .load(() => {
-      setup();
       // Creates the spritesheet.
       const spritesheet = PIXI.BaseTexture.fromImage('res/spritesheets/spritesheet_tiles.png');
 
@@ -69,11 +68,13 @@ function loadEverything() {
             backgroundSprite.addChild(sprite);
           });
           app.stage.addChild(backgroundSprite);
+          setup();
         })
         .catch(error => console.log(error));
     });
 }
 
+// Lets the client know whether it's ready to start listening to the server.
 let ready = false;
 function setup() {
   ready = true;
