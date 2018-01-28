@@ -122,7 +122,6 @@
     width: 48.5%;
   }
 
-<<<<<<< HEAD
   .small{
     font-size: 25px;
     width: 24%;
@@ -131,25 +130,14 @@
   .join{background-color: #4CAF50;}
   .join:hover {background-color: #1fbb1f}
   .join:active {
-=======
-  .joinButton:hover {background-color: #1fbb1f}
-
-  .joinButton:active {
->>>>>>> 0671a44dda4bbd711bfc93a0b716c54f3aee5826
     background-color: #1fbb1f;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
 
-<<<<<<< HEAD
   .create{background-color: #b42f2f;}
   .create:hover {background-color: #b91313}
   .create:active {
-=======
-  .createButton:hover {background-color: #b91313}
-
-  .createButton:active {
->>>>>>> 0671a44dda4bbd711bfc93a0b716c54f3aee5826
     background-color: #b91313;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
