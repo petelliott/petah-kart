@@ -155,11 +155,6 @@ body {
   margin: 3% 0px
 }
 
-<<<<<<< Updated upstream
-.create:hover {
-  background-color: #b91313
-}
-=======
   .subButton {
     background-color: #A6A6B2;
     padding: .5vw;
@@ -175,7 +170,6 @@ body {
     transform: translateY(4px);
     transform: translateX(3.5vw);
   }
->>>>>>> Stashed changes
 
 .create:active {
   background-color: #b91313;
@@ -259,6 +253,63 @@ body {
   height: 8vw;
 }
 
+.options {
+  background-color: #b91313;
+  height: 8vw;
+}
+
+.titles {
+  height:35%;
+  margin-left: (1%);
+  margin-right: (49%);
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
+}
+
+.mapName {
+  text-align: left;
+}
+
+.mxPlr {
+  box-sizing: border-box;
+}
+
+.options {
+
+}
+
+.leftarrow {
+
+}
+
+.rightarrow {
+
+}
+
+.currentMap {
+
+}
+
+.currentPlrMax {
+
+}
+
+
+.confirm {
+  background-color: #A6A6B2;
+}
+
+.confirm:hover {
+  background-color: #BDBECC;
+}
+
+.confirm:active {
+  background-color: #BDBECC;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 .overlay {
   height: 0%;
   width: 100%;
@@ -312,18 +363,4 @@ body {
     top: 15px;
     right: 35px;
   }
-}
-
-.confirm {
-  background-color: #A6A6B2;
-}
-
-.confirm:hover {
-  background-color: #BDBECC;
-}
-
-.confirm:active {
-  background-color: #BDBECC;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
 }

@@ -147,7 +147,7 @@ function modifyPlr(i) {
       redraw(false);
     }
   }else{
-    if (map > 0){
+    if (numPlayers > 1){
       numPlayers--;
       redraw(false);
     }
@@ -190,7 +190,7 @@ function redraw(bgredraw) {
         break;
     }
   }
-
+  document.getElementById('currentPlrMax').innerHTML = numPlayers;
 }
 
 function mapSelect(map) {

@@ -65,10 +65,24 @@
           </div>
           <div id="create" class="create big button" onclick="clickCreate()">Create Server</div>
           <div id="gameOptions" class="hidden options big button">
-            <div id="prevMap" class="leftarrow" onclick="modifyMap(false)"><i class="fa fa-angle-left"></i></div>
-            <div id="currentMap" class="currentMap">Simple Square</div>
-            <div id="nextMap" class="rightarrow" onclick="modifyMap(true)"><i class="fa fa-angle-right"></i></div>
-            <div id="confirmOptions" class="confirm button" onclick="newGame(mapSelect(map), numPlayers)">Confirm</div>
+            <div id="titles" class="titles">
+
+              <div class"mapName">Selected Course</div>
+              <div class"mxPlr">Max Players (1-10)</div>
+
+            </div>
+            <div id="options" class="options">
+
+              <div id="prevMap" class="leftarrow" onclick="modifyMap(false)"><i class="fa fa-angle-left"></i></div>
+              <div id="currentMap" class="currentMap">Simple Square</div>
+              <div id="nextMap" class="rightarrow" onclick="modifyMap(true)"><i class="fa fa-angle-right"></i></div>
+            
+              <div id="subPlayer" class="leftarrow" onclick="modifyPlr(false)"><i class="fa fa-angle-left"></i></div>
+              <div id="currentPlrMax" class="currentPlrMax">1</div>
+              <div id="addPlayer" class="rightarrow" onclick="modifyPlr(true)"><i class="fa fa-angle-right"></i></div>
+            
+              <div id="confirmOptions" class="confirm button" onclick="newGame(mapSelect(map), numPlayers)">Confirm</div>
+            </div>
           </div>
           <div id="credits" class="credits small button" onclick="openCredits()">Credits</div>
           <span id="settings" class="settings small button" onclick="openSettings()">Settings</span>
