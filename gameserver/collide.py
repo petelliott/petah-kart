@@ -24,12 +24,11 @@ def corners_in_box(carx, cary, car_points):
 
     xright = (car_width // 2) + carx
     xleft = -(car_width // 2) + cary
-
     for i in car_points:
         if (i[0] <= xright) and (i[0] >= xleft) and (i[1] <= ytop) and (i[1] >= ybottom):
+            # print('ding')
             return True
-        else:
-            return False
+    return False
 
 
 def cars_close(car1x, car1y, car2x, car2y):
@@ -49,23 +48,33 @@ def is_bang(car1x, car1y, car1_rotation, car2x, car2y, car2_rotation):
     if cars_close:
         # car one in car 2
         tmpcar1 = rotate_about(car1x, car1y, -car1_rotation, car1x, car1y)
-        tmpcar2 = rotate_about(car2x, car2y, -car1_rotation, car1x, car2x)
+        tmpcar2 = rotate_about(car2x, car2y, -car1_rotation, car1x, car1y)
         point_list = []
-        point_list.append(list(tmpcar2[0]+car_width, tmpcar2[1]-car_height))
-        point_list.append(list(tmpcar2[0]+car_width, tmpcar2[1]+car_height))
-        point_list.append(list(tmpcar2[0]-car_width, tmpcar2[1]-car_height))
-        point_list.append(list(tmpcar2[0]-car_width, tmpcar2[1]+car_height))
+        point_list.append(
+            (tmpcar2[0] + car_width / 2, tmpcar2[1] - car_height / 2))
+        point_list.append(
+            (tmpcar2[0] + car_width / 2, tmpcar2[1] + car_height / 2))
+        point_list.append(
+            (tmpcar2[0] - car_width / 2, tmpcar2[1] - car_height / 2))
+        point_list.append(
+            (tmpcar2[0] - car_width / 2, tmpcar2[1] + car_height / 2))
+        # print(point_list)
         if corners_in_box(tmpcar1[0], tmpcar1[1], point_list):
             collision = True
 
         # car two in car 1
+        tmpcar1 = rotate_about(car1x, car1y, -car2_rotation, car2x, car2y)
         tmpcar2 = rotate_about(car2x, car2y, -car2_rotation, car2x, car2y)
-        tmpcar1 = rotate_about(car1x, car1y, -car2_rotation, car2x, car2x)
         point_list = []
-        point_list.append(list(tmpcar1[0]+car_width, tmpcar1[1]-car_height))
-        point_list.append(list(tmpcar1[0]+car_width, tmpcar1[1]+car_height))
-        point_list.append(list(tmpcar1[0]-car_width, tmpcar1[1]-car_height))
-        point_list.append(list(tmpcar1[0]-car_width, tmpcar1[1]+car_height))
+        point_list.append(
+            (tmpcar1[0] + car_width / 2, tmpcar1[1] - car_height / 2))
+        point_list.append(
+            (tmpcar1[0] + car_width / 2, tmpcar1[1] + car_height / 2))
+        point_list.append(
+            (tmpcar1[0] - car_width / 2, tmpcar1[1] - car_height / 2))
+        point_list.append(
+            (tmpcar1[0] - car_width / 2, tmpcar1[1] + car_height / 2))
+        # print(point_list)
         if corners_in_box(tmpcar2[0], tmpcar2[1], point_list):
             collision = True
 
