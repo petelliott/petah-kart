@@ -45,6 +45,7 @@ def new_game_handler(instances):
             if len(self.inst.players) == 0:
                 del instances[self.path]
             self.inst.players.remove(self)
+            self.inst.send_all(json.dumps({"type": "KILL", "id": id(self)}))
 
             print("a client left", self.path)
 
