@@ -50,7 +50,7 @@
   }
 
   .background-image {
-    background-image: url('resources/images/maps/Map2.png');
+    background-image: url('resources/images/maps/Map4.png');
     background-attachment: fixed;
     background-size: cover;
     -webkit-animation: backgroundScroll 15s linear 1;
@@ -171,31 +171,32 @@
     transform: translateY(4px);
   }
 
-  .validate {
+  .subButton {
     background-color: #A6A6B2;
     padding: .5vw;
-    width:40%;
+    width: 40%;
     transform: translateX(3.5vw);
-    box-shadow: 0 5px #1fbb1f
   }
-  .validate:hover {
+  .subButton:hover {
     background-color: #BDBECC;
-    transform: translateX(3.5vw);
-    box-shadow: 0 5px #1fbb1f}
-  .validate:active {
+    transform: translateX(3.5vw);}
+  .subButton:active {
     background-color: #DCDDED;
-    box-shadow: 0 5px #1fbb1f;
+
     transform: translateY(4px);
     transform: translateX(3.5vw);
   }
+
+  .validate{box-shadow:  0 5px #1fbb1f;}
 
   .inputID {
     background-color: #A6A6B2;
     transform: translate(-7vw, -1vw);
     color: #FFFFFF;
     width: 58%;
-    padding: 1vw 1vw;
+    padding: 1.2vw 1vw;
     border-radius: 15px;
+    font-size: 20px;
   }
 
   .inputKey {

@@ -42,26 +42,31 @@ function newGame(mapId, playerCount) {
 
 // player chooses map, max players and passes into newgame
 function createGame() {
-
-  newGame('map.json', 3);
+  newGame('Map0.json', 3);
 }
 
 // The functions for the UI and page changes
 function clickJoin() {
   document.getElementById('join').classList.add('hidden');
   document.getElementById('inputKeyContainer').classList.remove('hidden');
-  document.getElementById('keyId').focus();
+  document.getElementById('keyIn').value="";
+  document.getElementById('keyIn').focus();
   document.getElementById('keyIn').addEventListener('keydown', (event) => {
     let key = event.key;
     console.log(key);
     if (key === 'Enter') {
       validate();
     }
-  console.log('join');
   }, false);
 }
 
+function loseFocusJoin(){
+  document.getElementById('join').classList.remove('hidden');
+  document.getElementById('inputKeyContainer').classList.add('hidden');
+}
+
 function validate() {
+  console.log("  Validating...");
   const gameId = document.getElementById('keyIn').value;
   const xhr = new XMLHttpRequest();
   xhr.open('GET', `${webServerLocation}/game/${gameId}`, true); // tyoe, location, isAsync
@@ -71,6 +76,7 @@ function validate() {
         joinGame(gameId);
       } else {
         // TODO: not valid
+
       }
     }
   };
@@ -112,7 +118,6 @@ function closeNav() {
 }
 
 window.addEventListener('keydown', (event) => {
-  console.log("Hello");
   let key = event.key;
   console.log(key);
   if (key === 'Escape') {
