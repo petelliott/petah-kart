@@ -103,8 +103,8 @@
   }
 
   .joinButton {
-    padding: 15px 25px;
-    font-size: 24px;
+    padding: 20px 25px;
+    font-size: 30px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -120,8 +120,8 @@
   }
 
   .createButton {
-    padding: 15px 25px;
-    font-size: 24px;
+    padding: 20px 25px;
+    font-size: 30px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
