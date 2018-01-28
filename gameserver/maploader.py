@@ -4,6 +4,11 @@ import struct
 
 
 class MapLoader:
+    """
+    map loader handles acess to json tmx files in map_dir
+    and allows access to them as a 2d array of surface tuples
+    repeated file acesses are cached
+    """
     def __init__(self, map_dir, mapper):
         self.map_dir = map_dir
         self.preload = {}
