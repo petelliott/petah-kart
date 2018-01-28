@@ -17,15 +17,16 @@ window.addEventListener('load', () => {
   });
   document.body.appendChild(app.view);
 
-  fetch('res/spritesheets/spritesheet-tiles.json')
-    .then(response => response.json())
-    .then(json => loadEverything(json.data))
-    .catch(error => console.log(error));
+  loadEverything();
 });
 
+const TILE_WIDTH = 128;
+const TILE_HEIGHT = 128;
+const SPRITESHEET_WIDTH = 31;
+const SPRITESHEET_HEIGHT = 15;
 // Loads the map and the car.
 // Creates a spritesheet using the map.
-function loadEverything(tiles) {
+function loadEverything() {
   PIXI.loader
     .add("res/spritesheets/car_blue_1.png")
     .add('res/spritesheets/spritesheet_tiles.png')
@@ -36,17 +37,32 @@ function loadEverything(tiles) {
 
       // Creates a PixiJS sprite for each sprite in the spritesheet.
       const sprites = {};
-      tiles.forEach((tile, index) => {
-        const rectangle = new PIXI.Rectangle(
-          parseInt(tile.x, 10),
-          parseInt(tile.y, 10),
-          parseInt(tile.width, 10),
-          parseInt(tile.height, 10),
-        );
-        let texture = new PIXI.Texture(spritesheet, rectangle);
-        sprites[index + 1] = new PIXI.Sprite(texture);
-      });
-      app.stage.addChild(sprites[2]);
+      for (let col = 0; col < SPRITESHEET_WIDTH; col++) {
+        for (let row = 0; row < SPRITESHEET_HEIGHT; row++) {
+          const rectangle = new PIXI.Rectangle(
+            col * TILE_WIDTH,
+            row * TILE_HEIGHT,
+            TILE_WIDTH,
+            TILE_HEIGHT
+          );
+          let texture = new PIXI.Texture(spritesheet, rectangle);
+          sprites[col + row * SPRITESHEET_WIDTH] = new PIXI.Sprite(texture);
+        }
+      }
+      app.stage.addChild(sprites[0]);
+
+      fetch('res/spritesheets/map.json')
+        .then(response => response.json())
+        .then(json => {
+          let tiles = json.layers[0].data;
+          tiles.forEach((tile, index) => {
+            let sprite = sprites[tile];
+            sprite.x = index * 128;
+            sprite.y = index * 128;
+            app.stage.addChild(sprite);
+          });
+        })
+        .catch(error => console.log(error));
     });
 }
 
