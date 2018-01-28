@@ -118,10 +118,30 @@ body {
   width: 100%;
 }
 
+<<<<<<< Updated upstream
 .small {
   font-size: 3vw;
   width: 49%;
 }
+=======
+  .badIn {
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    transition-property: backround-color;
+    background-color: red;
+  }
+
+  .goodIn {
+    transition-delay: 1s;
+    transition-duration: 1s;
+    background-color: #A6A6B2;
+  }
+
+  .small{
+    font-size: 3vw;
+    width: 49%;
+  }
+>>>>>>> Stashed changes
 
 .join {
   background-color: #4CAF50;
@@ -142,9 +162,27 @@ body {
   margin: 3% 0px
 }
 
+<<<<<<< Updated upstream
 .create:hover {
   background-color: #b91313
 }
+=======
+  .subButton {
+    background-color: #A6A6B2;
+    padding: .5vw;
+    width: 40%;
+    transform: translate(3.5vw, -0.3vw);
+  }
+  .subButton:hover {
+    background-color: #BDBECC;
+    transform: translateX(3.5vw);}
+  .subButton:active {
+    background-color: #DCDDED;
+
+    transform: translateY(4px);
+    transform: translateX(3.5vw);
+  }
+>>>>>>> Stashed changes
 
 .create:active {
   background-color: #b91313;

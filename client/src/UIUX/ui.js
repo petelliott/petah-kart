@@ -22,7 +22,7 @@ function enterId() {
 // recieves the new game ID from the server
 function newGame(mapId, playerCount) {
   const xhr = new XMLHttpRequest();
-  xhr.open('POST', `${webServerLocation}/new`, true); // tyoe, location, isAsync
+  xhr.open('POST', `${webServerLocation}/new`, true); // type, location, isAsync
   xhr.setRequestHeader('Content-type', 'application/json');
   xhr.onload = () => {
     if (xhr.readyState === 4) {
@@ -62,12 +62,12 @@ function clickJoin() {
   }, false);
 }
 
-function loseFocusJoin() {
-  document.getElementById('join').classList.remove('hidden');
-  document.getElementById('inputKeyContainer').classList.add('hidden');
-}
-
 function validate() {
+  document.getElementById('keyIn').classList.remove('goodIn');
+  document.getElementById('keyIn').classList.add('badIn');
+  document.getElementById('keyIn').value="";
+  document.getElementById('keyIn').classList.add('goodIn');
+  document.getElementById('keyIn').classList.remove('badIn');
   console.log("  Validating...");
   const gameId = document.getElementById('keyIn').value;
   const xhr = new XMLHttpRequest();
@@ -78,7 +78,11 @@ function validate() {
         joinGame(gameId);
       } else {
         // TODO: not valid
-
+        console.log("shook");
+        document.getElementById('inputKeyContainer').classList.add('badIn');
+        document.getElementById('keyIn').value="";
+        document.getElementById('inputKeyContainer').classList.remove('badIn');
+        console.log("not shook");
       }
     }
   };
