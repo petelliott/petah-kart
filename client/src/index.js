@@ -27,8 +27,10 @@ function setup() {
 
 // Cars have an id, x, y, vx, vy, and angle.
 function setCarPositions(cars) {
-  let sprite = new PIXI.Sprite(PIXI.loader.resources["images/car_blue_1.png"].texture);
-  sprite.x = 96;
-  sprite.y = 96;
-  app.stage.addChild(cat);
+  cars.forEach((car) => {
+    let sprite = new PIXI.Sprite(PIXI.loader.resources["images/car_blue_1.png"].texture);
+    sprite.x = car.x;
+    sprite.y = car.y;
+    app.stage.addChild(cat);
+  });
 }
