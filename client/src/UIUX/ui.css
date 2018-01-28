@@ -14,7 +14,7 @@
     display: inline-block;
     animation: bounce 1s ease infinite alternate;
     font-family: 'Allerta Stencil', sans-serif;
-    font-size: 6vw;
+    font-size: 11.30vw;
     color: #FFF;
     text-shadow: 0 1px 0 #CCC,
                  0 2px 0 #CCC,
@@ -69,7 +69,11 @@
     background-size: cover;
     -webkit-animation: backgroundScroll 15s linear 1;
     -webkit-animation-fill-mode: both;
+<<<<<<< Updated upstream
     animation: backgroundScroll 20s linear infinite alternate;
+=======
+    animation: backgroundScroll 15s linear infinite;
+>>>>>>> Stashed changes
     animation-fill-mode: both;
     display: block;
     filter: blur(0px);
