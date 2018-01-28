@@ -15,5 +15,5 @@ if __name__ == "__main__":
         (r"/game/(^[/]*)", GameHandler)
     ])
 
-    application.listen(8888)
+    application.listen(8001)
     tornado.ioloop.IOLoop.current().start()
