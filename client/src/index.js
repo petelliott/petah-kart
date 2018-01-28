@@ -17,10 +17,38 @@ window.addEventListener('load', () => {
   });
   document.body.appendChild(app.view);
 
-  PIXI.loader
-    .add("res/images/car_blue_1.png")
-    .load(setup);
+  fetch('res/spritesheets/spritesheet-tiles.json')
+    .then(response => response.json())
+    .then(json => loadEverything(json.data))
+    .catch(error => console.log(error));
 });
+
+// Loads the map and the car.
+// Creates a spritesheet using the map.
+function loadEverything(tiles) {
+  PIXI.loader
+    .add("res/spritesheets/car_blue_1.png")
+    .add('res/spritesheets/spritesheet_tiles.png')
+    .load(() => {
+      setup();
+      // Creates the spritesheet.
+      const spritesheet = PIXI.BaseTexture.fromImage('res/spritesheets/spritesheet_tiles.png');
+
+      // Creates a PixiJS sprite for each sprite in the spritesheet.
+      const sprites = {};
+      tiles.forEach((tile, index) => {
+        const rectangle = new PIXI.Rectangle(
+          parseInt(tile.x, 10),
+          parseInt(tile.y, 10),
+          parseInt(tile.width, 10),
+          parseInt(tile.height, 10),
+        );
+        let texture = new PIXI.Texture(spritesheet, rectangle);
+        sprites[index + 1] = new PIXI.Sprite(texture);
+      });
+      app.stage.addChild(sprites[2]);
+    });
+}
 
 let ready = false;
 function setup() {
@@ -64,7 +92,7 @@ function setCarPositions(cars) {
   cars.forEach((car) => {
     // Create a new car if it doesn't exist.
     if (!idsToSprites.has(car.id)) {
-      let sprite = new PIXI.Sprite(PIXI.loader.resources["res/images/car_blue_1.png"].texture);
+      let sprite = new PIXI.Sprite(PIXI.loader.resources["res/spritesheets/car_blue_1.png"].texture);
       console.log(sprite);
       sprite.x = car.posx * 20;
       sprite.y = car.posy * 20;
