@@ -24,8 +24,7 @@ class Car:
         # for physics
         self.last_time = time.time()
 
-        self.x = x
-        self.y = y
+        self.pos = (x, y)
         self.theta = theta
 
         self.vx = 0.0
@@ -69,18 +68,17 @@ class Car:
     def get_force(self, surface):  # out: tuple (normal,tangential)
         # calculate force
         velocity = self.tangent_vel()
-        if !check_slip():
+        if not self.check_slip(surface):
             normal = ((velocity[0]**2) * math.sin(self.wtheta) /
-                  WHEEL_BASE * (1 + surface[2])) * MASS
+                      WHEEL_BASE * (1 + surface[2])) * MASS
         else:
-            normal = (MASS * GRAVITY * surface[1])#(1 + rr)
+            normal = (MASS * GRAVITY * surface[1])  # (1 + rr)
         tangential = (self.throttle - (MASS * (velocity[0]**2) * math.tan(
             self.wtheta) * math.sin(self.wtheta) * (1 + surface[2]) / WHEEL_BASE))
 
-
         return (normal, tangential)
 
-    def update(self, surface):  # (us, uk, rr)
+    def update(self, surface, otherCars):  # (us, uk, rr)
         self.mutex.acquire()
 
         call_time = time.time()
@@ -97,7 +95,9 @@ class Car:
 
         self.vx = self.vx + (accel[0] * delta)
         self.vy = self.vy + (accel[1] * delta)
-        self.x = self.x + (self.vx * delta) - ((delta**2) * accel[0] / 2)
-        self.y = self.y + (self.vy * delta) - ((delta**2) * accel[1] / 2)
+        self.pos[0] = self.pos[0] + \
+            (self.vx * delta) - ((delta**2) * accel[0] / 2)
+        self.pos[1] = self.pos[1] + \
+            (self.vy * delta) - ((delta**2) * accel[1] / 2)
 
         self.mutex.release()

@@ -19,7 +19,7 @@ def new_game_handler(instances):
 
             print("new connection to " + socket_path)
 
-            self.car = car.Car2(0, 0, 0)
+            self.car = car.Car(0, 0, 0)
             self.path = socket_path
             self.inst = instances[socket_path]
 

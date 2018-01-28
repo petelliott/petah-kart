@@ -9,7 +9,7 @@ MASS = 1
 DUMB_CONST = 0.1
 
 
-class Car2:
+class Car:
     def __init__(self, x, y, theta):
         self.last_time = time.time()
 
