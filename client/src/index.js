@@ -1,7 +1,7 @@
 let app;
 const zoom = 300;
 let id;
-console.log = () => {};
+console.log = () => { };
 window.addEventListener('load', () => {
   let type = 'WebGL';
   if (!PIXI.utils.isWebGLSupported()) {
@@ -83,12 +83,21 @@ function setup() {
 
 // A map of car ids to sprites.
 let idsToSprites = new Map();
+let myCarX = 0;
+let myCarY = 0;
 
 // Cars have an id, x, y, vx, vy, and angle.
 function setCarPositions(cars) {
   if (!ready) {
     return;
   }
+  cars.forEach((car) => {
+    if (id == car.id) {
+      myCarX = car.posx * 20;
+      myCarY = car.posy * 20;
+      return;
+    }
+  })
   cars.forEach((car) => {
     // Create a new car if it doesn't exist.
     if (!idsToSprites.has(car.id)) {
@@ -120,6 +129,10 @@ function setCarPositions(cars) {
       carSprite.y = (9 * zoom) / 2;
       backgroundSprite.position.x = car.posx * 20;
       backgroundSprite.position.y = car.posy * 20;
+    } else {
+      // Moves the other cars relative to yours.
+      carSprite.x = -carSprite.x + myCarX + 8 * zoom;
+      carSprite.y = -carSprite.y + myCarY + (9 / 2) * zoom;
     }
   });
 }
