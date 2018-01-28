@@ -62,11 +62,6 @@ function clickJoin() {
 }
 
 function validate() {
-  document.getElementById('keyIn').classList.remove('goodIn');
-  document.getElementById('keyIn').classList.add('badIn');
-  document.getElementById('keyIn').value = "";
-  document.getElementById('keyIn').classList.add('goodIn');
-  document.getElementById('keyIn').classList.remove('badIn');
   console.log("  Validating...");
   const gameId = document.getElementById('keyIn').value;
   const xhr = new XMLHttpRequest();
@@ -77,11 +72,9 @@ function validate() {
         joinGame(gameId);
       } else {
         // TODO: not valid
-        console.log("shook");
-        document.getElementById('inputKeyContainer').classList.add('badIn');
+        document.getElementById('keyIn').value = "INVALID KEY";
         document.getElementById('keyIn').value = "";
-        document.getElementById('inputKeyContainer').classList.remove('badIn');
-        console.log("not shook");
+        console.log("Invalid Key");
       }
     }
   };
