@@ -12,10 +12,12 @@ BRAKE_FORCE = 15
 
 
 class Car:
-    def __init__(self, x, y, theta):
+    def __init__(self, x, y, theta, width, height):
         self.last_time = time.time()
 
         self.pos = (x, y)
+        self.size = (width, height)
+
         self.theta = theta
         self.last_time = time.time()
 
@@ -39,9 +41,8 @@ class Car:
 
     def throttle_curve(self):
         return MAX_SPEED - (1 / (self.throttle + 1)) * MAX_SPEED
- 
+
     def update(self, surface, otherCars):  # surface: (us, uk, rr)
-        self.mutex.acquire()
 
         call_time = time.time()
         delta = call_time - self.last_time
@@ -89,4 +90,3 @@ class Car:
         for car in otherCars:
             if collide.hit_cars(self, car):
                 collide.collide(self, car)
-        self.mutex.release()

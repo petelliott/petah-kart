@@ -1,4 +1,4 @@
-import car2 as car
+import racer
 import json
 import tornado.websocket
 
@@ -19,7 +19,7 @@ def new_game_handler(instances):
 
             print("new connection to " + socket_path)
 
-            self.car = car.Car(5, 5, 0)
+            self.racer = racer.Racer(5, 5, 0)
             self.path = socket_path
             self.inst = instances[socket_path]
 
@@ -33,13 +33,13 @@ def new_game_handler(instances):
                 print(data)
 
             if message["type"] == "update":
-                self.car.mutex.acquire()
+                self.racer.car.mutex.acquire()
 
-                self.car.set_throttle(message["thrust"])
-                self.car.set_wtheta(message["angle"])
-                self.car.set_brake(message["brake"])
+                self.racer.car.set_throttle(message["thrust"])
+                self.racer.car.set_wtheta(message["angle"])
+                self.racer.car.set_brake(message["brake"])
 
-                self.car.mutex.release()
+                self.racer.car.mutex.release()
 
         def on_close(self):
             if len(self.inst.players) == 0:

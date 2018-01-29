@@ -80,7 +80,7 @@ class StaticUIHandler(tornado.web.StaticFileHandler):
         return url_path
 
 
-def getRandomID(gameLocations, N=3):
+def getRandomID(gameLocations, N=1):
     a = ''.join([random.choice(string.ascii_lowercase + string.digits)
                  for _ in range(N)])
     if a in gameSet:

@@ -21,14 +21,15 @@ class Instance:
         while self.alive and not self.state["finished"]:
             message = []
             for player in self.players:
-                player.car.update(self.getMapPoint(
-                    int(player.car.pos[0]), int(player.car.pos[1])), self.getCarsForCollisions(player))
+                player.racer.update(
+                    self.map, self.getCarsForCollisions(player))
+
                 message.append({
-                    "velx": player.car.vel[0],
-                    "vely": player.car.vel[1],
-                    "posx": player.car.pos[0],
-                    "posy": player.car.pos[1],
-                    "angle": player.car.theta,
+                    "velx": player.racer.car.vel[0],
+                    "vely": player.racer.car.vel[1],
+                    "posx": player.racer.car.pos[0],
+                    "posy": player.racer.car.pos[1],
+                    "angle": player.racer.car.theta,
                     "id":   id(player),
                 })
 
@@ -46,7 +47,7 @@ class Instance:
             return (2.0, 1.0, 0.1)
 
     def getCarsForCollisions(self, dontIncludeMe):
-        return [player.car for player in list(filter(lambda x: x is not dontIncludeMe, self.players))]
+        return [player.racer.car for player in list(filter(lambda x: x is not dontIncludeMe, self.players))]
 
     def send_all(self, msg_str):
         for player in self.players:

@@ -6,7 +6,6 @@ update position and velocity based on acc
 '''
 import time
 import math
-import threading
 
 MASS = 20
 WHEEL_BASE = 100
@@ -16,13 +15,11 @@ BREAK_STATE = False
 
 
 class Car:
-    def __init__(self, x, y, theta):
-        # for game state
-        self.lapCount = 0
-        self.lapChecks = {}
-
+    def __init__(self, x, y, theta, width, height):
         # for physics
         self.last_time = time.time()
+
+        self.size = (width, height)
 
         self.pos = (x, y)
         self.theta = theta
@@ -34,8 +31,6 @@ class Car:
         self.brakes = 0.0
         self.wtheta = 0.0
         self.throttle = 0.0
-
-        self.mutex = threading.Lock()
 
     def tangent_cart(self, force):
         return (math.hypot((math.cos(self.theta) * force[0]), (math.sin(self.theta) * force[1])), math.hypot((math.sin(self.theta) * force[0]), (math.cos(self.theta) * force[1])))
@@ -79,7 +74,6 @@ class Car:
         return (normal, tangential)
 
     def update(self, surface, otherCars):  # (us, uk, rr)
-        self.mutex.acquire()
 
         call_time = time.time()
         delta = call_time - self.last_time
@@ -99,5 +93,3 @@ class Car:
             (self.vx * delta) - ((delta**2) * accel[0] / 2)
         self.pos[1] = self.pos[1] + \
             (self.vy * delta) - ((delta**2) * accel[1] / 2)
-
-        self.mutex.release()
