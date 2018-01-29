@@ -53,7 +53,6 @@ class Instance:
             try:
                 player.write_message(msg_str)
             except Exception as e:
-                print("####")
                 print(e)
 
     def run_loop(self):
