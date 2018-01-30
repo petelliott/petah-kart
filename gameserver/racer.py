@@ -35,5 +35,5 @@ class Racer():
         self.mutex.release()
 
     def hits(self, rectangle):
-        return isIntersectRectangles(getPoints(
-            self.car.pos + self.car.size, self.car.theta), getPoints(rectangle, 0))
+        return collide.isIntersectRectangles(collide.getPoints(
+            tuple([130 * x for x in self.car.pos]) + self.car.size, self.car.theta), collide.getPoints(rectangle, 0))

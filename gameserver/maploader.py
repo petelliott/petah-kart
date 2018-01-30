@@ -44,6 +44,8 @@ class MapLoader:
 
             self.preload[name] = {"width": w, "height": h, "tile_size": data["tileheight"], "tiles": array,
                                   "checkpoints": checks, "collisions": col}
+
+        print(col)
         return self.preload[name]
 
 
