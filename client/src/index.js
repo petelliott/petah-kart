@@ -1,6 +1,9 @@
 let app;
 const zoom = 300;
 let id;
+
+const scale = 130;
+
 console.log = () => { };
 window.addEventListener('load', () => {
   let type = 'WebGL';
@@ -64,8 +67,8 @@ function loadEverything() {
             let sprite = createTile(tile - 1);
             let col = index % mapWidth;
             let row = Math.floor(index / mapWidth);
-            sprite.x = col * 128;
-            sprite.y = row * 128;
+            sprite.x = col * scale;
+            sprite.y = row * scale;
             backgroundSprite.addChild(sprite);
           });
           app.stage.addChild(backgroundSprite);
@@ -93,8 +96,8 @@ function setCarPositions(cars) {
   }
   cars.forEach((car) => {
     if (id == car.id) {
-      myCarX = car.posx * 20;
-      myCarY = car.posy * 20;
+      myCarX = car.posx * scale;
+      myCarY = car.posy * scale;
       return;
     }
   })
@@ -103,8 +106,8 @@ function setCarPositions(cars) {
     if (!idsToSprites.has(car.id)) {
       let sprite = new PIXI.Sprite(PIXI.loader.resources["res/spritesheets/car_blue_1.png"].texture);
       console.log(sprite);
-      sprite.x = car.posx * 20;
-      sprite.y = car.posy * 20;
+      sprite.x = car.posx * scale;
+      sprite.y = car.posy * scale;
       sprite.vx = car.velx;
       sprite.vy = car.vely;
       sprite.rotation = car.angle;
@@ -117,8 +120,8 @@ function setCarPositions(cars) {
     }
     // Otherwise, update the location of the old car.
     let carSprite = idsToSprites.get(car.id);
-    carSprite.x = car.posx * 20;
-    carSprite.y = car.posy * 20;
+    carSprite.x = car.posx * scale;
+    carSprite.y = car.posy * scale;
     carSprite.vx = car.velx;
     carSprite.vy = car.vely;
     carSprite.rotation = car.angle;
@@ -127,8 +130,8 @@ function setCarPositions(cars) {
       // Centers the map around your car, and instead moves the background image.
       carSprite.x = (16 * zoom) / 2;
       carSprite.y = (9 * zoom) / 2;
-      backgroundSprite.position.x = car.posx * 20;
-      backgroundSprite.position.y = car.posy * 20;
+      backgroundSprite.position.x = car.posx * scale;
+      backgroundSprite.position.y = car.posy * scale;
     } else {
       // Moves the other cars relative to yours.
       carSprite.x = -carSprite.x + myCarX + 8 * zoom;
@@ -137,5 +140,5 @@ function setCarPositions(cars) {
   });
 }
 function removeCar(id){
-    
+
 }
