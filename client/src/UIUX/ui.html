@@ -47,8 +47,8 @@
           <!-- Overlay content -->
           <div class="overlay-content">
             <p>
-              <font color=#FFFFFF>Credits:<br><br> Client Team: Jarrett Yu, Navras Kamal, Kyle Hennig<br><br> Communications Team: Jacob Rechard, Alex Rostron<br>
-                <Br> Server Team: Chris Pontikes, Peter Elliott, Joshua Derkson, Brighton Greet</font>
+              <font color=#FFFFFF>CREDITS<br><br> Client Team: <br>Jarrett Yu, Navras Kamal, Kyle Hennig<br><br> Communications Team: <br>Jacob Reckhard, Alex Rostron<br>
+                <Br> Game Server Team: <br>Chris Pontikes, Peter Elliott, Joshua Derkson, Brighton Greet<br><br> Physics / Moral Support: <br> Ben Hallworth <br><br><br> Created for HackED 2018 <br> Distributed under MIT Licence </font>
             </p>
           </div>
         </div>
@@ -69,27 +69,27 @@
 
                 <div class="hor drift" id="bset">
                   <div class="vert cent">
-                    <div class "mapName">Selected Course</div>
+                    <div class "mapName">Selected Map</div>
                     <div class="hor cent">
-                      <div id="prevMap" class="leftarrow" onclick="modifyMap(false)"><i class="fa fa-angle-left"></i></div>
-                      <div id="currentMap" class="currentMap">Simple Square</div>
-                      <div id="nextMap" class="rightarrow" onclick="modifyMap(true)"><i class="fa fa-angle-right"></i></div>
+                      <div id="prevMap" class="leftarrow" onclick="modifyMap(false)"><i class="fa fa-angle-left" style="font-size:65px;"></i></div>
+                      <div id="currentMap" class="currentMap" style="font-size:40px;">-Simple Square-</div>
+                      <div id="nextMap" class="rightarrow" onclick="modifyMap(true)"><i class="fa fa-angle-right" style="font-size:65px;"></i></div>
                     </div>
                   </div>
 
                   <div class="vert cent">
                     <div class "mxPlr">Max Players (1-10)</div>
                     <div class="hor cent">
-                      <div id="subPlayer" class="leftarrow" onclick="modifyPlr(false)"><i class="fa fa-angle-left"></i></div>
-                      <div id="currentPlrMax" class="currentPlrMax">1</div>
-                      <div id="addPlayer" class="rightarrow" onclick="modifyPlr(true)"><i class="fa fa-angle-right"></i></div>
+                      <div id="subPlayer" class="leftarrow" onclick="modifyPlr(false)"><i class="fa fa-angle-left" style="font-size:65px;"></i></div>
+                      <div id="currentPlrMax" class="currentPlrMax" style="font-size:45px">1</div>
+                      <div id="addPlayer" class="rightarrow" onclick="modifyPlr(true)"><i class="fa fa-angle-right" style="font-size:65px;"></i></div>
                     </div>
                   </div>
 
                 </div>
 
 
-                <div id="confirmOptions" class="confirm button" onclick="newGame(mapSelect(map), numPlayers)">Confirm</div>
+                <div id="confirmOptions" class="confirm button" onclick="newGame(mapSelect(map), numPlayers)" style="font-size:45px;height:6.5vw">Confirm</div>
               </div>
             </div>
             <div id="credits" class="credits small button" onclick="openCredits()">Credits</div>

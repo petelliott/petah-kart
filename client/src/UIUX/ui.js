@@ -158,32 +158,32 @@ function redraw(bgredraw) {
     switch (map) {
       case 0:
         document.getElementById('bg').style.backgroundImage = "url(resources/images/maps/Map0.png)";
-        document.getElementById('currentMap').innerHTML = "Simple Square";
+        document.getElementById('currentMap').innerHTML = "-Simple Square-";
         console.log("Map0");
         break;
       case 1:
         document.getElementById('bg').style.backgroundImage = "url(resources/images/maps/Map1.png)";
-        document.getElementById('currentMap').innerHTML = "Racetrack";
+        document.getElementById('currentMap').innerHTML = "--- Racetrack ---";
         console.log("Map1");
         break;
       case 2:
         document.getElementById('bg').style.backgroundImage = "url(resources/images/maps/Map2.png)";
-        document.getElementById('currentMap').innerHTML = "The Desert";
+        document.getElementById('currentMap').innerHTML = "--- The Desert ---";
         console.log("Map2");
         break;
       case 3:
         document.getElementById('bg').style.backgroundImage = "url(resources/images/maps/Map3.png)";
-        document.getElementById('currentMap').innerHTML = "Downtown";
+        document.getElementById('currentMap').innerHTML = "--- Downtown ---";
         console.log("Map3");
         break;
       case 4:
         document.getElementById('bg').style.backgroundImage = "url(resources/images/maps/Map4.png)";
-        document.getElementById('currentMap').innerHTML = "Slalom";
+        document.getElementById('currentMap').innerHTML = "----- Slalom -----";
         console.log("Map4");
         break;
       default:
         console.log("Map Select Error");
-        document.getElementById('currentMap').innerHTML = "Simple Square";
+        document.getElementById('currentMap').innerHTML = "-Simple Square-";
         document.getElementById('bg').style.backgroundImage = "url(resources/images/maps/Map0.png)";
         break;
     }
